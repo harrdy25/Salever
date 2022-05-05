@@ -147,24 +147,24 @@ const ItemData = [
 
 const Home = ({navigation}) => {
   const renderData = ({item}) => (
-    <View style={styles.IconContainer}>
+    <TouchableOpacity style={styles.IconContainer}>
       <Image style={styles.Icon} source={item.image} />
       <Text style={styles.TitleText}>{item.text}</Text>
-    </View>
+    </TouchableOpacity>
   );
 
   const renderItemData = ({item}) => (
-    <View style={styles.Card}>
-      <View>
-        <Image style={styles.Photos} source={item.Image} />
+    <TouchableOpacity style={styles.Card}>
+      <Image style={styles.Photos} source={item.Image} />
+      <TouchableOpacity style={styles.HeartBox}>
         <Image style={styles.HeartIcon} source={item.icon} />
-        <View style={styles.CardFooter}>
-          <Text style={styles.Prices}>{item.title}</Text>
-          <Text style={styles.Details}>{item.Text}</Text>
-          <Text style={styles.Address}>{item.Add}</Text>
-        </View>
+      </TouchableOpacity>
+      <View style={styles.CardFooter}>
+        <Text style={styles.Prices}>{item.title}</Text>
+        <Text style={styles.Details}>{item.Text}</Text>
+        <Text style={styles.Address}>{item.Add}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -289,12 +289,18 @@ const styles = StyleSheet.create({
     height: normalize(180),
     width: normalize(150),
   },
-  HeartIcon: {
-    height: 25,
-    width: 25,
+  HeartBox:{
     position: 'absolute',
     right: normalize(5),
     top: normalize(10),
+    backgroundColor: colors.blackTransparent,
+    borderRadius: normalize(30)
+  },
+  HeartIcon: {
+    height: 25,
+    width: 25,
+    margin: normalize(3),
+    tintColor: colors.extraLight
   },
   CardFooter: {
     marginVertical: normalize(10),
