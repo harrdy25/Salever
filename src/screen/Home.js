@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View,Button } from 'react-native'
 import React from 'react'
+import { normalize } from '../utils'
 
 const Home = ({navigation}) => {
   return (
     <View>
-      <Text>Home</Text>
+      <Text style={styles.Text}>Home</Text>
       <Button 
       title='Go To Setting...!!!'
       onPress={() => navigation.navigate('Settings')}
@@ -15,4 +16,8 @@ const Home = ({navigation}) => {
 
 export default Home
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+Text: {
+    fontSize: normalize(20)
+}
+});
