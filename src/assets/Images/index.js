@@ -20,6 +20,9 @@ export const images = {
 
     //png 
 
+    IMG_KUKU_PNG: require('./kuku.png'),
+
+
     IMG_Location_Png: require('./Location.png'),
     IMG_Down_Png: require('./Down.png'),
     IMG_Bell_Png: require('./Bell.png'),

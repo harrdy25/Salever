@@ -12,6 +12,7 @@ import React, {useState} from 'react';
 import {normalize} from '../utils';
 import {images} from '../assets/images';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../theme/colors';
 
 const ChatData = [
@@ -84,6 +85,7 @@ const ChatData = [
 const Chat = () => {
   const [select, setSelect] = useState(0);
   const [line, setLine] = useState(1);
+  const [screen, setScreen] = useState(0);
 
   const renderChat = ({item}) => (
     <>
@@ -122,7 +124,12 @@ const Chat = () => {
             flexDirection: 'row',
             marginHorizontal: normalize(10),
           }}>
-          <TouchableOpacity style={{flex: 1}} onPress={() => setLine(1)}>
+          <TouchableOpacity
+            style={{flex: 1}}
+            onPress={() => {
+              setLine(1);
+              setScreen(0);
+            }}>
             <Text style={styles.AllText}>All</Text>
             {line === 1 && (
               <View
@@ -146,7 +153,12 @@ const Chat = () => {
               />
             )}
           </TouchableOpacity>
-          <TouchableOpacity style={{flex: 1}} onPress={() => setLine(3)}>
+          <TouchableOpacity
+            style={{flex: 1}}
+            onPress={() => {
+              setLine(3);
+              setScreen(1);
+            }}>
             <Text style={styles.AllText}>Selling</Text>
             {line === 3 && (
               <View
@@ -160,43 +172,77 @@ const Chat = () => {
           </TouchableOpacity>
         </View>
         <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.QuickText}>QUICK FILTERS</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            margin: normalize(10),
-            justifyContent: 'space-around',
-          }}>
-          <TouchableOpacity
-            style={select === 0 ? styles.BoxGreen : styles.Box}
-            onPress={() => setSelect(0)}>
-            <Text style={styles.SelectionText}>All</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={select === 1 ? styles.BoxGreen : styles.Box}
-            onPress={() => setSelect(1)}>
-            <Text style={styles.SelectionText}>Meetings</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={select === 2 ? styles.BoxGreen : styles.Box}
-            onPress={() => setSelect(2)}>
-            <Text style={styles.SelectionText}>Unread</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={select === 3 ? styles.BoxGreen : styles.Box}
-            onPress={() => setSelect(3)}>
-            <Text style={styles.SelectionText}>Important</Text>
-          </TouchableOpacity>
-        </View>
-        <ScrollView>
-          <View>
-            <FlatList
-              data={ChatData}
-              renderItem={renderChat}
-              keyExtractor={item => item.id}
-            />
-          </View>
-        </ScrollView>
+
+        {screen === 0 && (
+          <>
+            <Text style={styles.QuickText}>QUICK FILTERS</Text>
+            <View
+              style={{
+                flexDirection: 'row',
+                margin: normalize(10),
+                justifyContent: 'space-around',
+              }}>
+              <TouchableOpacity
+                style={select === 0 ? styles.BoxGreen : styles.Box}
+                onPress={() => setSelect(0)}>
+                <Text style={styles.SelectionText}>All</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={select === 1 ? styles.BoxGreen : styles.Box}
+                onPress={() => setSelect(1)}>
+                <Text style={styles.SelectionText}>Meetings</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={select === 2 ? styles.BoxGreen : styles.Box}
+                onPress={() => setSelect(2)}>
+                <Text style={styles.SelectionText}>Unread</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={select === 3 ? styles.BoxGreen : styles.Box}
+                onPress={() => setSelect(3)}>
+                <Text style={styles.SelectionText}>Important</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView>
+              <View>
+                <FlatList
+                  data={ChatData}
+                  renderItem={renderChat}
+                  keyExtractor={item => item.id}
+                />
+              </View>
+            </ScrollView>
+          </>
+        )}
+        {screen === 1 && (
+          <>
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <Image style={styles.Kuku} source={images.IMG_KUKU_PNG} />
+              <Text
+                style={{
+                  fontSize: normalize(20),
+                  textAlign: 'center',
+                  marginHorizontal: normalize(15),
+                  fontWeight: '600',
+                  marginVertical: normalize(20),
+                }}>
+                You have got no messages so far!
+              </Text>
+              <Text
+                style={{
+                  fontSize: normalize(18),
+                  textAlign: 'center',
+                  marginHorizontal: normalize(10),
+                }}>
+                An soon as someone sends you a message. it'll start appearing
+                here.
+              </Text>
+            </View>
+              <View style={styles.SellingBox}>
+                <Text style={styles.Selling}>Start Selling</Text>
+              </View>
+          </>
+        )}
       </View>
     </SafeAreaView>
   );
@@ -282,5 +328,22 @@ const styles = StyleSheet.create({
   Message: {
     fontSize: normalize(14),
     marginVertical: normalize(5),
+  },
+  Kuku: {
+    height: normalize(300),
+    width: normalize(300),
+    marginTop: normalize(40),
+  },
+  SellingBox: {
+    backgroundColor: 'green',
+    borderRadius: normalize(10),
+    marginHorizontal: normalize(10),
+    marginVertical: normalize(20)
+  },
+  Selling: {
+    fontSize: normalize(20),
+    fontWeight: '600',
+    padding: normalize(8),
+    textAlign: 'center'
   },
 });
