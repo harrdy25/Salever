@@ -14,6 +14,8 @@ import React from 'react';
 import {normalize} from '../utils';
 import colors from '../theme/colors';
 import {images} from '../assets/images';
+import Entypo from 'react-native-vector-icons/Entypo'
+
 
 const Data = [
   {id: 1, image: images.IMG_Cars_Png, text: 'OLX Autos(Cars)'},
@@ -169,11 +171,11 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
-        <View style={{flexDirection: 'row', marginHorizontal: normalize(5)}}>
-          <Image style={styles.Image} source={images.IMG_Location_Png} />
+        <TouchableOpacity style={{flexDirection: 'row', marginHorizontal: normalize(5)}}>
+          <Entypo style={styles.Image} name='location-pin'size={30} />
           <Text style={styles.LocationText}>Surat 395006...</Text>
-          <Image style={styles.DownImage} source={images.IMG_Down_Png} />
-        </View>
+          <Entypo style={styles.DownImage} name='chevron-down' size={30} />
+        </TouchableOpacity>
         <View style={styles.SearchInput}>
           <Image style={styles.Image} source={images.IMG_Search_Png} />
           <TextInput
@@ -182,7 +184,10 @@ const Home = ({navigation}) => {
             placeholderTextColor={'gray'}
             flex={1}
           />
-          <Image style={styles.Image} source={images.IMG_Bell_Png} />
+          <TouchableOpacity>
+            {/* <Image style={styles.Image} source={images.IMG_Bell_Png} /> */}
+            <Entypo name='bell' size={30} style={styles.Image}/>
+          </TouchableOpacity>
         </View>
         <ScrollView>
           <>
@@ -208,7 +213,7 @@ const Home = ({navigation}) => {
               <FlatList
                 data={ItemData}
                 renderItem={renderItemData}
-                keyExtractor={item => item.id}
+                keyExtractor={item => item.value}
                 numColumns={2}
               />
             </View>
@@ -288,19 +293,21 @@ const styles = StyleSheet.create({
   Photos: {
     height: normalize(180),
     width: normalize(150),
+    resizeMode: 'cover'
+    // "center","contain","cover","repeat","stretch"
   },
-  HeartBox:{
+  HeartBox: {
     position: 'absolute',
     right: normalize(5),
     top: normalize(10),
     backgroundColor: colors.blackTransparent,
-    borderRadius: normalize(30)
+    borderRadius: normalize(30),
   },
   HeartIcon: {
     height: 25,
     width: 25,
     margin: normalize(3),
-    tintColor: colors.extraLight
+    tintColor: colors.extraLight,
   },
   CardFooter: {
     marginVertical: normalize(10),

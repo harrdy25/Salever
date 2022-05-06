@@ -8,6 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Account from './src/screen/Account';
 import MyAds from './src/screen/MyAds';
 import Chat from './src/screen/Chat';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -22,25 +23,34 @@ const App = () => {
 
             if (route.name === 'HOME') {
               iconName = focused
-                ? 'ios-information-circle'
-                : 'ios-information-circle-outline';
+                ? 'ios-home'
+                : 'ios-home-outline';
             } else if (route.name === 'ACCOUNT') {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
-            }
-
+              iconName = focused 
+              ? 'grid' 
+              : 'grid-outline';
+            } else if (route.name === 'CHAT') {
+              iconName = focused 
+              ? 'ios-chatbubbles' 
+              : 'ios-chatbubbles-outline'
+            } else if (route.name === 'MY ADS') {
+              iconName = focused 
+              ? 'heart' 
+              : 'ios-heart-outline'
+            } 
             // You can return any component that you like here!
-            // return <Ionicons name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
+          tabBarActiveTintColor: 'green',
+          tabBarInactiveTintColor: '#757575',
         })}>
         <Tab.Screen
           name="HOME"
           component={Home}
-          options={{headerShown: false}}
+          options={{headerShown: false}}         
         />
-        <Tab.Screen name="CHAT" component={Chat} />
-        <Tab.Screen name="MY ADS" component={MyAds} />
+        <Tab.Screen name="CHAT" component={Chat} options={{ headerShown: false, tabBarBadge: 3}} />
+        <Tab.Screen name="MY ADS" component={MyAds} options={{ tabBarBadge: 5 }} />
         <Tab.Screen name="ACCOUNT" component={Account} />
       </Tab.Navigator>
     </NavigationContainer>

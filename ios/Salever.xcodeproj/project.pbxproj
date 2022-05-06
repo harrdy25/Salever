@@ -42,6 +42,22 @@
 		5B7EB9410499542E8C5724F5 /* Pods-Salever-SaleverTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salever-SaleverTests.debug.xcconfig"; path = "Target Support Files/Pods-Salever-SaleverTests/Pods-Salever-SaleverTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-Salever.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Salever.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Salever/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		887FBAEA28251DFA00358024 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = Salever/Fonts/MaterialIcons.ttf; sourceTree = "<group>"; };
+		887FBAEB28251DFA00358024 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = Salever/Fonts/FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		887FBAEC28251DFA00358024 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = Salever/Fonts/SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		887FBAED28251DFA00358024 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = Salever/Fonts/AntDesign.ttf; sourceTree = "<group>"; };
+		887FBAEE28251DFA00358024 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = Salever/Fonts/MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		887FBAEF28251DFA00358024 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = Salever/Fonts/Octicons.ttf; sourceTree = "<group>"; };
+		887FBAF028251DFA00358024 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = Salever/Fonts/EvilIcons.ttf; sourceTree = "<group>"; };
+		887FBAF128251DFA00358024 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = Salever/Fonts/FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		887FBAF228251DFA00358024 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = Salever/Fonts/Feather.ttf; sourceTree = "<group>"; };
+		887FBAF328251DFA00358024 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = Salever/Fonts/FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		887FBAF428251DFB00358024 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = Salever/Fonts/Fontisto.ttf; sourceTree = "<group>"; };
+		887FBAF528251DFB00358024 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = Salever/Fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		887FBAF628251DFB00358024 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = Salever/Fonts/Zocial.ttf; sourceTree = "<group>"; };
+		887FBAF728251DFB00358024 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = Salever/Fonts/Ionicons.ttf; sourceTree = "<group>"; };
+		887FBAF828251DFB00358024 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = Salever/Fonts/Foundation.ttf; sourceTree = "<group>"; };
+		887FBAF928251DFB00358024 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = Salever/Fonts/Entypo.ttf; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Salever-SaleverTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Salever-SaleverTests.release.xcconfig"; path = "Target Support Files/Pods-Salever-SaleverTests/Pods-Salever-SaleverTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -86,6 +102,7 @@
 		13B07FAE1A68108700A75B9A /* Salever */ = {
 			isa = PBXGroup;
 			children = (
+				887FBAE928251D9C00358024 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -135,6 +152,29 @@
 				00E356EE1AD99517003FC87E /* SaleverTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		887FBAE928251D9C00358024 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				887FBAED28251DFA00358024 /* AntDesign.ttf */,
+				887FBAF928251DFB00358024 /* Entypo.ttf */,
+				887FBAF028251DFA00358024 /* EvilIcons.ttf */,
+				887FBAF228251DFA00358024 /* Feather.ttf */,
+				887FBAF528251DFB00358024 /* FontAwesome.ttf */,
+				887FBAF328251DFA00358024 /* FontAwesome5_Brands.ttf */,
+				887FBAEB28251DFA00358024 /* FontAwesome5_Regular.ttf */,
+				887FBAF128251DFA00358024 /* FontAwesome5_Solid.ttf */,
+				887FBAF428251DFB00358024 /* Fontisto.ttf */,
+				887FBAF828251DFB00358024 /* Foundation.ttf */,
+				887FBAF728251DFB00358024 /* Ionicons.ttf */,
+				887FBAEE28251DFA00358024 /* MaterialCommunityIcons.ttf */,
+				887FBAEA28251DFA00358024 /* MaterialIcons.ttf */,
+				887FBAEF28251DFA00358024 /* Octicons.ttf */,
+				887FBAEC28251DFA00358024 /* SimpleLineIcons.ttf */,
+				887FBAF628251DFB00358024 /* Zocial.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
