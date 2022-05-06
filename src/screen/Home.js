@@ -10,7 +10,7 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import {normalize} from '../utils';
 import colors from '../theme/colors';
 import {images} from '../assets/images';
@@ -148,6 +148,9 @@ const ItemData = [
 ];
 
 const Home = ({navigation}) => {
+
+const [select , setSelect] = useState(false)
+
   const renderData = ({item}) => (
     <TouchableOpacity style={styles.IconContainer}>
       <Image style={styles.Icon} source={item.image} />
@@ -158,8 +161,8 @@ const Home = ({navigation}) => {
   const renderItemData = ({item}) => (
     <TouchableOpacity style={styles.Card}>
       <Image style={styles.Photos} source={item.Image} />
-      <TouchableOpacity style={styles.HeartBox}>
-        <Image style={styles.HeartIcon} source={item.icon} />
+      <TouchableOpacity style={styles.HeartBox} onPress={() => setSelect(true)}>
+        <Entypo style={styles.HeartIcon} name={select ? 'heart' : 'heart-outlined'} size={30} color={select ? colors.red : colors.extraLight} />
       </TouchableOpacity>
       <View style={styles.CardFooter}>
         <Text style={styles.Prices}>{item.title}</Text>
@@ -168,6 +171,7 @@ const Home = ({navigation}) => {
       </View>
     </TouchableOpacity>
   );
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
@@ -303,11 +307,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blackTransparent,
     borderRadius: normalize(30),
   },
-  HeartIcon: {
-    height: 25,
-    width: 25,
+  HeartIcon: {   
     margin: normalize(3),
-    tintColor: colors.extraLight,
   },
   CardFooter: {
     marginVertical: normalize(10),

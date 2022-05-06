@@ -2,6 +2,7 @@ import {
   FlatList,
   Image,
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -82,7 +83,7 @@ const ChatData = [
 
 const Chat = () => {
   const [select, setSelect] = useState(0);
-  const [line, setLine] = useState(0);
+  const [line, setLine] = useState(1);
 
   const renderChat = ({item}) => (
     <>
@@ -119,12 +120,44 @@ const Chat = () => {
         <View
           style={{
             flexDirection: 'row',
-            margin: normalize(10),
-            justifyContent: 'space-around',
+            marginHorizontal: normalize(10),
           }}>
-          <Text style={styles.AllText}>All</Text>
-          <Text style={styles.BuyingText}>Buying</Text>
-          <Text style={styles.SellingText}>Selling</Text>
+          <TouchableOpacity style={{flex: 1}} onPress={() => setLine(1)}>
+            <Text style={styles.AllText}>All</Text>
+            {line === 1 && (
+              <View
+                style={{
+                  borderWidth: normalize(3),
+                  flex: 1,
+                  borderColor: 'green',
+                }}
+              />
+            )}
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex: 1}} onPress={() => setLine(2)}>
+            <Text style={styles.AllText}>Buying</Text>
+            {line === 2 && (
+              <View
+                style={{
+                  borderWidth: normalize(3),
+                  flex: 1,
+                  borderColor: 'green',
+                }}
+              />
+            )}
+          </TouchableOpacity>
+          <TouchableOpacity style={{flex: 1}} onPress={() => setLine(3)}>
+            <Text style={styles.AllText}>Selling</Text>
+            {line === 3 && (
+              <View
+                style={{
+                  borderWidth: normalize(3),
+                  flex: 1,
+                  borderColor: 'green',
+                }}
+              />
+            )}
+          </TouchableOpacity>
         </View>
         <View style={{borderWidth: normalize(1)}} />
         <Text style={styles.QuickText}>QUICK FILTERS</Text>
@@ -155,13 +188,15 @@ const Chat = () => {
             <Text style={styles.SelectionText}>Important</Text>
           </TouchableOpacity>
         </View>
-        <View>
-          <FlatList
-            data={ChatData}
-            renderItem={renderChat}
-            keyExtractor={item => item.id}
-          />
-        </View>
+        <ScrollView>
+          <View>
+            <FlatList
+              data={ChatData}
+              renderItem={renderChat}
+              keyExtractor={item => item.id}
+            />
+          </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
@@ -195,18 +230,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     alignSelf: 'center',
     textAlign: 'left',
-  },
-  BuyingText: {
-    fontSize: normalize(20),
-    fontWeight: '600',
-    alignSelf: 'center',
-    textAlign: 'right',
-  },
-  SellingText: {
-    fontSize: normalize(20),
-    fontWeight: '600',
-    alignSelf: 'center',
-    textAlign: 'right',
+    marginVertical: normalize(14),
   },
   QuickText: {
     fontSize: normalize(18),
