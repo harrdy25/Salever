@@ -141,7 +141,10 @@ const Chat = () => {
               />
             )}
           </TouchableOpacity>
-          <TouchableOpacity style={{flex: 1}} onPress={() => setLine(2)}>
+          <TouchableOpacity style={{flex: 1}} onPress={() => {
+            setLine(2);
+            setScreen(0)
+            }}>
             <Text style={styles.AllText}>Buying</Text>
             {line === 2 && (
               <View

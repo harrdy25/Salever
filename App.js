@@ -51,7 +51,7 @@ const App = () => {
         />
         <Tab.Screen name="CHAT" component={Chat} options={{ headerShown: false, tabBarBadge: 3}} />
         <Tab.Screen name="MY ADS" component={MyAds} options={{ tabBarBadge: 5 }} />
-        <Tab.Screen name="ACCOUNT" component={Account} />
+        <Tab.Screen name="ACCOUNT" component={Account} options={{ title: 'My Account' }} />
       </Tab.Navigator>
     </NavigationContainer>
   );
