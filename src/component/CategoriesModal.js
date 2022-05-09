@@ -47,7 +47,7 @@ const CategoriesModal = ({visible, onClose}) => {
     <Modal animationType="none" visible={visible} onRequestClose={onClose}>
       <SafeAreaView>
         <View>
-          <Entypo name="cross" size={40} onPress={onClose} />
+          <Entypo name="chevron-left" size={40} onPress={onClose} />
           <View style={{borderWidth: normalize(1)}} />
           <View>
             <FlatList
