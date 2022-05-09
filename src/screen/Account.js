@@ -5,7 +5,7 @@ import {normalize} from '../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import MyNetwork from '../component/MyNetwork';
+import MyNetworkModal from '../component/MyNetworkModal';
 
 const Account = () => {
 
@@ -93,7 +93,7 @@ const [modalVisible, setModalVisible] = useState(false);
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
 
-        <MyNetwork
+        <MyNetworkModal
           animationIn="slideInLeft"
           transparent={true}
           visible={modalVisible}

@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React from 'react';
 
 const Sell = () => {
   return (
-    <View>
-      <Text>Sell</Text>
-    </View>
-  )
-}
+    <SafeAreaView>
+      <View>
+        <Text>Sell</Text>
+      </View>
+    </SafeAreaView>
+  );
+};
 
-export default Sell
+export default Sell;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

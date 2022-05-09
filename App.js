@@ -1,9 +1,8 @@
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {Link, NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './src/screen/Home';
-import Settings from './src/screen/Settings';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Account from './src/screen/Account';
 import MyAds from './src/screen/MyAds';
@@ -14,10 +13,8 @@ import Sell from './src/screen/Sell';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Login from './src/screen/Login';
 
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
-
 
 const App = () => {
   return (

@@ -10,12 +10,12 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {normalize} from '../utils';
 import colors from '../theme/colors';
 import {images} from '../assets/images';
-import Entypo from 'react-native-vector-icons/Entypo'
-
+import Entypo from 'react-native-vector-icons/Entypo';
+import CategoriesModal from '../component/CategoriesModal';
 
 const Data = [
   {id: 1, image: images.IMG_Cars_Png, text: 'OLX Autos(Cars)'},
@@ -148,8 +148,8 @@ const ItemData = [
 ];
 
 const Home = ({navigation}) => {
-
-const [select , setSelect] = useState(false)
+  const [select, setSelect] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const renderData = ({item}) => (
     <TouchableOpacity style={styles.IconContainer}>
@@ -162,7 +162,12 @@ const [select , setSelect] = useState(false)
     <TouchableOpacity style={styles.Card}>
       <Image style={styles.Photos} source={item.Image} />
       <TouchableOpacity style={styles.HeartBox} onPress={() => setSelect(true)}>
-        <Entypo style={styles.HeartIcon} name={select ? 'heart' : 'heart-outlined'} size={30} color={select ? colors.red : colors.extraLight} />
+        <Entypo
+          style={styles.HeartIcon}
+          name={select ? 'heart' : 'heart-outlined'}
+          size={30}
+          color={select ? colors.red : colors.extraLight}
+        />
       </TouchableOpacity>
       <View style={styles.CardFooter}>
         <Text style={styles.Prices}>{item.title}</Text>
@@ -175,10 +180,12 @@ const [select , setSelect] = useState(false)
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
-        <TouchableOpacity style={{flexDirection: 'row', marginHorizontal: normalize(5)}} onPress={() => navigation.navigate('Login')}>
-          <Entypo style={styles.Image} name='location-pin'size={30} />
+        <TouchableOpacity
+          style={{flexDirection: 'row', marginHorizontal: normalize(5)}}
+          onPress={() => navigation.navigate('Login')}>
+          <Entypo style={styles.Image} name="location-pin" size={30} />
           <Text style={styles.LocationText}>Surat 395006...</Text>
-          <Entypo style={styles.DownImage} name='chevron-down' size={30} />
+          <Entypo style={styles.DownImage} name="chevron-down" size={30} />
         </TouchableOpacity>
         <View style={styles.SearchInput}>
           <Image style={styles.Image} source={images.IMG_Search_Png} />
@@ -190,7 +197,7 @@ const [select , setSelect] = useState(false)
           />
           <TouchableOpacity>
             {/* <Image style={styles.Image} source={images.IMG_Bell_Png} /> */}
-            <Entypo name='bell' size={30} style={styles.Image}/>
+            <Entypo name="bell" size={30} style={styles.Image} />
           </TouchableOpacity>
         </View>
         <ScrollView>
@@ -198,7 +205,7 @@ const [select , setSelect] = useState(false)
             <View
               style={{flexDirection: 'row', marginHorizontal: normalize(10)}}>
               <Text style={styles.BrowseText}>Browse Categories</Text>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => setModalVisible(true)}>
                 <Text style={styles.SeeAll}>See all</Text>
               </TouchableOpacity>
             </View>
@@ -223,6 +230,14 @@ const [select , setSelect] = useState(false)
             </View>
           </>
         </ScrollView>
+        <CategoriesModal
+          animationIn="slideInLeft"
+          transparent={true}
+          visible={modalVisible}
+          onClose={() => {
+            setModalVisible(false);
+          }}
+        />
       </View>
     </SafeAreaView>
   );
@@ -297,7 +312,7 @@ const styles = StyleSheet.create({
   Photos: {
     height: normalize(180),
     width: normalize(150),
-    resizeMode: 'cover'
+    resizeMode: 'cover',
     // "center","contain","cover","repeat","stretch"
   },
   HeartBox: {
@@ -307,7 +322,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blackTransparent,
     borderRadius: normalize(30),
   },
-  HeartIcon: {   
+  HeartIcon: {
     margin: normalize(3),
   },
   CardFooter: {
