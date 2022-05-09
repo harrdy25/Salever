@@ -175,7 +175,7 @@ const [select , setSelect] = useState(false)
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
-        <TouchableOpacity style={{flexDirection: 'row', marginHorizontal: normalize(5)}}>
+        <TouchableOpacity style={{flexDirection: 'row', marginHorizontal: normalize(5)}} onPress={() => navigation.navigate('Login')}>
           <Entypo style={styles.Image} name='location-pin'size={30} />
           <Text style={styles.LocationText}>Surat 395006...</Text>
           <Entypo style={styles.DownImage} name='chevron-down' size={30} />

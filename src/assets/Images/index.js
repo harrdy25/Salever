@@ -42,6 +42,7 @@ export const images = {
     IMG_Pets_Png: require('./Pets.png'),
     IMG_Services_Png: require('./Services.png'),
     IMG_Heart_Png: require('./Heart.png'),
-
+    IMG_Message_Png: require('./message.png'),
+    IMG_OLX_Png: require('./olx.png'),
 
 }
