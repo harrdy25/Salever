@@ -23,6 +23,8 @@ export const images = {
     IMG_KUKU_PNG: require('./kuku.png'),
     IMG_KUKU1_PNG: require('./kuku1.png'),
     IMG_KUKU2_PNG: require('./Kuku2.png'),
+    IMG_AVATAR_PNG: require('./Avatar.png'),
+
 
 
     IMG_Location_Png: require('./Location.png'),

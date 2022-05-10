@@ -16,6 +16,8 @@ import PackagesandOrder from './src/screen/PackagesandOrder';
 import Settingss from './src/screen/Settingss';
 import Notification from './src/screen/Notification';
 import Cars from './src/screen/Cars';
+import EmailLogin from './src/screen/EmailLogin';
+import PhoneLogin from './src/screen/PhoneLogin';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -38,7 +40,8 @@ function TabHandler() {
           } else if (route.name === 'MY ADS') {
             iconName = focused ? 'heart-circle' : 'heart-circle-outline';
           } else if (route.name === 'SELL') {
-            iconName = focused ? 'plus-circle' : 'plus-circle-outline', size=40;
+            (iconName = focused ? 'plus-circle' : 'plus-circle-outline'),
+              (size = 40);
           }
           // You can return any component that you like here!
           return (
@@ -48,7 +51,11 @@ function TabHandler() {
         tabBarActiveTintColor: 'green',
         tabBarInactiveTintColor: '#757575',
       })}>
-      <Tab.Screen name="HOME" component={HomeScreenStack} options={{headerShown: false}} />
+      <Tab.Screen
+        name="HOME"
+        component={HomeScreenStack}
+        options={{headerShown: false}}
+      />
       <Tab.Screen
         name="CHAT"
         component={Chat}
@@ -78,9 +85,17 @@ function HomeScreenStack() {
         // options={{headerShown: false}}
         component={Login}
       />
-      <HomeStack.Screen name='Notification' component={Notification} />
-      <HomeStack.Screen name='Cars' component={Cars} />
-
+      <HomeStack.Screen name="Notification" component={Notification} />
+      <HomeStack.Screen
+        name="EmailLogin"
+        component={EmailLogin}
+        options={{title: '', headerBackTitle: 'Back'}}
+      />
+      <HomeStack.Screen
+        name="PhoneLogin"
+        component={PhoneLogin}
+        options={{title: '', headerBackTitle: 'Back'}}
+      />
     </HomeStack.Navigator>
   );
 }
@@ -125,6 +140,4 @@ const App = () => {
 
 export default App;
 
-const styles = StyleSheet.create({
- 
-});
+const styles = StyleSheet.create({});
