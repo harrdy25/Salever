@@ -7,13 +7,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import MyNetworkModal from '../component/MyNetworkModal';
 
-const Account = () => {
+const Account = ({navigation}) => {
 
 const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
+        <Text style={{fontSize: normalize(22), fontWeight: '600', textAlign: 'center'}}>My Account</Text>
+        <View style={{borderWidth: normalize(1), marginVertical: normalize(5)}}/>
         <View style={{margin: normalize(10), flexDirection: 'row'}}>
           <Image style={styles.ProfilePic} source={images.IMG_KUKU2_PNG} />
           <View style={{alignSelf: 'center', marginLeft: normalize(10)}}>
@@ -37,7 +39,7 @@ const [modalVisible, setModalVisible] = useState(false);
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
 
-        <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}}>
+        <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}} onPress={() => navigation.navigate('PackagesandOrder')}>
           <MaterialCommunityIcons
             name="id-card"
             size={40}
@@ -59,7 +61,7 @@ const [modalVisible, setModalVisible] = useState(false);
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
 
-        <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}}>
+        <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}} onPress={() => navigation.navigate('Settingss')}>
           <Ionicons name="ios-settings-sharp" size={40} />
           <View style={{flex: 1, marginLeft: normalize(10)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
     fontSize: normalize(20),
     fontWeight: '600',
     marginTop: normalize(10),
+    textDecorationLine: 'underline'
   },
   Setting: {
     alignSelf: 'center',
