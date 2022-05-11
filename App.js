@@ -18,6 +18,7 @@ import Notification from './src/screen/Notification';
 import Cars from './src/screen/Cars';
 import EmailLogin from './src/screen/EmailLogin';
 import PhoneLogin from './src/screen/PhoneLogin';
+import Profile from './src/screen/Profile';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -61,8 +62,12 @@ function TabHandler() {
         component={Chat}
         options={{headerShown: false, tabBarBadge: 3}}
       />
-      <Tab.Screen name="SELL" component={Sell} />
-      <Tab.Screen name="MY ADS" component={MyAds} options={{tabBarBadge: 5}} />
+      <Tab.Screen name="SELL" component={Sell} options={{headerShown: false}} />
+      <Tab.Screen
+        name="MY ADS"
+        component={MyAds}
+        options={{tabBarBadge: 5, headerShown: false}}
+      />
       <Tab.Screen
         name="ACCOUNT"
         component={AccountScreenStack}
@@ -82,19 +87,23 @@ function HomeScreenStack() {
       />
       <HomeStack.Screen
         name="Login"
-        // options={{headerShown: false}}
+        options={{headerShown: false}}
         component={Login}
       />
-      <HomeStack.Screen name="Notification" component={Notification} />
+      <HomeStack.Screen
+        name="Notification"
+        component={Notification}
+        options={{headerShown: false}}
+      />
       <HomeStack.Screen
         name="EmailLogin"
         component={EmailLogin}
-        options={{title: '', headerBackTitle: 'Back'}}
+        options={{headerShown: false}}
       />
       <HomeStack.Screen
         name="PhoneLogin"
         component={PhoneLogin}
-        options={{title: '', headerBackTitle: 'Back'}}
+        options={{headerShown: false}}
       />
     </HomeStack.Navigator>
   );
@@ -112,10 +121,11 @@ function AccountScreenStack() {
         name="PackagesandOrder"
         options={{title: 'Buy Packages $ My Order'}}
         component={PackagesandOrder}
+        options={{headerShown: false}}
       />
       <AccountStack.Screen
         name="Settingss"
-        options={{title: 'Settings'}}
+        options={{headerShown: false}}
         component={Settingss}
       />
     </AccountStack.Navigator>
@@ -128,11 +138,69 @@ const App = () => {
       <Drawer.Navigator
         screenOptions={{headerShown: false}}
         initialRouteName="Home">
-        <Drawer.Screen name="Home" component={TabHandler} />
-        <Drawer.Screen name="Chat" component={Chat} />
-        <Drawer.Screen name="Notification" component={Notification} />
-        <Drawer.Screen name="MyAds" component={MyAds} />
-        <Drawer.Screen name="Account" component={Account} />
+        <Drawer.Screen
+          name="Home"
+          component={TabHandler}
+          options={{
+            drawerIcon: ({focused, size}) => (
+              <MaterialCommunityIcons name="home-circle" size={size} color={'green'} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Profile"
+          component={Profile}
+          options={{
+            drawerIcon: ({focused, size}) => (
+              <MaterialCommunityIcons name="snowman" size={size} color={'green'} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Chat"
+          component={Chat}
+          options={{
+            drawerIcon: ({focused, size}) => (
+              <MaterialCommunityIcons name="chat-processing" size={size} color={'green'} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Notification"
+          component={Notification}
+          options={{
+            drawerIcon: ({focused, size}) => (
+              <Ionicons name="ios-notifications-circle" size={size} color={'green'} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Settingss"
+          component={Settingss}
+          options={{
+            drawerIcon: ({focused, size}) => (
+              <Ionicons name="settings" size={size} color={'green'} />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="Account"
+          component={Account}
+          options={{
+            drawerIcon: ({focused, size}) => (
+              <MaterialCommunityIcons name="account-circle" size={size} color={'green'} />
+            ),
+          }}
+        />
+         <Drawer.Screen
+          name="Logout"
+          component={Login}
+          options={{
+            drawerIcon: ({focused, size}) => (
+              <MaterialCommunityIcons name="logout" size={size} color={'green'} />
+            ),
+          }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );

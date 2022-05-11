@@ -6,12 +6,17 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import colors from '../theme/colors';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 const Login = ({navigation}) => {
   return (
     <SafeAreaView>
       <View>
+      <View style={{flexDirection: 'row'}}>
+          <MaterialCommunityIcons name='chevron-left' size={40} style={styles.Icon} color={colors.appBlue} onPress={() => navigation.goBack()}/>
+          <Text style={styles.SettingText}>Sign In</Text>
+        </View>
         <View style={{alignItems: 'center', marginTop: normalize(80)}}>
           <Image style={styles.LogoIcon} source={images.IMG_OLX_Png} />
           <Text style={styles.OlxText}>Welcome to OLX</Text>
@@ -62,6 +67,17 @@ const Login = ({navigation}) => {
 export default Login;
 
 const styles = StyleSheet.create({
+  Icon:{
+    alignSelf: 'center',
+  },
+  SettingText:{
+    fontSize: normalize(22),
+    fontWeight: '600',
+    flex: 1,
+    textAlign: 'center',
+    alignSelf: 'center',
+    marginRight: normalize(30)
+  },
   LogoIcon: {
     height: normalize(150),
     width: normalize(250),

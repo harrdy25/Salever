@@ -56,6 +56,8 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
+        <Entypo name='menu' size={35} style={styles.MenuIcon} onPress={() => navigation.openDrawer()}/>
+        <View style={{borderWidth: normalize(1)}}/>
         <TouchableOpacity
           style={{flexDirection: 'row', marginHorizontal: normalize(5)}}
           onPress={() => navigation.navigate('Login')}>
@@ -121,6 +123,9 @@ const Home = ({navigation}) => {
 export default Home;
 
 const styles = StyleSheet.create({
+  MenuIcon:{
+    margin: normalize(10)
+  },
   LocationText: {
     fontSize: normalize(18),
     alignSelf: 'center',
@@ -159,12 +164,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   Icon: {
-    height: normalize(75),
-    width: normalize(75),
+    height: normalize(50),
+    width: normalize(50),
     alignSelf: 'center',
   },
   TitleText: {
-    fontSize: normalize(18),
+    fontSize: normalize(16),
     fontWeight: '600',
     textTransform: 'capitalize',
     textAlign: 'center',

@@ -20,7 +20,7 @@ const [modalVisible, setModalVisible] = useState(false);
           <Image style={styles.ProfilePic} source={images.IMG_KUKU2_PNG} />
           <View style={{alignSelf: 'center', marginLeft: normalize(10)}}>
             <Text style={styles.ProfileName}>Hardik Kuk's</Text>
-            <Text style={styles.ProfileEdit}>View and edit profile</Text>
+            <Text style={styles.ProfileEdit} onPress={() => navigation.navigate('Profile')}>View and edit profile</Text>
           </View>
         </View>
         <View style={{borderWidth: normalize(1)}} />

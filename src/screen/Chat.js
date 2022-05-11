@@ -12,7 +12,7 @@ import React, {useState} from 'react';
 import {normalize} from '../utils';
 import {images} from '../assets/images';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Entypo from 'react-native-vector-icons/Entypo';
 import colors from '../theme/colors';
 
 const ChatData = [
@@ -82,7 +82,7 @@ const ChatData = [
   },
 ];
 
-const Chat = () => {
+const Chat = ({navigation}) => {
   const [select, setSelect] = useState(0);
   const [line, setLine] = useState(1);
   const [screen, setScreen] = useState(0);
@@ -92,6 +92,8 @@ const Chat = () => {
       <TouchableOpacity style={{flexDirection: 'row'}}>
         <View>
           <Image style={styles.ImageChat} source={item.image} />
+          <Image style={styles.Avatar} source={images.IMG_AVATAR_PNG} />
+          <Entypo name='dot-single' size={50} color={'gray'} style={styles.OnlineDot}/>
         </View>
         <View style={{flex: 1, alignSelf: 'center'}}>
           <View style={{flexDirection: 'row'}}>
@@ -114,11 +116,25 @@ const Chat = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
-        <View style={{flexDirection: 'row', marginHorizontal: normalize(10)}}>
+        <Text
+          style={{
+            fontSize: normalize(22),
+            fontWeight: '600',
+            textAlign: 'center',
+          }}>
+          Messages
+        </Text>
+        <View
+          style={{borderWidth: normalize(1), marginVertical: normalize(5)}}
+        />
+
+        <View style={{flexDirection: 'row', margin: normalize(10)}}>
           <Text style={styles.EditText}>Edit</Text>
           <Text style={styles.InboxText}>Inbox</Text>
           <Text style={styles.SearchText}>Search</Text>
         </View>
+        <View style={{borderWidth: normalize(1)}} />
+
         <View
           style={{
             flexDirection: 'row',
@@ -141,9 +157,11 @@ const Chat = () => {
               />
             )}
           </TouchableOpacity>
-          <TouchableOpacity style={{flex: 1}} onPress={() => {
-            setLine(2);
-            setScreen(0)
+          <TouchableOpacity
+            style={{flex: 1}}
+            onPress={() => {
+              setLine(2);
+              setScreen(0);
             }}>
             <Text style={styles.AllText}>Buying</Text>
             {line === 2 && (
@@ -241,9 +259,9 @@ const Chat = () => {
                 here.
               </Text>
             </View>
-              <View style={styles.SellingBox}>
-                <Text style={styles.Selling}>Start Selling</Text>
-              </View>
+            <View style={styles.SellingBox}>
+              <Text style={styles.Selling}>Start Selling</Text>
+            </View>
           </>
         )}
       </View>
@@ -308,10 +326,23 @@ const styles = StyleSheet.create({
     color: colors.extraLight,
   },
   ImageChat: {
-    height: normalize(70),
-    width: normalize(70),
+    height: normalize(60),
+    width: normalize(60),
     borderRadius: normalize(10),
     margin: normalize(10),
+  },
+  Avatar: {
+    height: normalize(30),
+    width: normalize(30),
+    borderRadius: normalize(20),
+    borderWidth: normalize(2),
+    position: 'absolute',
+    bottom: 5,right: 5
+  },
+  OnlineDot:{    
+    position: 'absolute',
+    right: 10,
+    bottom: -15,
   },
   TitleName: {
     fontSize: normalize(18),
@@ -341,12 +372,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
     borderRadius: normalize(10),
     marginHorizontal: normalize(10),
-    marginVertical: normalize(20)
+    marginVertical: normalize(20),
   },
   Selling: {
     fontSize: normalize(20),
     fontWeight: '600',
     padding: normalize(8),
-    textAlign: 'center'
+    textAlign: 'center',
   },
 });

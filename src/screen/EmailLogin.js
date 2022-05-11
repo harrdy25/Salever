@@ -11,12 +11,18 @@ import React from 'react';
 import {images} from '../assets/images';
 import {normalize} from '../utils';
 import colors from '../theme/colors';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
+
 
 const EmailLogin = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 1}}>
+      <View style={{flexDirection: 'row'}}>
+          <MaterialCommunityIcons name='chevron-left' size={40} style={styles.Icon} color={colors.appBlue} onPress={() => navigation.goBack()}/>
+          <Text style={styles.SettingText}>Login</Text>
+        </View>
         <View style={{flex: 2}}>
           <Image style={styles.Avatar} source={images.IMG_AVATAR_PNG} />
           <Text style={styles.Text}>Enter your Email to login</Text>
@@ -48,6 +54,17 @@ const EmailLogin = ({navigation}) => {
 export default EmailLogin;
 
 const styles = StyleSheet.create({
+  Icon:{
+    alignSelf: 'center',
+  },
+  SettingText:{
+    fontSize: normalize(22),
+    fontWeight: '600',
+    flex: 1,
+    textAlign: 'center',
+    alignSelf: 'center',
+    marginRight: normalize(30)
+  },
   Avatar: {
     height: normalize(80),
     width: normalize(80),
