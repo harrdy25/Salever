@@ -6,11 +6,11 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {normalize} from '../utils';
+import {normalize} from '../../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import colors from '../theme/colors';
+import colors from '../../theme/colors';
 
-const Properties = ({navigation}) => {
+const Services = ({navigation}) => {
   return (
     <SafeAreaView>
       <View>
@@ -22,20 +22,19 @@ const Properties = ({navigation}) => {
             color={colors.appBlue}
             onPress={() => navigation.goBack()}
           />
-          <Text style={styles.SettingText}>Properties</Text>
+          <Text style={styles.SettingText}>Services</Text>
         </View>
         <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>For Sale: Houses & Apartments</Text>
+        <Text style={styles.Text}>Electronics & Computer</Text>
         <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>For Rant: Houses & Apartments</Text>
+        <Text style={styles.Text}>Education & Classes</Text>
         <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>Lands & Plots</Text>
+        <Text style={styles.Text}>Drivers & taxi</Text>
         <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>For Sale: Shopes & Offices</Text>
+        <Text style={styles.Text}>Health & Beauty</Text>
         <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>For Rant: Shopes & Offices</Text>
-        <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>PG & Guest Houses</Text>
+       
+        <Text style={styles.Text}>Other Services</Text>
         <View style={{borderWidth: normalize(1)}} />
         <Text style={styles.Text}>View all</Text>
         <View style={{borderWidth: normalize(1)}} />
@@ -44,7 +43,7 @@ const Properties = ({navigation}) => {
   );
 };
 
-export default Properties;
+export default Services;
 
 const styles = StyleSheet.create({
   Icon: {

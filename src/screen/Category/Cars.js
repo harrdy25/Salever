@@ -9,12 +9,12 @@ import {
   FlatList,
 } from 'react-native';
 import React, {useState} from 'react';
-import {normalize} from '../utils';
+import {normalize} from '../../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
-import colors from '../theme/colors';
-import SellingItem from '../component/SellingItem';
+import colors from '../../theme/colors';
+import SellingItem from '../../component/SellingItem';
 
 const Cars = ({navigation}) => {
   const ItemData = SellingItem;

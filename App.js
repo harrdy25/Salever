@@ -15,11 +15,21 @@ import Login from './src/screen/Login';
 import PackagesandOrder from './src/screen/PackagesandOrder';
 import Settingss from './src/screen/Settingss';
 import Notification from './src/screen/Notification';
-import Cars from './src/screen/Cars';
+import Cars from './src/screen/Category/Cars';
 import EmailLogin from './src/screen/EmailLogin';
 import PhoneLogin from './src/screen/PhoneLogin';
 import Profile from './src/screen/Profile';
-import Properties from './src/screen/Properties';
+import Properties from './src/screen/Category/Properties';
+import Mobiles from './src/screen/Category/Mobiles';
+import Jobs from './src/screen/Category/Jobs';
+import Bikes from './src/screen/Category/Bikes';
+import ElectronicsAndAppliances from './src/screen/Category/ElectronicsAndAppliances';
+import CommercialVehiclesAndSpares from './src/screen/Category/CommercialVehiclesAndSpares';
+import Furniture from './src/screen/Category/Furniture';
+import Fashion from './src/screen/Category/Fashion';
+import BooksSportsAndHpbbies from './src/screen/Category/BooksSportsAndHpbbies';
+import Pets from './src/screen/Category/Pets';
+import Services from './src/screen/Category/Services';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -111,9 +121,59 @@ function HomeScreenStack() {
         component={Cars}
         options={{headerShown: false}}
       />
-       <HomeStack.Screen
+      <HomeStack.Screen
         name="Properties"
         component={Properties}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Mobiles"
+        component={Mobiles}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Jobs"
+        component={Jobs}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Bikes"
+        component={Bikes}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="ElectronicsAndAppliances"
+        component={ElectronicsAndAppliances}
+        options={{headerShown: false}}
+      />      
+      <HomeStack.Screen
+        name="CommercialVehiclesAndSpares"
+        component={CommercialVehiclesAndSpares}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Furniture"
+        component={Furniture}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Fashion"
+        component={Fashion}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="BooksSportsAndHpbbies"
+        component={BooksSportsAndHpbbies}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Pets"
+        component={Pets}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Services"
+        component={Services}
         options={{headerShown: false}}
       />
     </HomeStack.Navigator>
@@ -154,7 +214,11 @@ const App = () => {
           component={TabHandler}
           options={{
             drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons name="home-circle" size={size} color={'green'} />
+              <MaterialCommunityIcons
+                name="home-circle"
+                size={size}
+                color={'green'}
+              />
             ),
           }}
         />
@@ -163,7 +227,11 @@ const App = () => {
           component={Profile}
           options={{
             drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons name="snowman" size={size} color={'green'} />
+              <MaterialCommunityIcons
+                name="snowman"
+                size={size}
+                color={'green'}
+              />
             ),
           }}
         />
@@ -172,7 +240,11 @@ const App = () => {
           component={Chat}
           options={{
             drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons name="chat-processing" size={size} color={'green'} />
+              <MaterialCommunityIcons
+                name="chat-processing"
+                size={size}
+                color={'green'}
+              />
             ),
           }}
         />
@@ -181,7 +253,11 @@ const App = () => {
           component={Notification}
           options={{
             drawerIcon: ({focused, size}) => (
-              <Ionicons name="ios-notifications-circle" size={size} color={'green'} />
+              <Ionicons
+                name="ios-notifications-circle"
+                size={size}
+                color={'green'}
+              />
             ),
           }}
         />
@@ -199,16 +275,24 @@ const App = () => {
           component={Account}
           options={{
             drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons name="account-circle" size={size} color={'green'} />
+              <MaterialCommunityIcons
+                name="account-circle"
+                size={size}
+                color={'green'}
+              />
             ),
           }}
         />
-         <Drawer.Screen
+        <Drawer.Screen
           name="Logout"
           component={Login}
           options={{
             drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons name="logout" size={size} color={'green'} />
+              <MaterialCommunityIcons
+                name="logout"
+                size={size}
+                color={'green'}
+              />
             ),
           }}
         />

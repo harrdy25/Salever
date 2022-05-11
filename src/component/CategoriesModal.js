@@ -15,7 +15,6 @@ import {images} from '../assets/images';
 import CategoriesData from './CategoriesData';
 
 const CategoriesModal = ({visible, onClose}) => {
-
   const Data = CategoriesData;
 
   const renderData = ({item}) => (
@@ -23,7 +22,7 @@ const CategoriesModal = ({visible, onClose}) => {
       <TouchableOpacity style={{flexDirection: 'row'}}>
         <Image style={styles.Icon} source={item.image} />
         <Text style={styles.Text}>{item.text}</Text>
-        <Entypo name="chevron-right" size={30} style={styles.IconRight}/>
+        <Entypo name="chevron-right" size={30} style={styles.IconRight} />
       </TouchableOpacity>
       <View style={{borderWidth: normalize(1), marginLeft: normalize(18)}} />
     </View>
@@ -33,7 +32,10 @@ const CategoriesModal = ({visible, onClose}) => {
     <Modal animationType="none" visible={visible} onRequestClose={onClose}>
       <SafeAreaView>
         <View>
-          <Entypo name="chevron-left" size={40} onPress={onClose} />
+          <View style={{flexDirection: 'row'}}>
+            <Entypo name="chevron-left" size={40} onPress={onClose} />
+            <Text style={styles.Title}>Choose a category</Text>
+          </View>
           <View style={{borderWidth: normalize(1)}} />
           <View>
             <FlatList
@@ -52,6 +54,14 @@ const CategoriesModal = ({visible, onClose}) => {
 export default CategoriesModal;
 
 const styles = StyleSheet.create({
+  Title: {
+    fontSize: normalize(22),
+    fontWeight: '600',
+    alignSelf: 'center',
+    textAlign: 'center',
+    flex: 1,
+    marginRight: normalize(32)
+  },
   TitleName: {
     fontSize: normalize(22),
     fontWeight: '600',
@@ -62,17 +72,17 @@ const styles = StyleSheet.create({
     height: normalize(20),
     width: normalize(20),
     margin: normalize(10),
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   Text: {
     fontSize: normalize(18),
     flex: 1,
     marginLeft: normalize(10),
     alignSelf: 'center',
-    fontWeight: '500'
+    fontWeight: '500',
   },
-  IconRight:{
-      alignSelf: 'center',
-      marginRight: normalize(10)
-  }
+  IconRight: {
+    alignSelf: 'center',
+    marginRight: normalize(10),
+  },
 });

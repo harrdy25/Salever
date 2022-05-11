@@ -20,26 +20,58 @@ import CategoriesData from '../component/CategoriesData';
 import SellingItem from '../component/SellingItem';
 
 const Home = ({navigation}) => {
-
   const Data = CategoriesData;
   const ItemData = SellingItem;
 
   const [select, setSelect] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const onclick_item = (text) => {
+  const onclick_item = text => {
     switch (text) {
-      case "OLX Autos(Cars)":
-        navigation.navigate('Cars')
+      case 'OLX Autos(Cars)':
+        navigation.navigate('Cars');
         break;
-        case 'Properties':
-          navigation.navigate('Properties')
-      default:      
+      case 'Properties':
+        navigation.navigate('Properties');
+        break;
+      case 'Mobiles':
+        navigation.navigate('Mobiles');
+        break;
+      case 'Jobs':
+        navigation.navigate('Jobs');
+        break;
+      case 'Bikes':
+        navigation.navigate('Bikes');
+        break;
+      case 'Electronics & Appliances':
+        navigation.navigate('ElectronicsAndAppliances');
+        break;
+      case 'Commercial Vehicles & Spares':
+        navigation.navigate('CommercialVehiclesAndSpares');
+        break;
+      case 'Furniture':
+        navigation.navigate('Furniture');
+        break;
+      case 'Fashion':
+        navigation.navigate('Fashion');
+        break;
+      case 'Books, Sports, hobbies':
+        navigation.navigate('BooksSportsAndHpbbies');
+        break;
+      case 'Pets':
+        navigation.navigate('Pets');
+        break;
+      case 'Services':
+        navigation.navigate('Services');
+        break;
+      default:
     }
-  }
+  };
 
   const renderData = ({item}) => (
-    <TouchableOpacity style={styles.IconContainer} onPress={() => onclick_item(item.text)}>
+    <TouchableOpacity
+      style={styles.IconContainer}
+      onPress={() => onclick_item(item.text)}>
       <Image style={styles.Icon} source={item.image} />
       <Text style={styles.TitleText}>{item.text}</Text>
     </TouchableOpacity>
@@ -67,8 +99,13 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
-        <Entypo name='menu' size={35} style={styles.MenuIcon} onPress={() => navigation.openDrawer()}/>
-        <View style={{borderWidth: normalize(1)}}/>
+        <Entypo
+          name="menu"
+          size={35}
+          style={styles.MenuIcon}
+          onPress={() => navigation.openDrawer()}
+        />
+        <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity
           style={{flexDirection: 'row', marginHorizontal: normalize(5)}}
           onPress={() => navigation.navigate('Login')}>
@@ -134,8 +171,8 @@ const Home = ({navigation}) => {
 export default Home;
 
 const styles = StyleSheet.create({
-  MenuIcon:{
-    margin: normalize(10)
+  MenuIcon: {
+    margin: normalize(10),
   },
   LocationText: {
     fontSize: normalize(18),
