@@ -94,5 +94,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignSelf: 'center',
     marginRight: normalize(30)
-  },
+  }
 });

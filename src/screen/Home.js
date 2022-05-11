@@ -27,8 +27,17 @@ const Home = ({navigation}) => {
   const [select, setSelect] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
+  const onclick_item = (text) => {
+    switch (text) {
+      case "OLX Autos(Cars)":
+        navigation.navigate('Cars')
+        break;      
+      default:      
+    }
+  }
+
   const renderData = ({item}) => (
-    <TouchableOpacity style={styles.IconContainer}>
+    <TouchableOpacity style={styles.IconContainer} onPress={() => onclick_item(item.text)}>
       <Image style={styles.Icon} source={item.image} />
       <Text style={styles.TitleText}>{item.text}</Text>
     </TouchableOpacity>

@@ -105,6 +105,11 @@ function HomeScreenStack() {
         component={PhoneLogin}
         options={{headerShown: false}}
       />
+      <HomeStack.Screen
+        name="Cars"
+        component={Cars}
+        options={{headerShown: false}}
+      />
     </HomeStack.Navigator>
   );
 }
