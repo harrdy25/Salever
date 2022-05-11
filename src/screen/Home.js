@@ -31,7 +31,9 @@ const Home = ({navigation}) => {
     switch (text) {
       case "OLX Autos(Cars)":
         navigation.navigate('Cars')
-        break;      
+        break;
+        case 'Properties':
+          navigation.navigate('Properties')
       default:      
     }
   }

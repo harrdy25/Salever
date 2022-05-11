@@ -19,6 +19,7 @@ import Cars from './src/screen/Cars';
 import EmailLogin from './src/screen/EmailLogin';
 import PhoneLogin from './src/screen/PhoneLogin';
 import Profile from './src/screen/Profile';
+import Properties from './src/screen/Properties';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -108,6 +109,11 @@ function HomeScreenStack() {
       <HomeStack.Screen
         name="Cars"
         component={Cars}
+        options={{headerShown: false}}
+      />
+       <HomeStack.Screen
+        name="Properties"
+        component={Properties}
         options={{headerShown: false}}
       />
     </HomeStack.Navigator>
