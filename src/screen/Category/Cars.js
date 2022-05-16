@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
   },
   Icon: {
     marginHorizontal: normalize(5),
+    margin: normalize(5)
   },
   SearchInput: {
     flexDirection: 'row',
