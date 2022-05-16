@@ -24,21 +24,23 @@ const Properties = ({navigation}) => {
           />
           <Text style={styles.SettingText}>Properties</Text>
         </View>
-        <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>For Sale: Houses & Apartments</Text>
-        <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>For Rant: Houses & Apartments</Text>
-        <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>Lands & Plots</Text>
-        <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>For Sale: Shopes & Offices</Text>
-        <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>For Rant: Shopes & Offices</Text>
-        <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>PG & Guest Houses</Text>
-        <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>View all</Text>
-        <View style={{borderWidth: normalize(1)}} />
+        {/* <View style={{marginLeft: normalize(8)}}> */}
+          <View style={{borderWidth: normalize(1)}} />
+          <Text style={styles.Text}>For Sale: Houses & Apartments</Text>
+          <View style={{borderWidth: normalize(1)}} />
+          <Text style={styles.Text}>For Rant: Houses & Apartments</Text>
+          <View style={{borderWidth: normalize(1)}} />
+          <Text style={styles.Text}>Lands & Plots</Text>
+          <View style={{borderWidth: normalize(1)}} />
+          <Text style={styles.Text}>For Sale: Shopes & Offices</Text>
+          <View style={{borderWidth: normalize(1)}} />
+          <Text style={styles.Text}>For Rant: Shopes & Offices</Text>
+          <View style={{borderWidth: normalize(1)}} />
+          <Text style={styles.Text}>PG & Guest Houses</Text>
+          <View style={{borderWidth: normalize(1)}} />
+          <Text style={styles.Text}>View all</Text>
+          <View style={{borderWidth: normalize(1)}} />
+        {/* </View> */}
       </View>
     </SafeAreaView>
   );
@@ -49,6 +51,7 @@ export default Properties;
 const styles = StyleSheet.create({
   Icon: {
     alignSelf: 'center',
+    marginLeft: normalize(8),
   },
   SettingText: {
     fontSize: normalize(22),
@@ -59,8 +62,9 @@ const styles = StyleSheet.create({
     marginRight: normalize(30),
   },
   Text: {
-      fontSize: normalize(18),
-      fontWeight: '500',
-      padding: normalize(10)
-  }
+    fontSize: normalize(18),
+    fontWeight: '500',
+    padding: normalize(10),
+    marginLeft: normalize(8)
+  },
 });

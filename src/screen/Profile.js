@@ -28,7 +28,7 @@ const Profile = ({navigation}) => {
           <Text style={styles.SettingText}>Profile</Text>
         </View>
         <View style={{borderWidth: normalize(1)}} />
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', marginRight: normalize(8)}}>
           <Image style={styles.Avatar} source={images.IMG_AVATAR_PNG} />
           <View style={{flex: 1, alignSelf: 'center', marginTop: normalize(20)}}>
             <View style={{flexDirection: 'row'}}>
@@ -59,6 +59,7 @@ export default Profile;
 const styles = StyleSheet.create({
   Icon: {
     alignSelf: 'center',
+    marginLeft: normalize(8)
   },
   SettingText: {
     fontSize: normalize(22),
@@ -72,7 +73,7 @@ const styles = StyleSheet.create({
     height: normalize(100),
     width: normalize(100),
     borderRadius: normalize(100),
-    margin: normalize(10),
+    margin: normalize(16),
   },
   Followers: {
     fontSize: normalize(20),
@@ -93,12 +94,12 @@ const styles = StyleSheet.create({
   ProfileName: {
       fontSize: normalize(20),
       fontWeight: '600',
-      marginLeft: normalize(10),      
+      marginLeft: normalize(16),      
   },
   Member: {
     fontSize: normalize(16),
     fontWeight: '700',
-    marginLeft: normalize(10),
+    marginLeft: normalize(16),
     color: colors.gray
 }
 });

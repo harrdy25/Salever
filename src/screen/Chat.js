@@ -125,10 +125,10 @@ const Chat = ({navigation}) => {
           Messages
         </Text>
         <View
-          style={{borderWidth: normalize(1), marginVertical: normalize(5)}}
+          style={{borderWidth: normalize(1), marginTop: normalize(5)}}
         />
 
-        <View style={{flexDirection: 'row', margin: normalize(10)}}>
+        <View style={{flexDirection: 'row', marginHorizontal: normalize(16), padding: normalize(10)}}>
           <Text style={styles.EditText}>Edit</Text>
           <Text style={styles.InboxText}>Inbox</Text>
           <Text style={styles.SearchText}>Search</Text>
@@ -200,8 +200,9 @@ const Chat = ({navigation}) => {
             <View
               style={{
                 flexDirection: 'row',
-                margin: normalize(10),
+                marginHorizontal: normalize(16),
                 justifyContent: 'space-around',
+                marginVertical: normalize(5)
               }}>
               <TouchableOpacity
                 style={select === 0 ? styles.BoxGreen : styles.Box}
@@ -225,7 +226,7 @@ const Chat = ({navigation}) => {
               </TouchableOpacity>
             </View>
             <ScrollView>
-              <View>
+              <View style={{marginHorizontal: normalize(8)}}>
                 <FlatList
                   data={ChatData}
                   renderItem={renderChat}
@@ -253,7 +254,7 @@ const Chat = ({navigation}) => {
                 style={{
                   fontSize: normalize(18),
                   textAlign: 'center',
-                  marginHorizontal: normalize(10),
+                  marginHorizontal: normalize(16),
                 }}>
                 An soon as someone sends you a message. it'll start appearing
                 here.
@@ -302,7 +303,7 @@ const styles = StyleSheet.create({
   QuickText: {
     fontSize: normalize(18),
     fontWeight: '600',
-    margin: normalize(10),
+    margin: normalize(16),
   },
   Box: {
     borderWidth: normalize(1),
@@ -371,7 +372,7 @@ const styles = StyleSheet.create({
   SellingBox: {
     backgroundColor: 'green',
     borderRadius: normalize(10),
-    marginHorizontal: normalize(10),
+    marginHorizontal: normalize(16),
     marginVertical: normalize(20),
   },
   Selling: {

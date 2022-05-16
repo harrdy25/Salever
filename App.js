@@ -30,6 +30,8 @@ import Fashion from './src/screen/Category/Fashion';
 import BooksSportsAndHpbbies from './src/screen/Category/BooksSportsAndHpbbies';
 import Pets from './src/screen/Category/Pets';
 import Services from './src/screen/Category/Services';
+import {Provider} from 'react-redux';
+import { store } from './src/redux/store';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -145,7 +147,7 @@ function HomeScreenStack() {
         name="ElectronicsAndAppliances"
         component={ElectronicsAndAppliances}
         options={{headerShown: false}}
-      />      
+      />
       <HomeStack.Screen
         name="CommercialVehiclesAndSpares"
         component={CommercialVehiclesAndSpares}
@@ -205,99 +207,101 @@ function AccountScreenStack() {
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator
-        screenOptions={{headerShown: false}}
-        initialRouteName="Home">
-        <Drawer.Screen
-          name="Home"
-          component={TabHandler}
-          options={{
-            drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons
-                name="home-circle"
-                size={size}
-                color={'green'}
-              />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons
-                name="snowman"
-                size={size}
-                color={'green'}
-              />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name="Chat"
-          component={Chat}
-          options={{
-            drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons
-                name="chat-processing"
-                size={size}
-                color={'green'}
-              />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name="Notification"
-          component={Notification}
-          options={{
-            drawerIcon: ({focused, size}) => (
-              <Ionicons
-                name="ios-notifications-circle"
-                size={size}
-                color={'green'}
-              />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name="Settingss"
-          component={Settingss}
-          options={{
-            drawerIcon: ({focused, size}) => (
-              <Ionicons name="settings" size={size} color={'green'} />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name="Account"
-          component={Account}
-          options={{
-            drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons
-                name="account-circle"
-                size={size}
-                color={'green'}
-              />
-            ),
-          }}
-        />
-        <Drawer.Screen
-          name="Logout"
-          component={Login}
-          options={{
-            drawerIcon: ({focused, size}) => (
-              <MaterialCommunityIcons
-                name="logout"
-                size={size}
-                color={'green'}
-              />
-            ),
-          }}
-        />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Drawer.Navigator
+          screenOptions={{headerShown: false}}
+          initialRouteName="Home">
+          <Drawer.Screen
+            name="Home"
+            component={TabHandler}
+            options={{
+              drawerIcon: ({focused, size}) => (
+                <MaterialCommunityIcons
+                  name="home-circle"
+                  size={size}
+                  color={'green'}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="Profile"
+            component={Profile}
+            options={{
+              drawerIcon: ({focused, size}) => (
+                <MaterialCommunityIcons
+                  name="snowman"
+                  size={size}
+                  color={'green'}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="Chat"
+            component={Chat}
+            options={{
+              drawerIcon: ({focused, size}) => (
+                <MaterialCommunityIcons
+                  name="chat-processing"
+                  size={size}
+                  color={'green'}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="Notification"
+            component={Notification}
+            options={{
+              drawerIcon: ({focused, size}) => (
+                <Ionicons
+                  name="ios-notifications-circle"
+                  size={size}
+                  color={'green'}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="Settingss"
+            component={Settingss}
+            options={{
+              drawerIcon: ({focused, size}) => (
+                <Ionicons name="settings" size={size} color={'green'} />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="Account"
+            component={Account}
+            options={{
+              drawerIcon: ({focused, size}) => (
+                <MaterialCommunityIcons
+                  name="account-circle"
+                  size={size}
+                  color={'green'}
+                />
+              ),
+            }}
+          />
+          <Drawer.Screen
+            name="Logout"
+            component={Login}
+            options={{
+              drawerIcon: ({focused, size}) => (
+                <MaterialCommunityIcons
+                  name="logout"
+                  size={size}
+                  color={'green'}
+                />
+              ),
+            }}
+          />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
 

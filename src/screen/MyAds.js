@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
   SellingBox: {
     backgroundColor: 'green',
     borderRadius: normalize(10),
-    marginHorizontal: normalize(10),
+    marginHorizontal: normalize(16),
     marginVertical: normalize(20),
   },
   Selling: {

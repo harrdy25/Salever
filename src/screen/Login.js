@@ -54,7 +54,7 @@ const Login = ({navigation}) => {
           style={{
             fontSize: normalize(16),
             textAlign: 'center',
-            margin: normalize(10),
+            margin: normalize(16),
           }}>
           if you continue, you are accepting OLX Terms and Conditions and
           Privacy Policy
@@ -69,6 +69,7 @@ export default Login;
 const styles = StyleSheet.create({
   Icon:{
     alignSelf: 'center',
+    marginLeft: normalize(8)
   },
   SettingText:{
     fontSize: normalize(22),
@@ -92,8 +93,8 @@ const styles = StyleSheet.create({
   ContinueBox: {
     borderRadius: normalize(10),
     borderWidth: normalize(1),
-    marginHorizontal: normalize(10),
-    marginVertical: normalize(5),
+    marginHorizontal: normalize(16),
+    marginVertical: normalize(8),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'

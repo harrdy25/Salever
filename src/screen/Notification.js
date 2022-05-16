@@ -51,6 +51,8 @@ const styles = StyleSheet.create({
   },
   Icon1:{
     alignSelf: 'center',
+    marginLeft: normalize(8)
+
   },
   SettingText:{
     fontSize: normalize(22),

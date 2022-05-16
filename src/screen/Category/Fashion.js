@@ -43,6 +43,7 @@ export default Fashion;
 const styles = StyleSheet.create({
   Icon: {
     alignSelf: 'center',
+    marginLeft: normalize(8),
   },
   SettingText: {
     fontSize: normalize(22),
@@ -53,8 +54,9 @@ const styles = StyleSheet.create({
     marginRight: normalize(30),
   },
   Text: {
-      fontSize: normalize(18),
-      fontWeight: '500',
-      padding: normalize(10)
-  }
+    fontSize: normalize(18),
+    fontWeight: '500',
+    marginLeft: normalize(8),
+    padding: normalize(10),
+  },
 });

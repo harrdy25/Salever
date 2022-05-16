@@ -26,7 +26,7 @@ const [modalVisible, setModalVisible] = useState(false);
         <View style={{borderWidth: normalize(1)}} />
 
         <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}} onPress={() => setModalVisible(true)}>
-          <MaterialCommunityIcons name="account-supervisor-outline" size={40} />
+          <MaterialCommunityIcons name="account-supervisor-outline" size={40} style={styles.Icon} />
           <View style={{flex: 1, marginLeft: normalize(10)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               My Network
@@ -35,7 +35,7 @@ const [modalVisible, setModalVisible] = useState(false);
               Follower, following and find friends
             </Text>
           </View>
-          <MaterialCommunityIcons name="chevron-right" size={40} />
+          <MaterialCommunityIcons name="chevron-right" size={40}/>
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
 
@@ -62,7 +62,7 @@ const [modalVisible, setModalVisible] = useState(false);
         <View style={{borderWidth: normalize(1)}} />
 
         <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}} onPress={() => navigation.navigate('Settingss')}>
-          <Ionicons name="ios-settings-sharp" size={40} />
+          <Ionicons name="ios-settings-sharp" size={40} style={styles.Icon}/>
           <View style={{flex: 1, marginLeft: normalize(10)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               Settings
@@ -130,5 +130,9 @@ const styles = StyleSheet.create({
   },
   Setting: {
     alignSelf: 'center',
+    marginLeft: normalize(8)
   },
+  Icon: {
+    marginLeft: normalize(8)
+  }
 });

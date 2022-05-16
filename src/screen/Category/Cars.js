@@ -38,7 +38,7 @@ const Cars = ({navigation}) => {
         <Text style={styles.Address}>{item.Add}</Text>
         <View style={{flexDirection: 'row', marginTop: normalize(30)}}>
           <Text style={styles.Date}>Sarthana</Text>
-          <Text style={[styles.Date,{marginLeft: normalize(50)}]}>25 January</Text>
+          <Text style={[styles.Date,{marginLeft: normalize(40)}]}>25 January</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -74,8 +74,10 @@ const Cars = ({navigation}) => {
         <View
           style={{
             flexDirection: 'row',
-            margin: normalize(10),
+            // margin: normalize(10),
             justifyContent: 'space-around',
+            marginBottom: normalize(10),
+            marginHorizontal: normalize(8)
           }}>
           <TouchableOpacity
             style={select === 0 ? styles.BoxGreen : styles.Box}
@@ -99,7 +101,7 @@ const Cars = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View style={{borderWidth: normalize(1)}} />
-        <View>
+        <View style={{marginHorizontal: normalize(8)}}>
           <FlatList
             data={ItemData}
             renderItem={renderItemData}
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderWidth: normalize(2),
     borderRadius: normalize(8),
-    margin: normalize(10),
+    margin: normalize(16),
   },
   Box: {
     borderWidth: normalize(1),

@@ -26,20 +26,20 @@ const EmailLogin = ({navigation}) => {
         <View style={{flex: 2}}>
           <Image style={styles.Avatar} source={images.IMG_AVATAR_PNG} />
           <Text style={styles.Text}>Enter your Email to login</Text>
-          <Text style={{margin: normalize(10), fontSize: normalize(16)}}>
+          <Text style={{marginLeft: normalize(16), fontSize: normalize(16), marginVertical: normalize(10)}}>
             Email
           </Text>
           <View style={styles.EmailBox}>
-            <TextInput style={styles.Text} placeholder="enter your email..." />
+            <TextInput style={styles.TextInput} placeholder="enter your email..." />
           </View>
-          <Text style={{margin: normalize(10), fontSize: normalize(16)}}>
+          <Text style={{marginLeft: normalize(16), fontSize: normalize(16), marginVertical: normalize(10)}}>
             Password
           </Text>
           <View style={styles.EmailBox}>
-            <TextInput style={styles.Text} placeholder="enter your pass..." />
+            <TextInput style={styles.TextInput} placeholder="enter your pass..." />
           </View>
           <Text style={styles.ForgotPass}>Forgot your Password?</Text>
-          <Text style={{fontSize: normalize(16), margin: normalize(10)}}>If you are a new user please select any other login option from previous page</Text>
+          <Text style={{fontSize: normalize(16), margin: normalize(10), marginHorizontal: normalize(16)}}>If you are a new user please select any other login option from previous page</Text>
         </View>
         <View style={{flex: 0.6}}>
           <TouchableOpacity style={styles.NextBox}>
@@ -56,6 +56,7 @@ export default EmailLogin;
 const styles = StyleSheet.create({
   Icon:{
     alignSelf: 'center',
+    marginLeft: normalize(8)
   },
   SettingText:{
     fontSize: normalize(22),
@@ -69,9 +70,14 @@ const styles = StyleSheet.create({
     height: normalize(80),
     width: normalize(80),
     borderRadius: normalize(100),
-    margin: normalize(10),
+    margin: normalize(16),
   },
   Text: {
+    fontSize: normalize(20),
+    fontWeight: '600',
+    margin: normalize(16),
+  },
+  TextInput: {
     fontSize: normalize(20),
     fontWeight: '600',
     margin: normalize(10),
@@ -79,13 +85,13 @@ const styles = StyleSheet.create({
   EmailBox: {
     borderWidth: normalize(1),
     borderRadius: normalize(10),
-    marginHorizontal: normalize(10),
+    marginHorizontal: normalize(16),
     marginVertical: normalize(5)
   },
   NextBox: {
     borderWidth: normalize(1),
     borderRadius: normalize(10),
-    marginHorizontal: normalize(10),
+    marginHorizontal: normalize(16),
     marginTop: normalize(100),
     backgroundColor: colors.blackTransparent,
   },
@@ -100,7 +106,7 @@ const styles = StyleSheet.create({
       fontSize: normalize(20),
       fontWeight: '600',
       color: colors.appBlue,
-      margin: normalize(10),
+      margin: normalize(16),
       textDecorationLine: 'underline'
   }
 });

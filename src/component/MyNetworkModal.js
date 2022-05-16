@@ -94,7 +94,7 @@ const MyNetwork = ({visible, onClose}) => {
                 }}>
                 You don't have Followers yet.                
               </Text>
-              <Text style={{fontSize: normalize(20), textAlign: 'center'}}>
+              <Text style={{fontSize: normalize(20), textAlign: 'center', marginHorizontal: normalize(8)}}>
               Chat post or start following somebody so they can follow you.                
               </Text>
             </View>
@@ -113,7 +113,7 @@ const MyNetwork = ({visible, onClose}) => {
                 }}>
                 You are not Following anyone yet.
               </Text>
-              <Text style={{fontSize: normalize(20), textAlign: 'center'}}>
+              <Text style={{fontSize: normalize(20), textAlign: 'center',marginHorizontal: normalize(8)}}>
                 Start following people you know or like and get nitifed when they post something new!
               </Text>
             </View>
@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
   },
   Icon: {
     flex: 1,
+    marginLeft: normalize(8)
   },
   AdsText: {
     fontSize: normalize(22),
@@ -155,7 +156,8 @@ const styles = StyleSheet.create({
   },
   ShareIcon: {
     alignSelf: 'center',
-    margin: normalize(10),
+    marginHorizontal: normalize(16),
+    marginVertical: normalize(10)
   },
   MessageIcon: {
     height: normalize(200),

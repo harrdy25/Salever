@@ -26,6 +26,24 @@ const Home = ({navigation}) => {
   const [select, setSelect] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
+  const [search, setSearch] = useState('');
+  const [newSearch, setNewSearch] = useState([]);
+
+  const SearchData = text => {
+    if (text) {
+      const newData = ItemData.filter(function (item) {
+        const itemData = item.Text ? item.Text.toUpperCase() : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setNewSearch(newData);
+      setSearch(text);
+    } else {
+      setNewSearch(ItemData);
+      setSearch(text);
+    }
+  };
+
   const onclick_item = text => {
     switch (text) {
       case 'OLX Autos(Cars)':
@@ -97,7 +115,7 @@ const Home = ({navigation}) => {
   );
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, }}>
       <View>
         <Entypo
           name="menu"
@@ -107,7 +125,7 @@ const Home = ({navigation}) => {
         />
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity
-          style={{flexDirection: 'row', marginHorizontal: normalize(5)}}
+          style={{flexDirection: 'row', marginHorizontal: normalize(10)}}
           onPress={() => navigation.navigate('Login')}>
           <Entypo style={styles.Image} name="location-pin" size={30} />
           <Text style={styles.LocationText}>Surat 395006...</Text>
@@ -119,6 +137,8 @@ const Home = ({navigation}) => {
             style={styles.TextInput}
             placeholder="Find Cars, Mobile Phones and mpre..."
             placeholderTextColor={'gray'}
+            value={search}
+            onChangeText={text => SearchData(text)}
             flex={1}
           />
           <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
@@ -142,12 +162,12 @@ const Home = ({navigation}) => {
                 horizontal={true}
               />
             </View>
-            <View style={{marginHorizontal: normalize(10)}}>
+            <View style={{marginHorizontal: normalize(16)}}>
               <Text style={styles.FreshText}>Fresh Recommendations</Text>
             </View>
-            <View>
+            <View style={{marginHorizontal: normalize(8)}}>
               <FlatList
-                data={ItemData}
+                data={newSearch}
                 renderItem={renderItemData}
                 keyExtractor={item => item.value}
                 numColumns={2}
@@ -172,7 +192,8 @@ export default Home;
 
 const styles = StyleSheet.create({
   MenuIcon: {
-    margin: normalize(10),
+    marginLeft: normalize(16),
+    marginVertical: normalize(10)
   },
   LocationText: {
     fontSize: normalize(18),
@@ -195,16 +216,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderWidth: normalize(2),
     borderRadius: normalize(8),
-    margin: normalize(10),
+    marginHorizontal: normalize(16),
+    marginVertical: normalize(10)
   },
   BrowseText: {
     fontSize: normalize(18),
     fontWeight: '500',
     flex: 1,
+    marginLeft: normalize(8)
   },
   SeeAll: {
     fontWeight: '700',
     fontSize: normalize(20),
+    marginRight: normalize(8)
+
   },
   IconContainer: {
     margin: normalize(10),
@@ -231,15 +256,23 @@ const styles = StyleSheet.create({
     marginVertical: normalize(10),
   },
   Card: {
+    backgroundColor: colors.extraLight,
     borderRadius: normalize(8),
-    borderWidth: normalize(2),
     alignItems: 'center',
     flex: 1,
-    margin: normalize(5),
+    marginHorizontal: normalize(8),
+    marginVertical: normalize(8),
+    shadowOffset: {
+      width: 0.0,
+      height: 0.0,
+    },
+    shadowColor: 'gray',
+    shadowOpacity: normalize(0.5),
+    shadowRadius: normalize(1),
   },
   Photos: {
-    height: normalize(180),
-    width: normalize(150),
+    height: normalize(150),
+    width: normalize(140),
     resizeMode: 'cover',
     // "center","contain","cover","repeat","stretch"
   },

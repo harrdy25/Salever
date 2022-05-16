@@ -20,7 +20,7 @@ const Settingss = ({navigation}) => {
         </View>
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}}>
-          <View style={{flex: 1, marginLeft: normalize(10)}}>
+          <View style={{flex: 1, marginLeft: normalize(16)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               Notification
             </Text>
@@ -36,7 +36,7 @@ const Settingss = ({navigation}) => {
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}}>
-          <View style={{flex: 1, marginLeft: normalize(10)}}>
+          <View style={{flex: 1, marginLeft: normalize(16)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               Privacy
             </Text>
@@ -50,7 +50,7 @@ const Settingss = ({navigation}) => {
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}}>
-          <View style={{flex: 1, marginLeft: normalize(10)}}>
+          <View style={{flex: 1, marginLeft: normalize(16)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               Logout
             </Text>
@@ -58,7 +58,7 @@ const Settingss = ({navigation}) => {
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}}>
-          <View style={{flex: 1, marginLeft: normalize(10)}}>
+          <View style={{flex: 1, marginLeft: normalize(16)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               Logout from all devices
             </Text>
@@ -66,7 +66,7 @@ const Settingss = ({navigation}) => {
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}}>
-          <View style={{flex: 1, marginLeft: normalize(10)}}>
+          <View style={{flex: 1, marginLeft: normalize(16)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               Delete account
             </Text>
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
   },
   Icon:{
     alignSelf: 'center',
+    marginLeft: normalize(8)
   },
   SettingText:{
     fontSize: normalize(22),

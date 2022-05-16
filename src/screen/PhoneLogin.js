@@ -28,7 +28,7 @@ const PhoneLogin = ({navigation}) => {
             We will send a comfirmation code to your phone.
           </Text>
           <View style={styles.EmailBox}>
-              <Text style={styles.Text}>+91|</Text>
+              <Text style={styles.TextInput}>+91|</Text>
             <TextInput style={styles.Text} placeholder="enter your number..." />
           </View>
         </View>
@@ -47,6 +47,7 @@ export default PhoneLogin;
 const styles = StyleSheet.create({
   Icon:{
     alignSelf: 'center',
+    marginLeft: normalize(8)
   },
   SettingText:{
     fontSize: normalize(22),
@@ -54,30 +55,35 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: 'center',
     alignSelf: 'center',
-    marginRight: normalize(30)
+    marginRight: normalize(35)
   },
   Avatar: {
     height: normalize(80),
     width: normalize(80),
     borderRadius: normalize(100),
-    margin: normalize(10),
+    margin: normalize(16),
   },
   Text: {
     fontSize: normalize(20),
     fontWeight: '600',
-    margin: normalize(10),
+    marginHorizontal: normalize(16)
+  },
+  TextInput: {
+    fontSize: normalize(20),
+    fontWeight: '600',
+    margin: normalize(10)
   },
   EmailBox: {
     borderWidth: normalize(1),
     borderRadius: normalize(10),
-    marginHorizontal: normalize(10),
+    marginHorizontal: normalize(16),
     marginVertical: normalize(5),
     flexDirection: 'row'
   },
   NextBox: {
     borderWidth: normalize(1),
     borderRadius: normalize(10),
-    marginHorizontal: normalize(10),
+    marginHorizontal: normalize(16),
     marginTop: normalize(100),
     backgroundColor: colors.blackTransparent,
   },
@@ -88,11 +94,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
   },
-  ForgotPass: {
-    fontSize: normalize(20),
-    fontWeight: '600',
-    color: colors.appBlue,
-    margin: normalize(10),
-    textDecorationLine: 'underline',
-  },
+  
 });

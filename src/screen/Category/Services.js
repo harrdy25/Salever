@@ -33,7 +33,7 @@ const Services = ({navigation}) => {
         <View style={{borderWidth: normalize(1)}} />
         <Text style={styles.Text}>Health & Beauty</Text>
         <View style={{borderWidth: normalize(1)}} />
-       
+
         <Text style={styles.Text}>Other Services</Text>
         <View style={{borderWidth: normalize(1)}} />
         <Text style={styles.Text}>View all</Text>
@@ -48,6 +48,7 @@ export default Services;
 const styles = StyleSheet.create({
   Icon: {
     alignSelf: 'center',
+    marginLeft: normalize(8),
   },
   SettingText: {
     fontSize: normalize(22),
@@ -58,8 +59,9 @@ const styles = StyleSheet.create({
     marginRight: normalize(30),
   },
   Text: {
-      fontSize: normalize(18),
-      fontWeight: '500',
-      padding: normalize(10)
-  }
+    fontSize: normalize(18),
+    fontWeight: '500',
+    padding: normalize(10),
+    marginLeft: normalize(8),
+  },
 });
