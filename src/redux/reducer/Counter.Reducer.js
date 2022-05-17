@@ -1,8 +1,11 @@
 import * as ActionTypes from '../ActionTypes';
 
-const initValue = 0;
+const initialVal = {
+  count: 0
+}
 
-export const CounterReducer = (state = initValue, action) => {
+export const CounterReducer = (state = initialVal, action) => {
+  console.log(state, action);
   switch (action.type) {
     case ActionTypes.INCREMENT_COUNTER:
       return {

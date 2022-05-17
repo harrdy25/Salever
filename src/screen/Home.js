@@ -18,8 +18,23 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import CategoriesModal from '../component/CategoriesModal';
 import CategoriesData from '../component/CategoriesData';
 import SellingItem from '../component/SellingItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { decrementCounter, incrementCounter } from '../redux/action/Counter.Action';
 
 const Home = ({navigation}) => {
+  
+// const dispatch = useDispatch();
+// const count = useSelector(state => state.counter)
+
+
+// const handleIncrement = () => {
+//   dispatch(incrementCounter());
+// }
+
+// const handleDecrement = () => {
+//   dispatch(decrementCounter())
+// }
+
   const Data = CategoriesData;
   const ItemData = SellingItem;
 
@@ -122,7 +137,7 @@ const Home = ({navigation}) => {
           size={35}
           style={styles.MenuIcon}
           onPress={() => navigation.openDrawer()}
-        />
+        />       
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity
           style={{flexDirection: 'row', marginHorizontal: normalize(10)}}

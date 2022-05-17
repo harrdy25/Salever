@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Abacavir",
+      "quantity": 25,
+      "price": 150,
+      "expiry": 2022,
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "Eltrombopag",
+      "quantity": 26,
+      "price": 200,
+      "expiry": 2023,
+      "status": false
+    },
+    {
+      "id": 3,
+      "name": "Meloxicam",
+      "quantity": 60,
+      "price": 240,
+      "expiry": 2024,
+      "status": true
+    },
+    {
+      "id": 4,
+      "name": "Allopurinol",
+      "quantity": 170,
+      "price": 600,
+      "expiry": 2023,
+      "status": false
+    },
+    {
+      "id": 5,
+      "name": "Phenytoin",
+      "quantity": 299,
+      "price": 599,
+      "expiry": 2023,
+      "status": true
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
