@@ -107,25 +107,26 @@ const Chat = ({navigation}) => {
         </View>
         <TouchableOpacity
           style={{alignSelf: 'center', marginRight: normalize(10)}}>
-          <Ionicons name="ellipsis-vertical" size={25} />
+          <Ionicons name="ellipsis-vertical" size={25} color={"#616161"} />
         </TouchableOpacity>
       </TouchableOpacity>
-      <View style={{borderWidth: normalize(1), marginLeft: normalize(80)}} />
+      <View style={{borderWidth: normalize(1), marginLeft: normalize(80), borderColor: '#616161'}} />
     </>
   );
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1,}}>
       <View>
         <Text
           style={{
             fontSize: normalize(22),
             fontWeight: '600',
             textAlign: 'center',
+            color: '#616161'
           }}>
           Messages
         </Text>
         <View
-          style={{borderWidth: normalize(1), marginTop: normalize(5)}}
+          style={{borderWidth: normalize(1), marginTop: normalize(5),borderColor: '#616161'}}
         />
 
         <View style={{flexDirection: 'row', marginHorizontal: normalize(16), padding: normalize(10)}}>
@@ -133,7 +134,7 @@ const Chat = ({navigation}) => {
           <Text style={styles.InboxText}>Inbox</Text>
           <Text style={styles.SearchText}>Search</Text>
         </View>
-        <View style={{borderWidth: normalize(1)}} />
+        <View style={{borderWidth: normalize(1), borderColor: '#616161'}} />
 
         <View
           style={{
@@ -192,7 +193,7 @@ const Chat = ({navigation}) => {
             )}
           </TouchableOpacity>
         </View>
-        <View style={{borderWidth: normalize(1)}} />
+        <View style={{borderWidth: normalize(1), borderColor: '#616161'}} />
 
         {screen === 0 && (
           <>
@@ -246,6 +247,7 @@ const Chat = ({navigation}) => {
                   textAlign: 'center',
                   marginHorizontal: normalize(15),
                   fontWeight: '600',
+                  color: '#616161',
                   marginVertical: normalize(20),
                 }}>
                 You have got no messages so far!
@@ -254,6 +256,7 @@ const Chat = ({navigation}) => {
                 style={{
                   fontSize: normalize(18),
                   textAlign: 'center',
+                  color: '#616161',
                   marginHorizontal: normalize(16),
                 }}>
                 An soon as someone sends you a message. it'll start appearing
@@ -278,6 +281,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     alignSelf: 'center',
     textAlign: 'left',
+    color: '#616161',
     flex: 1,
   },
   InboxText: {
@@ -285,6 +289,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     alignSelf: 'center',
     textAlign: 'right',
+    color: '#616161',
+
   },
   SearchText: {
     fontSize: normalize(20),
@@ -292,28 +298,32 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'right',
     flex: 1,
+    color: '#616161',
+
   },
   AllText: {
     fontSize: normalize(20),
     fontWeight: '600',
     alignSelf: 'center',
     textAlign: 'left',
+    color: '#616161',
     marginVertical: normalize(14),
   },
   QuickText: {
     fontSize: normalize(18),
     fontWeight: '600',
     margin: normalize(16),
+    color: '#616161'
   },
   Box: {
-    borderWidth: normalize(1),
+    // borderWidth: normalize(1),
     borderRadius: normalize(20),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#757575',
   },
   BoxGreen: {
-    borderWidth: normalize(1),
+    // borderWidth: normalize(1),
     borderRadius: normalize(20),
     alignItems: 'center',
     justifyContent: 'center',
@@ -350,19 +360,23 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     flex: 1,
     alignSelf: 'center',
+    color: '#616161'
   },
   TimeText: {
     fontSize: normalize(14),
     alignSelf: 'center',
     marginRight: normalize(20),
+    color: '#616161'
   },
   DetailsText: {
     fontSize: normalize(14),
     fontWeight: '500',
+    color: '#616161'
   },
   Message: {
     fontSize: normalize(14),
     marginVertical: normalize(5),
+    color: '#616161'
   },
   Kuku: {
     height: normalize(300),

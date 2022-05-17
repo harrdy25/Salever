@@ -16,15 +16,57 @@ import CategoriesData from '../component/CategoriesData';
 const Sell = ({navigation}) => {
   const Categories = CategoriesData;
 
+  const onclick_item = text => {
+    switch (text) {
+      case 'OLX Autos(Cars)':
+        navigation.navigate('Cars');
+        break;
+      case 'Properties':
+        navigation.navigate('Properties');
+        break;
+      case 'Mobiles':
+        navigation.navigate('Mobiles');
+        break;
+      case 'Jobs':
+        navigation.navigate('Jobs');
+        break;
+      case 'Bikes':
+        navigation.navigate('Bikes');
+        break;
+      case 'Electronics & Appliances':
+        navigation.navigate('ElectronicsAndAppliances');
+        break;
+      case 'Commercial Vehicles & Spares':
+        navigation.navigate('CommercialVehiclesAndSpares');
+        break;
+      case 'Furniture':
+        navigation.navigate('Furniture');
+        break;
+      case 'Fashion':
+        navigation.navigate('Fashion');
+        break;
+      case 'Books, Sports, hobbies':
+        navigation.navigate('BooksSportsAndHpbbies');
+        break;
+      case 'Pets':
+        navigation.navigate('Pets');
+        break;
+      case 'Services':
+        navigation.navigate('Services');
+        break;
+      default:
+    }
+  };
+
   const renderCategories = ({item}) => (
-    <View style={{flex: 1}}>
+    <TouchableOpacity style={{flex: 1}} onPress={() => onclick_item(item.text)}>
       <View style={styles.ItemBox}>
         <Image style={styles.Images} source={item.image} />
         <View style={{width: normalize(100)}}>
           <Text style={styles.Text}>{item.text}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
   return (
     <SafeAreaView>
@@ -39,7 +81,7 @@ const Sell = ({navigation}) => {
           />
           <Text style={styles.SettingText}>What are you offering?</Text>
         </View>
-        <View style={{borderWidth: normalize(1)}} />
+        <View style={{borderWidth: normalize(1), borderColor: colors.gray,}} />
         <View>
           <FlatList
             data={Categories}
@@ -77,10 +119,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: normalize(150),
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderColor: colors.gray,
   },
   Text: {
     fontSize: normalize(14),
     textAlign: 'center',
+    color: '#616161',
   },
 });

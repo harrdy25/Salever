@@ -20,16 +20,17 @@ const Cars = ({navigation}) => {
   const ItemData = SellingItem;
 
   const [select, setSelect] = useState(0);
+  const [like, setLike] = useState(0)
 
   const renderItemData = ({item}) => (
     <TouchableOpacity style={styles.Card}>
       <Image style={styles.Photos} source={item.Image} />
-      <TouchableOpacity style={styles.HeartBox} onPress={() => setSelect(true)}>
+      <TouchableOpacity style={styles.HeartBox} onPress={() => setLike(true)}>
         <Entypo
           style={styles.HeartIcon}
-          name={select ? 'heart' : 'heart-outlined'}
+          name={like? 'heart' : 'heart-outlined'}
           size={20}
-          color={select ? colors.red : colors.extraLight}
+          color={like ? colors.red : colors.extraLight}
         />
       </TouchableOpacity>
       <View style={styles.CardFooter}>
@@ -127,18 +128,19 @@ const styles = StyleSheet.create({
   SearchInput: {
     flexDirection: 'row',
     borderWidth: normalize(2),
+    borderColor: colors.gray,
     borderRadius: normalize(8),
     margin: normalize(16),
   },
   Box: {
-    borderWidth: normalize(1),
+    // borderWidth: normalize(1),    
     borderRadius: normalize(20),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#757575',
   },
   BoxGreen: {
-    borderWidth: normalize(1),
+    // borderWidth: normalize(1),
     borderRadius: normalize(20),
     alignItems: 'center',
     justifyContent: 'center',
@@ -154,6 +156,7 @@ const styles = StyleSheet.create({
   Card: {
     borderRadius: normalize(8),
     borderWidth: normalize(2),
+    borderColor: colors.gray,
     flex: 1,
     margin: normalize(5),
     flexDirection: 'row',

@@ -19,9 +19,11 @@ const MyAds = () => {
     <SafeAreaView style={{flex: 1}}>
       <View>
         <View style={{flexDirection: 'row', marginTop: normalize(10)}}>
-          <TouchableOpacity style={{flex: 1}} onPress={() => {
-            setLine(1);
-            setScreen(0);
+          <TouchableOpacity
+            style={{flex: 1}}
+            onPress={() => {
+              setLine(1);
+              setScreen(0);
             }}>
             <Text style={styles.AdsText}>Ads</Text>
             {line === 1 && (
@@ -35,9 +37,11 @@ const MyAds = () => {
               />
             )}
           </TouchableOpacity>
-          <TouchableOpacity style={{flex: 1}} onPress={() => {
-            setLine(2);
-            setScreen(1);
+          <TouchableOpacity
+            style={{flex: 1}}
+            onPress={() => {
+              setLine(2);
+              setScreen(1);
             }}>
             <Text style={styles.Favourites}>Favourites</Text>
             {line === 2 && (
@@ -52,7 +56,7 @@ const MyAds = () => {
             )}
           </TouchableOpacity>
         </View>
-        <View style={{borderWidth: normalize(1)}} />
+        <View style={{borderWidth: normalize(1), borderColor: '#616161'}} />
         {screen === 0 && (
           <>
             <TouchableOpacity
@@ -60,17 +64,19 @@ const MyAds = () => {
               <Text style={styles.ViewAll}>View all(0)</Text>
               <Ionicons name="chevron-down" size={30} />
             </TouchableOpacity>
-            <View style={{borderWidth: normalize(1)}} />
+            <View style={{borderWidth: normalize(1), borderColor: '#616161'}} />
+            
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
               <Image style={styles.Kuku} source={images.IMG_KUKU_PNG} />
               <Text
                 style={{
                   fontSize: normalize(20),
+                  color: '#616161',
                   marginVertical: normalize(10),
                 }}>
                 You haven't listed anything yet
               </Text>
-              <Text style={{fontSize: normalize(16)}}>
+              <Text style={{fontSize: normalize(16), color: '#616161'}}>
                 Let go of what you don't use anymore
               </Text>
             </View>
@@ -87,10 +93,16 @@ const MyAds = () => {
                 style={{
                   fontSize: normalize(20),
                   marginVertical: normalize(10),
+                  color: '#616161',
                 }}>
                 You haven't liked anything yet
               </Text>
-              <Text style={{fontSize: normalize(16), textAlign: 'center'}}>
+              <Text
+                style={{
+                  fontSize: normalize(16),
+                  textAlign: 'center',
+                  color: '#616161',
+                }}>
                 mark the items that you like and share it with the world!
               </Text>
             </View>
@@ -111,16 +123,19 @@ const styles = StyleSheet.create({
     fontSize: normalize(22),
     fontWeight: '600',
     textAlign: 'center',
+    color: '#616161',
   },
   Favourites: {
     fontSize: normalize(22),
     fontWeight: '600',
     textAlign: 'center',
+    color: '#616161',
   },
   ViewAll: {
     fontSize: normalize(20),
     fontWeight: '600',
     marginRight: normalize(8),
+    color: '#616161',
   },
   Kuku: {
     height: normalize(300),

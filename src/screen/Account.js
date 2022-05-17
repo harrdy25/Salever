@@ -1,5 +1,5 @@
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {images} from '../assets/images';
 import {normalize} from '../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -8,25 +8,44 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import MyNetworkModal from '../component/MyNetworkModal';
 
 const Account = ({navigation}) => {
-
-const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <View>
-        <Text style={{fontSize: normalize(22), fontWeight: '600', textAlign: 'center'}}>My Account</Text>
-        <View style={{borderWidth: normalize(1), marginVertical: normalize(5)}}/>
+        <Text
+          style={{
+            fontSize: normalize(22),
+            fontWeight: '600',
+            textAlign: 'center',
+            color: '#616161'
+          }}>
+          My Account
+        </Text>
+        <View
+          style={{borderWidth: normalize(1), marginVertical: normalize(5), borderColor: '#616161'}}
+        />
         <View style={{margin: normalize(10), flexDirection: 'row'}}>
           <Image style={styles.ProfilePic} source={images.IMG_KUKU2_PNG} />
           <View style={{alignSelf: 'center', marginLeft: normalize(10)}}>
             <Text style={styles.ProfileName}>Hardik Kuk's</Text>
-            <Text style={styles.ProfileEdit} onPress={() => navigation.navigate('Profile')}>View and edit profile</Text>
+            <Text
+              style={styles.ProfileEdit}
+              onPress={() => navigation.navigate('Profile')}>
+              View and edit profile
+            </Text>
           </View>
         </View>
         <View style={{borderWidth: normalize(1)}} />
 
-        <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}} onPress={() => setModalVisible(true)}>
-          <MaterialCommunityIcons name="account-supervisor-outline" size={40} style={styles.Icon} />
+        <TouchableOpacity
+          style={{flexDirection: 'row', margin: normalize(10)}}
+          onPress={() => setModalVisible(true)}>
+          <MaterialCommunityIcons
+            name="account-supervisor-outline"
+            size={40}
+            style={styles.Icon}
+          />
           <View style={{flex: 1, marginLeft: normalize(10)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               My Network
@@ -35,11 +54,13 @@ const [modalVisible, setModalVisible] = useState(false);
               Follower, following and find friends
             </Text>
           </View>
-          <MaterialCommunityIcons name="chevron-right" size={40}/>
+          <MaterialCommunityIcons name="chevron-right" size={40} />
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
 
-        <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}} onPress={() => navigation.navigate('PackagesandOrder')}>
+        <TouchableOpacity
+          style={{flexDirection: 'row', margin: normalize(10)}}
+          onPress={() => navigation.navigate('PackagesandOrder')}>
           <MaterialCommunityIcons
             name="id-card"
             size={40}
@@ -61,8 +82,10 @@ const [modalVisible, setModalVisible] = useState(false);
         </TouchableOpacity>
         <View style={{borderWidth: normalize(1)}} />
 
-        <TouchableOpacity style={{flexDirection: 'row', margin: normalize(10)}} onPress={() => navigation.navigate('Settingss')}>
-          <Ionicons name="ios-settings-sharp" size={40} style={styles.Icon}/>
+        <TouchableOpacity
+          style={{flexDirection: 'row', margin: normalize(10)}}
+          onPress={() => navigation.navigate('Settingss')}>
+          <Ionicons name="ios-settings-sharp" size={40} style={styles.Icon} />
           <View style={{flex: 1, marginLeft: normalize(10)}}>
             <Text style={{fontSize: normalize(18), fontWeight: '600'}}>
               Settings
@@ -115,24 +138,27 @@ const styles = StyleSheet.create({
     height: normalize(100),
     width: normalize(100),
     borderRadius: normalize(100),
-    borderWidth: normalize(2),
-    resizeMode: 'center'
-  },
-  ProfileName: {
+    borderWidth: normalize(3),
+    resizeMode: 'center',
+    borderColor: '#616161',
+
     fontSize: normalize(22),
     fontWeight: '700',
+    color: '#616161'
   },
   ProfileEdit: {
     fontSize: normalize(20),
     fontWeight: '600',
     marginTop: normalize(10),
-    textDecorationLine: 'underline'
+    textDecorationLine: 'underline',
+    color: '#616161'
+
   },
   Setting: {
     alignSelf: 'center',
-    marginLeft: normalize(8)
+    marginLeft: normalize(8),
   },
   Icon: {
-    marginLeft: normalize(8)
-  }
+    marginLeft: normalize(8),
+  },
 });

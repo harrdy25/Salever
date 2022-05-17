@@ -18,22 +18,23 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import CategoriesModal from '../component/CategoriesModal';
 import CategoriesData from '../component/CategoriesData';
 import SellingItem from '../component/SellingItem';
-import { useDispatch, useSelector } from 'react-redux';
-import { decrementCounter, incrementCounter } from '../redux/action/Counter.Action';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  decrementCounter,
+  incrementCounter,
+} from '../redux/action/Counter.Action';
 
 const Home = ({navigation}) => {
-  
-// const dispatch = useDispatch();
-// const count = useSelector(state => state.counter)
+  // const dispatch = useDispatch();
+  // const count = useSelector(state => state.counter)
 
+  // const handleIncrement = () => {
+  //   dispatch(incrementCounter());
+  // }
 
-// const handleIncrement = () => {
-//   dispatch(incrementCounter());
-// }
-
-// const handleDecrement = () => {
-//   dispatch(decrementCounter())
-// }
+  // const handleDecrement = () => {
+  //   dispatch(decrementCounter())
+  // }
 
   const Data = CategoriesData;
   const ItemData = SellingItem;
@@ -101,6 +102,14 @@ const Home = ({navigation}) => {
     }
   };
 
+  const onClick = (index) => {
+    switch (index) {
+      case 0:
+        navigation.navigate('Details')
+        break;    
+      default:
+    }
+  };
   const renderData = ({item}) => (
     <TouchableOpacity
       style={styles.IconContainer}
@@ -110,8 +119,8 @@ const Home = ({navigation}) => {
     </TouchableOpacity>
   );
 
-  const renderItemData = ({item}) => (
-    <TouchableOpacity style={styles.Card}>
+  const renderItemData = ({item, index}) => (
+    <TouchableOpacity style={styles.Card} onPress={() => onClick(index)}>
       <Image style={styles.Photos} source={item.Image} />
       <TouchableOpacity style={styles.HeartBox} onPress={() => setSelect(true)}>
         <Entypo
@@ -130,34 +139,35 @@ const Home = ({navigation}) => {
   );
 
   return (
-    <SafeAreaView style={{flex: 1, }}>
+    <SafeAreaView style={{flex: 1,}}>
       <View>
         <Entypo
           name="menu"
           size={35}
+          color={colors.gray}
           style={styles.MenuIcon}
           onPress={() => navigation.openDrawer()}
-        />       
+        />
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity
           style={{flexDirection: 'row', marginHorizontal: normalize(10)}}
           onPress={() => navigation.navigate('Login')}>
-          <Entypo style={styles.Image} name="location-pin" size={30} />
+          <Entypo style={styles.Image} name="location-pin" size={30} color={colors.gray} />
           <Text style={styles.LocationText}>Surat 395006...</Text>
-          <Entypo style={styles.DownImage} name="chevron-down" size={30} />
+          <Entypo style={styles.DownImage} name="chevron-down" size={30} color={colors.gray}/>
         </TouchableOpacity>
         <View style={styles.SearchInput}>
           <Image style={styles.Image} source={images.IMG_Search_Png} />
           <TextInput
             style={styles.TextInput}
             placeholder="Find Cars, Mobile Phones and mpre..."
-            placeholderTextColor={'gray'}
+            placeholderTextColor={'gray'}         
             value={search}
             onChangeText={text => SearchData(text)}
             flex={1}
           />
           <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
-            <Entypo name="bell" size={30} style={styles.Image} />
+            <Entypo name="bell" size={30} style={styles.Image} color={colors.gray} />
           </TouchableOpacity>
         </View>
         <ScrollView>
@@ -208,18 +218,20 @@ export default Home;
 const styles = StyleSheet.create({
   MenuIcon: {
     marginLeft: normalize(16),
-    marginVertical: normalize(10)
+    marginVertical: normalize(10),
   },
   LocationText: {
     fontSize: normalize(18),
     alignSelf: 'center',
     marginHorizontal: normalize(10),
+    color: colors.gray
   },
   Image: {
     height: normalize(30),
     width: normalize(30),
     alignSelf: 'center',
     margin: normalize(5),
+    tintColor: colors.gray
   },
   DownImage: {
     height: normalize(25),
@@ -227,24 +239,31 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: normalize(5),
   },
+  TextInput: {
+    color: colors.gray,
+    fontSize: normalize(20),
+    fontWeight: '600'
+  },
   SearchInput: {
     flexDirection: 'row',
     borderWidth: normalize(2),
     borderRadius: normalize(8),
     marginHorizontal: normalize(16),
-    marginVertical: normalize(10)
+    marginVertical: normalize(10),
+    borderColor: colors.gray,
   },
   BrowseText: {
     fontSize: normalize(18),
     fontWeight: '500',
     flex: 1,
-    marginLeft: normalize(8)
+    marginLeft: normalize(8),
+    color: colors.gray
   },
   SeeAll: {
     fontWeight: '700',
     fontSize: normalize(20),
-    marginRight: normalize(8)
-
+    marginRight: normalize(8),
+    color: colors.gray
   },
   IconContainer: {
     margin: normalize(10),
@@ -259,16 +278,16 @@ const styles = StyleSheet.create({
   TitleText: {
     fontSize: normalize(16),
     fontWeight: '600',
-    textTransform: 'capitalize',
     textAlign: 'center',
     width: normalize(110),
     height: normalize(50),
-    alignSelf: 'center',
+    color: colors.gray,
+    marginVertical: normalize(8)
   },
   FreshText: {
     fontSize: normalize(18),
     fontWeight: '500',
-    marginVertical: normalize(10),
+    marginVertical: normalize(10),color: colors.gray
   },
   Card: {
     backgroundColor: colors.extraLight,

@@ -32,6 +32,7 @@ import Pets from './src/screen/Category/Pets';
 import Services from './src/screen/Category/Services';
 import {Provider} from 'react-redux';
 import { store } from './src/redux/store';
+import Details from './src/screen/Details';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -176,6 +177,11 @@ function HomeScreenStack() {
       <HomeStack.Screen
         name="Services"
         component={Services}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Details"
+        component={Details}
         options={{headerShown: false}}
       />
     </HomeStack.Navigator>
