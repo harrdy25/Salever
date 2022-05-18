@@ -7,54 +7,90 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import {images} from '../assets/images';
 import {normalize} from '../utils';
 import colors from '../theme/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
-
+import { useDispatch } from 'react-redux';
+import { clickLogin } from '../redux/action/User.Action';
 
 const EmailLogin = ({navigation}) => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
   const handleLogin = () => {
     let data = {
-      
+      email,
+      password
     }
+    dispatch(clickLogin(data))
   }
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 1}}>
-      <View style={{flexDirection: 'row'}}>
-          <MaterialCommunityIcons name='chevron-left' size={40} style={styles.Icon} color={colors.appBlue} onPress={() => navigation.goBack()}/>
+        <View style={{flexDirection: 'row'}}>
+          <MaterialCommunityIcons
+            name="chevron-left"
+            size={40}
+            style={styles.Icon}
+            color={colors.appBlue}
+            onPress={() => navigation.goBack()}
+          />
           <Text style={styles.SettingText}>Login</Text>
         </View>
         <View style={{flex: 2}}>
           <Image style={styles.Avatar} source={images.IMG_AVATAR_PNG} />
           <Text style={styles.Text}>Enter your Email to login</Text>
-          <Text style={{marginLeft: normalize(16), fontSize: normalize(16), marginVertical: normalize(10)}}>
+          <Text
+            style={{
+              marginLeft: normalize(16),
+              fontSize: normalize(16),
+              marginVertical: normalize(10),
+            }}>
             Email
           </Text>
           <View style={styles.EmailBox}>
-            <TextInput style={styles.TextInput} placeholder="enter your email..."
-            placeholderTextColor={'gray'}
+            <TextInput
+              style={styles.TextInput}
+              placeholder="enter your email..."
+              placeholderTextColor={'gray'}
+              onChangeText={(email) => setEmail(email)}
             />
           </View>
-          <Text style={{marginLeft: normalize(16), fontSize: normalize(16), marginVertical: normalize(10)}}>
+          <Text
+            style={{
+              marginLeft: normalize(16),
+              fontSize: normalize(16),
+              marginVertical: normalize(10),
+            }}>
             Password
           </Text>
           <View style={styles.EmailBox}>
-            <TextInput style={styles.TextInput} placeholder="enter your pass..." 
-            placeholderTextColor={'gray'}
+            <TextInput
+              style={styles.TextInput}
+              placeholder="enter your pass..."
+              placeholderTextColor={'gray'}
+              onChangeText={(pass) => setPassword(pass)}
             />
           </View>
           <Text style={styles.ForgotPass}>Forgot your Password?</Text>
-          <Text style={{fontSize: normalize(16), margin: normalize(10), marginHorizontal: normalize(16)}}>If you are a new user please select any other login option from previous page</Text>
+          <Text
+            style={{
+              fontSize: normalize(16),
+              margin: normalize(10),
+              marginHorizontal: normalize(16),
+            }}>
+            If you are a new user please select any other login option from
+            previous page
+          </Text>
         </View>
         <View style={{flex: 0.6}}>
-          <TouchableOpacity style={styles.NextBox}>
+          <TouchableOpacity style={styles.NextBox} onPress={() => handleLogin()}>
             <Text style={styles.Next}>Login</Text>
           </TouchableOpacity>
         </View>
@@ -66,17 +102,17 @@ const EmailLogin = ({navigation}) => {
 export default EmailLogin;
 
 const styles = StyleSheet.create({
-  Icon:{
+  Icon: {
     alignSelf: 'center',
-    marginLeft: normalize(8)
+    marginLeft: normalize(8),
   },
-  SettingText:{
+  SettingText: {
     fontSize: normalize(22),
     fontWeight: '600',
     flex: 1,
     textAlign: 'center',
     alignSelf: 'center',
-    marginRight: normalize(30)
+    marginRight: normalize(30),
   },
   Avatar: {
     height: normalize(80),
@@ -98,7 +134,7 @@ const styles = StyleSheet.create({
     borderWidth: normalize(1),
     borderRadius: normalize(10),
     marginHorizontal: normalize(16),
-    marginVertical: normalize(5)
+    marginVertical: normalize(5),
   },
   NextBox: {
     borderWidth: normalize(1),
@@ -112,13 +148,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     padding: normalize(10),
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
   },
   ForgotPass: {
-      fontSize: normalize(20),
-      fontWeight: '600',
-      color: colors.appBlue,
-      margin: normalize(16),
-      textDecorationLine: 'underline'
-  }
+    fontSize: normalize(20),
+    fontWeight: '600',
+    color: colors.appBlue,
+    margin: normalize(16),
+    textDecorationLine: 'underline',
+  },
 });

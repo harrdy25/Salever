@@ -26,8 +26,8 @@ export const clickLogin = (e) => {
     fetch (BASE_URL + 'users', {
        method: 'POST',
        body: JSON.stringify({
-         email: this.state.idValue,
-         password: this.state.pwValue
+         email: email,
+         password: password
       }),
   })
     .then((response) => response.json())
