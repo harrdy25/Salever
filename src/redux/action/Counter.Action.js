@@ -1,4 +1,4 @@
-import { ActionSheetIOS } from "react-native"
+
 import * as ActionTypes from '../ActionTypes'
 
 export const incrementCounter = () => (dispatch) => {
