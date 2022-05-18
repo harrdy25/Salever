@@ -226,15 +226,16 @@ const Chat = ({navigation}) => {
                 <Text style={styles.SelectionText}>Important</Text>
               </TouchableOpacity>
             </View>
-            <ScrollView>
+            {/* <ScrollView> */}
               <View style={{marginHorizontal: normalize(8)}}>
                 <FlatList
                   data={ChatData}
                   renderItem={renderChat}
                   keyExtractor={item => item.id}
+                  // scrollEnabled={false}
                 />
               </View>
-            </ScrollView>
+            {/* </ScrollView> */}
           </>
         )}
         {screen === 1 && (

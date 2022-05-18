@@ -11,7 +11,7 @@ export const SignUpUser = data => dispatch => {
     })
       .then(response => response.json())
       .then(data => {
-        // console.log('Success:', data);
+        console.log('Success:', data);
       })
       .catch(error => {
         console.error('Error:', error);
@@ -20,3 +20,23 @@ export const SignUpUser = data => dispatch => {
     console.log(e);
   }
 };
+
+export const clickLogin = (e) => {
+    e.preventDefault();
+    fetch (BASE_URL + 'users', {
+       method: 'POST',
+       body: JSON.stringify({
+         email: this.state.idValue,
+         password: this.state.pwValue
+      }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      if(result.message === "SUCCESS"){
+        alert("You are logged in.");
+        this.goToMain();
+       } else {
+           alert("Please check your login information.");
+       }
+    });
+  }

@@ -121,7 +121,7 @@ export default PhoneLogin;
 
 const styles = StyleSheet.create({
   MenuIcon: {
-    margin: normalize(16),
+    margin: normalize(8),
   },
   Logo: {
     height: 100,

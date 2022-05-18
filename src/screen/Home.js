@@ -15,6 +15,7 @@ import {normalize} from '../utils';
 import colors from '../theme/colors';
 import {images} from '../assets/images';
 import Entypo from 'react-native-vector-icons/Entypo';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import CategoriesModal from '../component/CategoriesModal';
 import CategoriesData from '../component/CategoriesData';
 import SellingItem from '../component/SellingItem';
@@ -42,23 +43,23 @@ const Home = ({navigation}) => {
   const [select, setSelect] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [search, setSearch] = useState('');
-  const [newSearch, setNewSearch] = useState([]);
+  // const [search, setSearch] = useState('');
+  // const [newSearch, setNewSearch] = useState([]);
 
-  const SearchData = text => {
-    if (text) {
-      const newData = ItemData.filter(function (item) {
-        const itemData = item.Text ? item.Text.toUpperCase() : ''.toUpperCase();
-        const textData = text.toUpperCase();
-        return itemData.indexOf(textData) > -1;
-      });
-      setNewSearch(newData);
-      setSearch(text);
-    } else {
-      setNewSearch(ItemData);
-      setSearch(text);
-    }
-  };
+  // const SearchData = text => {
+  //   if (text) {
+  //     const newData = ItemData.filter(function (item) {
+  //       const itemData = item.Text ? item.Text.toUpperCase() : ''.toUpperCase();
+  //       const textData = text.toUpperCase();
+  //       return itemData.indexOf(textData) > -1;
+  //     });
+  //     setNewSearch(newData);
+  //     setSearch(text);
+  //   } else {
+  //     setNewSearch(ItemData);
+  //     setSearch(text);
+  //   }
+  // };
 
   const onclick_item = text => {
     switch (text) {
@@ -102,11 +103,11 @@ const Home = ({navigation}) => {
     }
   };
 
-  const onClick = (index) => {
+  const onClick = index => {
     switch (index) {
       case 0:
-        navigation.navigate('Details')
-        break;    
+        navigation.navigate('Details');
+        break;
       default:
     }
   };
@@ -122,7 +123,7 @@ const Home = ({navigation}) => {
   const renderItemData = ({item, index}) => (
     <TouchableOpacity style={styles.Card} onPress={() => onClick(index)}>
       <Image style={styles.Photos} source={item.Image} />
-      <TouchableOpacity style={styles.HeartBox} onPress={() => setSelect(true)}>
+      <TouchableOpacity style={styles.HeartBox} onPress={() => setSelect(!select)}>
         <Entypo
           style={styles.HeartIcon}
           name={select ? 'heart' : 'heart-outlined'}
@@ -139,7 +140,7 @@ const Home = ({navigation}) => {
   );
 
   return (
-    <SafeAreaView style={{flex: 1,}}>
+    <SafeAreaView style={{flex: 1}}>
       <View>
         <Entypo
           name="menu"
@@ -152,22 +153,40 @@ const Home = ({navigation}) => {
         <TouchableOpacity
           style={{flexDirection: 'row', marginHorizontal: normalize(10)}}
           onPress={() => navigation.navigate('Login')}>
-          <Entypo style={styles.Image} name="location-pin" size={30} color={colors.gray} />
+          <Entypo
+            style={styles.Image}
+            name="location-pin"
+            size={30}
+            color={colors.gray}
+          />
           <Text style={styles.LocationText}>Surat 395006...</Text>
-          <Entypo style={styles.DownImage} name="chevron-down" size={30} color={colors.gray}/>
+          <Entypo
+            style={styles.DownImage}
+            name="chevron-down"
+            size={30}
+            color={colors.gray}
+          />
         </TouchableOpacity>
         <View style={styles.SearchInput}>
-          <Image style={styles.Image} source={images.IMG_Search_Png} />
+          <Ionicons
+            style={styles.Image}
+            name="search"
+            size={30}
+            color={colors.gray}
+          />
           <TextInput
             style={styles.TextInput}
             placeholder="Find Cars, Mobile Phones and mpre..."
-            placeholderTextColor={'gray'}         
-            value={search}
-            onChangeText={text => SearchData(text)}
+            placeholderTextColor={'gray'}
             flex={1}
           />
           <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
-            <Entypo name="bell" size={30} style={styles.Image} color={colors.gray} />
+            <Entypo
+              name="bell"
+              size={30}
+              style={styles.Image}
+              color={colors.gray}
+            />
           </TouchableOpacity>
         </View>
         <ScrollView>
@@ -192,10 +211,11 @@ const Home = ({navigation}) => {
             </View>
             <View style={{marginHorizontal: normalize(8)}}>
               <FlatList
-                data={newSearch}
+                data={ItemData}
                 renderItem={renderItemData}
                 keyExtractor={item => item.value}
                 numColumns={2}
+                scrollEnabled={false}
               />
             </View>
           </>
@@ -224,14 +244,10 @@ const styles = StyleSheet.create({
     fontSize: normalize(18),
     alignSelf: 'center',
     marginHorizontal: normalize(10),
-    color: colors.gray
+    color: colors.gray,
   },
   Image: {
-    height: normalize(30),
-    width: normalize(30),
-    alignSelf: 'center',
     margin: normalize(5),
-    tintColor: colors.gray
   },
   DownImage: {
     height: normalize(25),
@@ -242,7 +258,7 @@ const styles = StyleSheet.create({
   TextInput: {
     color: colors.gray,
     fontSize: normalize(20),
-    fontWeight: '600'
+    fontWeight: '600',
   },
   SearchInput: {
     flexDirection: 'row',
@@ -257,13 +273,13 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     flex: 1,
     marginLeft: normalize(8),
-    color: colors.gray
+    color: colors.gray,
   },
   SeeAll: {
     fontWeight: '700',
     fontSize: normalize(20),
     marginRight: normalize(8),
-    color: colors.gray
+    color: colors.gray,
   },
   IconContainer: {
     margin: normalize(10),
@@ -282,12 +298,13 @@ const styles = StyleSheet.create({
     width: normalize(110),
     height: normalize(50),
     color: colors.gray,
-    marginVertical: normalize(8)
+    marginVertical: normalize(8),
   },
   FreshText: {
     fontSize: normalize(18),
     fontWeight: '500',
-    marginVertical: normalize(10),color: colors.gray
+    marginVertical: normalize(10),
+    color: colors.gray,
   },
   Card: {
     backgroundColor: colors.extraLight,

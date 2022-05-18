@@ -146,6 +146,10 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#616161'
   },
+  ProfileName:{
+    fontSize: normalize(22),
+    fontWeight: '600'
+  },
   ProfileEdit: {
     fontSize: normalize(20),
     fontWeight: '600',

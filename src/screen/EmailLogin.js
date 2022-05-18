@@ -16,6 +16,14 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 
 const EmailLogin = ({navigation}) => {
+
+  const dispatch = useDispatch();
+  const handleLogin = () => {
+    let data = {
+      
+    }
+  }
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 1}}>
@@ -30,13 +38,17 @@ const EmailLogin = ({navigation}) => {
             Email
           </Text>
           <View style={styles.EmailBox}>
-            <TextInput style={styles.TextInput} placeholder="enter your email..." />
+            <TextInput style={styles.TextInput} placeholder="enter your email..."
+            placeholderTextColor={'gray'}
+            />
           </View>
           <Text style={{marginLeft: normalize(16), fontSize: normalize(16), marginVertical: normalize(10)}}>
             Password
           </Text>
           <View style={styles.EmailBox}>
-            <TextInput style={styles.TextInput} placeholder="enter your pass..." />
+            <TextInput style={styles.TextInput} placeholder="enter your pass..." 
+            placeholderTextColor={'gray'}
+            />
           </View>
           <Text style={styles.ForgotPass}>Forgot your Password?</Text>
           <Text style={{fontSize: normalize(16), margin: normalize(10), marginHorizontal: normalize(16)}}>If you are a new user please select any other login option from previous page</Text>
