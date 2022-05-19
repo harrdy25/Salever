@@ -23,21 +23,23 @@ export const SignUpUser = data => dispatch => {
 };
 
 export const clickLogin = loginData => dispatch => {
-  fetch(BASE_URL + 'users', {
-    method: 'GET',
-  })
-    .then(response => response.json())
-    .then(result => {
-      result.map(item => {
-        if (
-          item.email === loginData.email ||
-          item.password === loginData.password
-        ) {
-          console.log('user', item);
-          Alert.alert('Login successfully');
-        } else {
-          Alert.alert('Login Faild');
-        }
+  try {
+    fetch(BASE_URL + 'users', {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(result => {
+        result.map(item => {
+          if (
+            item.email === loginData.email ||
+            item.password === loginData.password
+          ) {
+            console.log('user', item);
+            Alert.alert('Login successfully');
+          }
+        });
       });
-    });
+  } catch (e) {
+    console.log(e);
+  }
 };

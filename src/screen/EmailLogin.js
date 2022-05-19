@@ -99,7 +99,9 @@ const EmailLogin = ({navigation}) => {
         <View style={{flex: 0.6}}>
           <TouchableOpacity
             style={styles.NextBox}
-            onPress={() => handleLogin()}>
+            onPress={() => {handleLogin();
+            navigation.navigate('Home')
+            }}>
             <Text style={styles.Next}>Login</Text>
           </TouchableOpacity>
         </View>
