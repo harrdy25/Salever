@@ -8,39 +8,25 @@
       "phone": "9408855078"
     },
     {
-      "id": 2,
       "name": "Bholu",
       "email": "bholu@gmail.com",
-      "password": "123456",
-      "phone": "9408855078"
-    },
-    {
-      "id": 3,
-      "name": "Kuku",
-      "email": "kuku@gmail.com",
-      "password": "123456",
-      "phone": "9408855078"
+      "password": "112233",
+      "phone": "9408855078",
+      "id": 2
     },
     {
       "name": "Lalu",
-      "email": "Lalu@gmail.com",
-      "password": "12345",
+      "email": "lalu@gmail.com",
+      "password": "123123",
+      "phone": "9408855078",
+      "id": 3
+    },
+    {
+      "name": "Kuku",
+      "email": "kuku@gmail.com",
+      "password": "251711",
       "phone": "9408855078",
       "id": 4
-    },
-    {
-      "name": "Kenil",
-      "email": "Kenil@gmail.com",
-      "password": "12345",
-      "phone": "9988556622",
-      "id": 5
-    },
-    {
-      "name": "Kenil gabani",
-      "email": "Kenil@gmail.com",
-      "password": "12345",
-      "phone": "9988556622",
-      "id": 6
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 import {BASE_URL} from '../../Shared/BaseUrl';
 
 export const SignUpUser = data => dispatch => {
@@ -27,19 +27,17 @@ export const clickLogin = loginData => dispatch => {
     method: 'GET',
   })
     .then(response => response.json())
-    .then(result => {      
-      result.map(d => {
-        console.log("Data", result);
-
-        console.log("Mail :-", d.email);
-
-        return loginData.map(a => {
-          console.log("LoginData1", loginData);
-
-          if (d.email === a.email || d.password === a.password) {
-            Alert.alert("Login successfully")
-          }
-        });
+    .then(result => {
+      result.map(item => {
+        if (
+          item.email === loginData.email ||
+          item.password === loginData.password
+        ) {
+          console.log('user', item);
+          Alert.alert('Login successfully');
+        } else {
+          Alert.alert('Login Faild');
+        }
       });
     });
 };

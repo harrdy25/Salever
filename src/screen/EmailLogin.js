@@ -1,23 +1,23 @@
 import {
   Image,
   SafeAreaView,
+  Slider,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {images} from '../assets/images';
 import {normalize} from '../utils';
 import colors from '../theme/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { useDispatch } from 'react-redux';
-import { clickLogin } from '../redux/action/User.Action';
+import {useDispatch} from 'react-redux';
+import {clickLogin} from '../redux/action/User.Action';
 
 const EmailLogin = ({navigation}) => {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -26,11 +26,11 @@ const EmailLogin = ({navigation}) => {
   const handleLogin = () => {
     let loginData = {
       email,
-      password
-    }
-    console.log("LoginData", loginData);
-    dispatch(clickLogin(loginData))
-  }
+      password,
+    };
+    console.log('LoginData', loginData);
+    dispatch(clickLogin(loginData));
+  };
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -61,7 +61,8 @@ const EmailLogin = ({navigation}) => {
               style={styles.TextInput}
               placeholder="enter your email..."
               placeholderTextColor={'gray'}
-              onChangeText={(email) => setEmail(email)}
+              autoCapitalize = "none"
+              onChangeText={email => setEmail(email)}
             />
           </View>
           <Text
@@ -76,11 +77,15 @@ const EmailLogin = ({navigation}) => {
             <TextInput
               style={styles.TextInput}
               placeholder="enter your pass..."
-              placeholderTextColor={'gray'}
-              onChangeText={(pass) => setPassword(pass)}
+              placeholderTextColor={'gray'}              
+              onChangeText={pass => setPassword(pass)}
             />
           </View>
-          <Text style={styles.ForgotPass} onPress={() => navigation.navigate('ForgotPassword')}>Forgot your Password?</Text>
+          <Text
+            style={styles.ForgotPass}
+            onPress={() => navigation.navigate('ForgotPassword')}>
+            Forgot your Password?
+          </Text>
           <Text
             style={{
               fontSize: normalize(16),
@@ -92,7 +97,9 @@ const EmailLogin = ({navigation}) => {
           </Text>
         </View>
         <View style={{flex: 0.6}}>
-          <TouchableOpacity style={styles.NextBox} onPress={() => handleLogin()}>
+          <TouchableOpacity
+            style={styles.NextBox}
+            onPress={() => handleLogin()}>
             <Text style={styles.Next}>Login</Text>
           </TouchableOpacity>
         </View>
