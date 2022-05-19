@@ -13,7 +13,7 @@ import {images} from '../assets/images';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {normalize} from '../utils';
 import {useDispatch} from 'react-redux';
-import { SignUpUser } from '../redux/action/User.Action';
+import {SignUpUser} from '../redux/action/User.Action';
 
 const PhoneLogin = ({navigation}) => {
   const [hidePass, setHidePass] = useState(true);
@@ -31,9 +31,9 @@ const PhoneLogin = ({navigation}) => {
       email,
       password,
       phone,
-    }
-    dispatch(SignUpUser(data))
-  }
+    };
+    dispatch(SignUpUser(data));
+  };
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -53,7 +53,7 @@ const PhoneLogin = ({navigation}) => {
             style={styles.Name}
             placeholder="Name"
             placeholderTextColor={'gray'}
-            onChangeText={(text) => setName(text)}
+            onChangeText={text => setName(text)}
           />
         </View>
         <View style={styles.NameBox}>
@@ -61,7 +61,7 @@ const PhoneLogin = ({navigation}) => {
             style={styles.Name}
             placeholder="Email"
             placeholderTextColor={'gray'}
-            onChangeText={(text) => setEmail(text)}
+            onChangeText={text => setEmail(text)}
           />
         </View>
         <View style={[styles.NameBox, {flexDirection: 'row'}]}>
@@ -70,7 +70,7 @@ const PhoneLogin = ({navigation}) => {
             placeholder="Password"
             secureTextEntry={hidePass ? true : false}
             placeholderTextColor={'gray'}
-            onChangeText={(text) => setPassword(text)}
+            onChangeText={text => setPassword(text)}
             flex={1}
           />
           <Ionicons
@@ -85,12 +85,15 @@ const PhoneLogin = ({navigation}) => {
             style={styles.Name}
             placeholder="Phone no"
             placeholderTextColor={'gray'}
-            onChangeText={(text) => setPhone(text)}
+            onChangeText={text => setPhone(text)}
           />
         </View>
         <TouchableOpacity
           style={styles.SignUpBox}
-          onPress={() => handleUser()}>
+          onPress={() => {
+            handleUser();
+            navigation.navigate('EmailLogin');
+          }}>
           <Text style={styles.Sign}>Sign Up</Text>
         </TouchableOpacity>
         <View
@@ -108,7 +111,7 @@ const PhoneLogin = ({navigation}) => {
           You have an account already?{'  '}
           <Text
             style={styles.Login}
-            onPress={() => navigation.navigate('Login')}>
+            onPress={() => navigation.navigate('EmailLogin')}>
             Login
           </Text>
         </Text>

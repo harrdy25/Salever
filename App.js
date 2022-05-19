@@ -33,6 +33,7 @@ import Services from './src/screen/Category/Services';
 import {Provider} from 'react-redux';
 import { store } from './src/redux/store';
 import Details from './src/screen/Details';
+import ForgotPassword from './src/screen/ForgotPassword';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -182,6 +183,11 @@ function HomeScreenStack() {
       <HomeStack.Screen
         name="Details"
         component={Details}
+        options={{headerShown: false}}
+      />
+       <HomeStack.Screen
+        name="ForgotPassword"
+        component={ForgotPassword}
         options={{headerShown: false}}
       />
     </HomeStack.Navigator>

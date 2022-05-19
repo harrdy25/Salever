@@ -22,12 +22,14 @@ const EmailLogin = ({navigation}) => {
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
+
   const handleLogin = () => {
-    let data = {
+    let loginData = {
       email,
       password
     }
-    dispatch(clickLogin(data))
+    console.log("LoginData", loginData);
+    dispatch(clickLogin(loginData))
   }
 
   return (
@@ -78,7 +80,7 @@ const EmailLogin = ({navigation}) => {
               onChangeText={(pass) => setPassword(pass)}
             />
           </View>
-          <Text style={styles.ForgotPass}>Forgot your Password?</Text>
+          <Text style={styles.ForgotPass} onPress={() => navigation.navigate('ForgotPassword')}>Forgot your Password?</Text>
           <Text
             style={{
               fontSize: normalize(16),
