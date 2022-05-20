@@ -27,6 +27,27 @@
       "password": "251711",
       "phone": "9408855078",
       "id": 4
+    },
+    {
+      "name": "Bhumi",
+      "email": "bhumi@gmail.com",
+      "password": "101010",
+      "phone": "9408855078",
+      "id": 5
+    }
+  ],
+  "products": [
+    {
+      "title": "Yamaha",
+      "info": "Model: 2021, km:- 5400, black color",
+      "price": "55,550",
+      "id": 1
+    },
+    {
+      "title": "Yamaha",
+      "info": "Model: 2021, km:- 5400, black color",
+      "price": "55,550",
+      "id": 2
     }
   ]
 }

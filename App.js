@@ -34,6 +34,7 @@ import {Provider} from 'react-redux';
 import { store } from './src/redux/store';
 import Details from './src/screen/Details';
 import ForgotPassword from './src/screen/ForgotPassword';
+import ProductUpload from './src/screen/ProductUpload';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -189,6 +190,12 @@ function HomeScreenStack() {
         name="ForgotPassword"
         component={ForgotPassword}
         options={{headerShown: false}}
+      />
+
+      <HomeStack.Screen
+      name='ProductUpload'
+      component={ProductUpload}
+      options={{headerShown: false}}
       />
     </HomeStack.Navigator>
   );

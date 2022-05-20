@@ -5,12 +5,13 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import {normalize} from '../../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../../theme/colors';
 
 const Bikes = ({navigation}) => {
+
   return (
     <SafeAreaView>
       <View>
@@ -25,7 +26,7 @@ const Bikes = ({navigation}) => {
           <Text style={styles.SettingText}>Bikes</Text>
         </View>
         <View style={{borderWidth: normalize(1)}} />
-        <Text style={styles.Text}>Motorcycles</Text>
+        <Text style={styles.Text} onPress={() => navigation.navigate('ProductUpload')}>Motorcycles</Text>
         <View style={{borderWidth: normalize(1)}} />
         <Text style={styles.Text}>Scooters</Text>
         <View style={{borderWidth: normalize(1)}} />
