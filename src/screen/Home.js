@@ -20,46 +20,18 @@ import CategoriesModal from '../component/CategoriesModal';
 import CategoriesData from '../component/CategoriesData';
 import SellingItem from '../component/SellingItem';
 import {useDispatch, useSelector} from 'react-redux';
-import {
-  decrementCounter,
-  incrementCounter,
-} from '../redux/action/Counter.Action';
 
 const Home = ({navigation}) => {
-  // const dispatch = useDispatch();
-  // const count = useSelector(state => state.counter)
 
-  // const handleIncrement = () => {
-  //   dispatch(incrementCounter());
-  // }
+const dispatch = useDispatch();
+const pItem = useSelector(state => state.product)
 
-  // const handleDecrement = () => {
-  //   dispatch(decrementCounter())
-  // }
-
+console.log("DSDS", pItem);
   const Data = CategoriesData;
-  const ItemData = SellingItem;
+  const ItemData = SellingItem;  
 
   const [select, setSelect] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-
-  // const [search, setSearch] = useState('');
-  // const [newSearch, setNewSearch] = useState([]);
-
-  // const SearchData = text => {
-  //   if (text) {
-  //     const newData = ItemData.filter(function (item) {
-  //       const itemData = item.Text ? item.Text.toUpperCase() : ''.toUpperCase();
-  //       const textData = text.toUpperCase();
-  //       return itemData.indexOf(textData) > -1;
-  //     });
-  //     setNewSearch(newData);
-  //     setSearch(text);
-  //   } else {
-  //     setNewSearch(ItemData);
-  //     setSearch(text);
-  //   }
-  // };
 
   const onclick_item = text => {
     switch (text) {
@@ -123,7 +95,9 @@ const Home = ({navigation}) => {
   const renderItemData = ({item, index}) => (
     <TouchableOpacity style={styles.Card} onPress={() => onClick(index)}>
       <Image style={styles.Photos} source={item.Image} />
-      <TouchableOpacity style={styles.HeartBox} onPress={() => setSelect(!select)}>
+      <TouchableOpacity
+        style={styles.HeartBox}
+        onPress={() => setSelect(!select)}>
         <Entypo
           style={styles.HeartIcon}
           name={select ? 'heart' : 'heart-outlined'}
@@ -151,8 +125,7 @@ const Home = ({navigation}) => {
         />
         <View style={{borderWidth: normalize(1)}} />
         <TouchableOpacity
-          style={{flexDirection: 'row', marginHorizontal: normalize(10)}}
-          onPress={() => navigation.navigate('Login')}>
+          style={{flexDirection: 'row', marginHorizontal: normalize(10)}}>
           <Entypo
             style={styles.Image}
             name="location-pin"
@@ -198,6 +171,7 @@ const Home = ({navigation}) => {
                 <Text style={styles.SeeAll}>See all</Text>
               </TouchableOpacity>
             </View>
+
             <View>
               <FlatList
                 data={Data}
@@ -355,3 +329,21 @@ const styles = StyleSheet.create({
     color: '#616161',
   },
 });
+
+// const [search, setSearch] = useState('');
+// const [newSearch, setNewSearch] = useState([]);
+
+// const SearchData = text => {
+//   if (text) {
+//     const newData = ItemData.filter(function (item) {
+//       const itemData = item.Text ? item.Text.toUpperCase() : ''.toUpperCase();
+//       const textData = text.toUpperCase();
+//       return itemData.indexOf(textData) > -1;
+//     });
+//     setNewSearch(newData);
+//     setSearch(text);
+//   } else {
+//     setNewSearch(ItemData);
+//     setSearch(text);
+//   }
+// };

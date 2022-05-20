@@ -1,7 +1,7 @@
-import { BASE_URL } from '../../Shared/BaseUrl';
+import {BASE_URL} from '../../Shared/BaseUrl';
 import * as ActionType from '../ActionTypes';
 
-export const ProductData = (proData) => dispatch => {
+export const ProductData = proData => dispatch => {
   try {
     fetch(BASE_URL + 'products', {
       method: 'POST',

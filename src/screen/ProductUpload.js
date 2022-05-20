@@ -10,20 +10,24 @@ import {
 import Entypo from 'react-native-vector-icons/Entypo';
 import { useDispatch } from 'react-redux';
 import { ProductData } from '../redux/action/Product.Action';
+import { normalize } from '../utils/index';
 
 const ProductUpload = ({navigation}) => {
-    
+
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
   const [info, setInfo] = useState('');
   const [price, setPrice] = useState('');
+  const [area, setArea] = useState('');
+
 
   const handleClick = () => {
     let proData = {
       title,
       info,
       price,
+      area,
     };
     dispatch(ProductData(proData));
   };
@@ -71,7 +75,15 @@ const ProductUpload = ({navigation}) => {
         <View style={styles.NameBox}>
           <TextInput style={styles.Name} placeholder="₹ 00.0" 
           placeholderTextColor={'gray'}
+          keyboardType='number-pad'
           onChangeText={(text) => setPrice(text)}          
+          />
+        </View>
+        <Text style={styles.Fashion}>Area*</Text>
+        <View style={styles.NameBox}>
+          <TextInput style={styles.Name} placeholder="Address" 
+          placeholderTextColor={'gray'}
+          onChangeText={(text) => setArea(text)}          
           />
         </View>
 
@@ -87,42 +99,44 @@ export default ProductUpload;
 
 const styles = StyleSheet.create({
   MenuIcon: {
-    margin: 10,
+    margin: normalize(8),
   },
   Title: {
-    fontSize: 22,
+    fontSize: normalize(22),
     fontWeight: '600',
     alignSelf: 'center',
     textAlign: 'center',
     flex: 1,
-    marginRight: 60,
+    marginRight: normalize(60),
   },
   Fashion: {
-    fontSize: 20,
+    fontSize: normalize(20),
     fontWeight: '600',
-    margin: 10,
+    marginLeft: normalize(16),
+    marginVertical: normalize(10)
   },
   NameBox: {
-    borderRadius: 8,
-    borderWidth: 2,
-    marginHorizontal: 16,
-    marginVertical: 5,
+    borderRadius: normalize(8),
+    borderWidth: normalize(2),
+    marginHorizontal:normalize(16),
+    marginVertical: normalize(5),
   },
   Name: {
-    fontSize: 18,
-    padding: 10,
+    fontSize: normalize(18),
+    padding: normalize(8),
+    fontWeight: '600'
   },
   SubmitBox: {
-    borderRadius: 8,
-    marginHorizontal: 16,
-    marginVertical: 5,
+    borderRadius: normalize(8),
+    marginHorizontal: normalize(16),
+    marginVertical: normalize(5),
     backgroundColor: '#ffa000',
-    marginTop: 40,
+    marginTop: normalize(40),
   },
   Submit: {
-    fontSize: 20,
-    padding: 8,
-    fontWeight: '600',
+    fontSize: normalize(20),
+    padding: normalize(8),
+    fontWeight: '700',
     textAlign: 'center',
     color: 'white',
   },
