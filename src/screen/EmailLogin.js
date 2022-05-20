@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   Image,
   SafeAreaView,
   Slider,
@@ -18,6 +19,7 @@ import {useDispatch} from 'react-redux';
 import {clickLogin} from '../redux/action/User.Action';
 
 const EmailLogin = ({navigation}) => {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,8 +30,8 @@ const EmailLogin = ({navigation}) => {
       email,
       password,
     };
-    console.log('LoginData', loginData);
-    dispatch(clickLogin(loginData));
+
+    dispatch(clickLogin(loginData, navigation));
   };
 
   return (
@@ -96,11 +98,11 @@ const EmailLogin = ({navigation}) => {
             previous page
           </Text>
         </View>
+       
         <View style={{flex: 0.6}}>
           <TouchableOpacity
             style={styles.NextBox}
             onPress={() => {handleLogin();
-            navigation.navigate('Home')
             }}>
             <Text style={styles.Next}>Login</Text>
           </TouchableOpacity>
@@ -148,11 +150,10 @@ const styles = StyleSheet.create({
     marginVertical: normalize(5),
   },
   NextBox: {
-    borderWidth: normalize(1),
     borderRadius: normalize(10),
     marginHorizontal: normalize(16),
     marginTop: normalize(100),
-    backgroundColor: colors.blackTransparent,
+    backgroundColor: 'green',
   },
   Next: {
     fontSize: normalize(20),
@@ -164,7 +165,7 @@ const styles = StyleSheet.create({
   ForgotPass: {
     fontSize: normalize(20),
     fontWeight: '600',
-    color: colors.appBlue,
+    color: 'green',
     margin: normalize(16),
     textDecorationLine: 'underline',
   },

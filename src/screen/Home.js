@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: normalize(20),
     marginRight: normalize(8),
-    color: colors.gray,
+    color: colors.green,
   },
   IconContainer: {
     margin: normalize(10),
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
   },
   Prices: {
     fontSize: normalize(20),
-    color: '#008080',
+    color: 'green',
     fontWeight: 'bold',
   },
   Details: {

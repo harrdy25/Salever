@@ -16,6 +16,7 @@ import {normalize} from '../utils';
 const ForgotPassword = ({navigation}) => {
   const [screen, setScreen] = useState(0);
   const [hidePass, setHidePass] = useState(true);
+  const [hidePass2, setHidePass2] = useState(true);
 
   return (
     <SafeAreaView style={{flex: 1}}>
@@ -24,12 +25,13 @@ const ForgotPassword = ({navigation}) => {
           <Entypo
             name="chevron-left"
             size={35}
+            color={'gray'}
             style={styles.MenuIcon}
             onPress={() => navigation.goBack()}
           />
           <Text style={styles.Title}>Forgot Password</Text>
         </View>
-        <View style={{borderWidth: 1}} />
+        <View style={{borderWidth: 1, borderColor:'gray'}} />
         <View style={{alignItems: 'center', marginVertical: normalize(10)}}>
           <Image style={styles.Logo} source={images.IMG_AVATAR_PNG} />
         </View>
@@ -147,13 +149,13 @@ const ForgotPassword = ({navigation}) => {
                 placeholder="confirmed password"
                 placeholderTextColor={'gray'}
                 flex={1}
-                secureTextEntry={hidePass ? true : false}
+                secureTextEntry={hidePass2 ? true : false}
               />
               <Ionicons
-                name={hidePass ? 'eye-off' : 'eye'}
+                name={hidePass2 ? 'eye-off' : 'eye'}
                 style={styles.EyeIcon}
                 size={20}
-                onPress={() => setHidePass(!hidePass)}
+                onPress={() => setHidePass2(!hidePass2)}
               />
             </View>
             <TouchableOpacity
@@ -181,6 +183,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     flex: 1,
     marginRight: normalize(60),
+    color: 'gray'
   },
   Logo: {
     height: 120,
@@ -193,6 +196,8 @@ const styles = StyleSheet.create({
     marginHorizontal: normalize(16),
     textAlign: 'center',
     marginTop: normalize(32),
+    color: 'gray'
+
   },
   NameBox: {
     borderRadius: normalize(8),
@@ -217,7 +222,7 @@ const styles = StyleSheet.create({
   NextBox: {
     borderRadius: normalize(8),
     marginHorizontal: normalize(16),
-    backgroundColor: '#ffa000',
+    backgroundColor: 'green',
     marginTop: normalize(32),
   },
   Next: {

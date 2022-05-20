@@ -1,5 +1,7 @@
 import {Alert} from 'react-native';
 import {BASE_URL} from '../../Shared/BaseUrl';
+import * as ActionType from '../ActionTypes';
+
 
 export const SignUpUser = data => dispatch => {
   try {
@@ -22,24 +24,27 @@ export const SignUpUser = data => dispatch => {
   }
 };
 
-export const clickLogin = loginData => dispatch => {
-  try {
-    fetch(BASE_URL + 'users', {
-      method: 'GET',
-    })
-      .then(response => response.json())
-      .then(result => {
-        result.map(item => {
-          if (
-            item.email === loginData.email ||
-            item.password === loginData.password
-          ) {
-            console.log('user', item);
-            Alert.alert('Login successfully');
-          }
-        });
+export const clickLogin = (loginData, navigation) => dispatch => {
+  let flag = 0, id = 0;
+  fetch(BASE_URL + 'users', {
+    method: 'GET',
+  })
+    .then(response => response.json())
+    .then(result => {
+      result.map(item => {
+        if (
+          item.email == loginData.email &&
+          item.password == loginData.password
+        ) {
+          flag = 1,
+          id = item.id;
+        }
+        if (flag === 1) {
+          dispatch({ type: ActionType.SIGNIN_SUCCESS, payload: id })
+          navigation.navigate("Home")
+      } else {
+          dispatch({ type: ActionType.SIGNIN_ERROR, payload: "Wrong Email/Password" })
+      }
       });
-  } catch (e) {
-    console.log(e);
-  }
+    });
 };
