@@ -40,37 +40,58 @@
     {
       "title": "Yamaha",
       "info": "Model :- 2019, km:- 6500",
-      "price": "55055",
+      "price": "₹ 55055",
       "area": "Sarthana Jakatnaka",
       "id": 1
     },
     {
       "title": "Splendor",
       "info": "Model : - 2019, km:- 6500",
-      "price": "30000",
+      "price": "₹ 30000",
       "area": "YogiChowk",
       "id": 2
     },
     {
       "title": "Shine 110cc",
       "info": "Model : - 2020, km:- 9000",
-      "price": "40000",
+      "price": "₹ 40000",
       "area": "Sarthana JakatNaka",
       "id": 3
     },
     {
       "title": "Activa 5G",
       "info": "Model : - 2020, km:- 4500",
-      "price": "26000",
-      "area": " Mota Vrachha",
+      "price": "₹ 26000",
+      "area": "Mota Vrachha",
       "id": 4
     },
     {
       "title": "Access 125",
       "info": "Model : - 2019, km:- 9500",
-      "price": "34000",
-      "area": " Nana Vrachha",
+      "price": "₹ 34000",
+      "area": "Nana Vrachha",
       "id": 5
+    },
+    {
+      "title": "Ola Electric",
+      "info": "Model : - 2022, km:- 1200",
+      "price": "₹ 89000",
+      "area": "Nana Vrachha",
+      "id": 6
+    },
+    {
+      "title": "Bullet 350cc",
+      "info": "Model 2020, km 3650",
+      "price": "¢ 75000",
+      "area": "Sarthana Jakatnaka",
+      "id": 7
+    },
+    {
+      "title": "Jupiter 110cc",
+      "info": "Model 2018, km 9000",
+      "price": "¢ 30000",
+      "area": "Nana Varachha",
+      "id": 8
     }
   ]
 }

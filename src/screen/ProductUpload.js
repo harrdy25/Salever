@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     borderRadius: normalize(8),
     marginHorizontal: normalize(16),
     marginVertical: normalize(5),
-    backgroundColor: '#ffa000',
+    backgroundColor: 'green',
     marginTop: normalize(40),
   },
   Submit: {

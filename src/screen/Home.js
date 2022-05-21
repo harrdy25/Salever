@@ -10,7 +10,7 @@ import {
   FlatList,
   ScrollView,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {normalize} from '../utils';
 import colors from '../theme/colors';
 import {images} from '../assets/images';
@@ -19,19 +19,50 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import CategoriesModal from '../component/CategoriesModal';
 import CategoriesData from '../component/CategoriesData';
 import SellingItem from '../component/SellingItem';
-import {useDispatch, useSelector} from 'react-redux';
+import {BASE_URL} from '../Shared/BaseUrl';
 
 const Home = ({navigation}) => {
-
-const dispatch = useDispatch();
-const pItem = useSelector(state => state.product)
-
-console.log("DSDS", pItem);
   const Data = CategoriesData;
-  const ItemData = SellingItem;  
+  const ItemData = SellingItem;
 
   const [select, setSelect] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    const resp = await fetch(BASE_URL + 'products');
+    const data = await resp.json();
+    setData(data);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  
+
+  const renderItem = ({item}) => {
+    return (
+      <TouchableOpacity style={styles.Card}>
+      <Image style={styles.Photos} source={images.IMG_OLA} />
+      <TouchableOpacity
+        style={styles.HeartBox}
+        onPress={() => setSelect(!select)}>
+        <Entypo
+          style={styles.HeartIcon}
+          name={select ? 'heart' : 'heart-outlined'}
+          size={30}
+          color={select ? colors.red : colors.extraLight}
+        />
+      </TouchableOpacity>
+      <View style={styles.CardFooter}>
+        <Text style={styles.Prices}>{item.price}</Text>
+        <Text style={styles.Details}>{item.info}</Text>
+        <Text style={styles.Address}>{item.area}</Text>
+      </View>
+    </TouchableOpacity>
+    );
+  };
 
   const onclick_item = text => {
     switch (text) {
@@ -183,11 +214,22 @@ console.log("DSDS", pItem);
             <View style={{marginHorizontal: normalize(16)}}>
               <Text style={styles.FreshText}>Fresh Recommendations</Text>
             </View>
+            <View>           
+            </View>
             <View style={{marginHorizontal: normalize(8)}}>
               <FlatList
                 data={ItemData}
                 renderItem={renderItemData}
                 keyExtractor={item => item.value}
+                numColumns={2}
+                scrollEnabled={false}
+              />
+            </View>
+            <View style={{marginHorizontal: normalize(8)}}>
+              <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={item => item.id.toString()}
                 numColumns={2}
                 scrollEnabled={false}
               />

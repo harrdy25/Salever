@@ -16,6 +16,7 @@ export const images = {
     IMG_Iphone13_Png: require('./i13.jpeg'),
     IMG_Iphone13PRO_Png: require('./i13pro.jpeg'),
     IMG_Iphone13MAX_Png: require('./i13max.jpeg'),
+    IMG_OLA: require('./OLA.jpeg'),
 
 
     //png 

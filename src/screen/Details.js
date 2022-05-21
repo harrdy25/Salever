@@ -17,7 +17,7 @@ const Details = ({navigation}) => {
     <SafeAreaView style={{flex: 1}}>
       <View>
         <View style={{flexDirection: 'row'}}>
-          <Ionicons name="chevron-back-outline" size={40} style={styles.Icon} />
+          <Ionicons name="chevron-back-outline" size={40} style={styles.Icon} onPress={() => navigation.goBack()}/>
           <Ionicons
             name="ios-share-social-outline"
             size={35}
