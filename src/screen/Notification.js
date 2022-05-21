@@ -18,7 +18,7 @@ const Notification = ({navigation}) => {
             color={colors.appBlue}
             onPress={() => navigation.goBack()}
           />
-          <Text style={styles.SettingText}>Settings</Text>
+          <Text style={styles.SettingText}>Notification</Text>
         </View>
         <View style={{borderWidth: normalize(1)}} />
 

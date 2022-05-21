@@ -39,9 +39,9 @@ const Home = ({navigation}) => {
     fetchData();
   }, []);
 
-  
 
-  const renderItem = ({item}) => {
+
+  const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity style={styles.Card}>
       <Image style={styles.Photos} source={images.IMG_OLA} />
@@ -57,7 +57,7 @@ const Home = ({navigation}) => {
       </TouchableOpacity>
       <View style={styles.CardFooter}>
         <Text style={styles.Prices}>{item.price}</Text>
-        <Text style={styles.Details}>{item.info}</Text>
+        <Text style={styles.Details}>{item.title}</Text>
         <Text style={styles.Address}>{item.area}</Text>
       </View>
     </TouchableOpacity>
@@ -214,6 +214,7 @@ const Home = ({navigation}) => {
             <View style={{marginHorizontal: normalize(16)}}>
               <Text style={styles.FreshText}>Fresh Recommendations</Text>
             </View>
+           
             <View>           
             </View>
             <View style={{marginHorizontal: normalize(8)}}>
