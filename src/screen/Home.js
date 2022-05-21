@@ -214,9 +214,6 @@ const Home = ({navigation}) => {
             <View style={{marginHorizontal: normalize(16)}}>
               <Text style={styles.FreshText}>Fresh Recommendations</Text>
             </View>
-           
-            <View>           
-            </View>
             <View style={{marginHorizontal: normalize(8)}}>
               <FlatList
                 data={ItemData}
@@ -299,21 +296,20 @@ const styles = StyleSheet.create({
     color: colors.green,
   },
   IconContainer: {
-    margin: normalize(10),
+    margin: normalize(15),
     alignItems: 'center',
     justifyContent: 'center',
   },
   Icon: {
-    height: normalize(50),
-    width: normalize(50),
+    height: normalize(40),
+    width: normalize(40),
     alignSelf: 'center',
   },
   TitleText: {
     fontSize: normalize(16),
     fontWeight: '600',
     textAlign: 'center',
-    width: normalize(110),
-    height: normalize(50),
+    width: normalize(95),
     color: colors.gray,
     marginVertical: normalize(8),
   },
