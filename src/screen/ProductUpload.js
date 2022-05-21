@@ -8,19 +8,18 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { useDispatch } from 'react-redux';
-import { ProductData } from '../redux/action/Product.Action';
-import { normalize } from '../utils/index';
+import {useDispatch} from 'react-redux';
+import {ProductData} from '../redux/action/Product.Action';
+import {normalize} from '../utils/index';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const ProductUpload = ({navigation}) => {
-
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
   const [info, setInfo] = useState('');
   const [price, setPrice] = useState('');
   const [area, setArea] = useState('');
-
 
   const handleClick = () => {
     let proData = {
@@ -47,47 +46,51 @@ const ProductUpload = ({navigation}) => {
         <View style={{borderWidth: 1}} />
         <Text style={styles.Fashion}>Ad title*</Text>
         <View style={styles.NameBox}>
-          <TextInput style={styles.Name} placeholder="Title name...." 
-          placeholderTextColor={'gray'}
-          onChangeText={(text) => setTitle(text)}
+          <TextInput
+            style={styles.Name}
+            placeholder="Title name...."
+            placeholderTextColor={'gray'}
+            onChangeText={text => setTitle(text)}
           />
         </View>
         <Text style={styles.Fashion}>Additional information*</Text>
         <View style={styles.NameBox}>
-          <TextInput style={styles.Name} placeholder="Add Descriptions"
-          placeholderTextColor={'gray'}
-          onChangeText={(text) => setInfo(text)}          
+          <TextInput
+            style={styles.Name}
+            placeholder="Add Descriptions"
+            placeholderTextColor={'gray'}
+            onChangeText={text => setInfo(text)}
           />
         </View>
         <Text style={styles.Fashion}>Upload Images*</Text>
-        <View
+        <TouchableOpacity
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-around',
+            marginLeft: normalize(16),
           }}>
-          <Entypo name="image" size={50} />
-          <Entypo name="image" size={50} />
-          <Entypo name="image" size={50} />
-          <Entypo name="image" size={50} />
-        </View>
+          <Ionicons name="md-camera-outline" size={100} />
+        </TouchableOpacity>
         <Text style={styles.Fashion}>₹ Price*</Text>
         <View style={styles.NameBox}>
-          <TextInput style={styles.Name} placeholder="₹ 00.0" 
-          placeholderTextColor={'gray'}
-          keyboardType='number-pad'
-          onChangeText={(text) => setPrice(text)}          
+          <TextInput
+            style={styles.Name}
+            placeholder="₹ 00.0"
+            placeholderTextColor={'gray'}
+            keyboardType="number-pad"
+            onChangeText={text => setPrice(text)}
           />
         </View>
         <Text style={styles.Fashion}>Area*</Text>
         <View style={styles.NameBox}>
-          <TextInput style={styles.Name} placeholder="Address" 
-          placeholderTextColor={'gray'}
-          onChangeText={(text) => setArea(text)}          
+          <TextInput
+            style={styles.Name}
+            placeholder="Address"
+            placeholderTextColor={'gray'}
+            onChangeText={text => setArea(text)}
           />
         </View>
-
-        <TouchableOpacity style={styles.SubmitBox} onPress={() => handleClick()}>
+        <TouchableOpacity
+          style={styles.SubmitBox}
+          onPress={() => handleClick()}>
           <Text style={styles.Submit}>Submit</Text>
         </TouchableOpacity>
       </View>
@@ -113,18 +116,19 @@ const styles = StyleSheet.create({
     fontSize: normalize(20),
     fontWeight: '600',
     marginLeft: normalize(16),
-    marginVertical: normalize(10)
+    marginVertical: normalize(10),
   },
   NameBox: {
+    borderColor: 'gray',
     borderRadius: normalize(8),
     borderWidth: normalize(2),
-    marginHorizontal:normalize(16),
+    marginHorizontal: normalize(16),
     marginVertical: normalize(5),
   },
   Name: {
     fontSize: normalize(18),
     padding: normalize(8),
-    fontWeight: '600'
+    fontWeight: '600',
   },
   SubmitBox: {
     borderRadius: normalize(8),
@@ -134,8 +138,8 @@ const styles = StyleSheet.create({
     marginTop: normalize(40),
   },
   Submit: {
-    fontSize: normalize(20),
-    padding: normalize(8),
+    fontSize: normalize(22),
+    padding: normalize(10),
     fontWeight: '700',
     textAlign: 'center',
     color: 'white',
