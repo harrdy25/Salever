@@ -140,11 +140,7 @@ const styles = StyleSheet.create({
     borderRadius: normalize(100),
     borderWidth: normalize(3),
     resizeMode: 'center',
-    borderColor: '#616161',
-
-    fontSize: normalize(22),
-    fontWeight: '700',
-    color: '#616161'
+    borderColor: '#616161',    
   },
   ProfileName:{
     fontSize: normalize(22),
