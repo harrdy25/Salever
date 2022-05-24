@@ -34,6 +34,13 @@
       "password": "101010",
       "phone": "9408855078",
       "id": 5
+    },
+    {
+      "name": "Anjali",
+      "email": "anjali@gmial.com",
+      "password": "987654",
+      "phone": "9856231478",
+      "id": 6
     }
   ],
   "products": [

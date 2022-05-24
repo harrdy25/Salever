@@ -62,6 +62,7 @@ const PhoneLogin = ({navigation}) => {
             placeholder="Email"
             placeholderTextColor={'gray'}
             onChangeText={text => setEmail(text)}
+            autoCapitalize="none"
           />
         </View>
         <View style={[styles.NameBox, {flexDirection: 'row'}]}>
@@ -103,9 +104,15 @@ const PhoneLogin = ({navigation}) => {
             justifyContent: 'center',
             marginVertical: normalize(20),
           }}>
-          <Ionicons name="logo-google" style={styles.MenuIcon} size={30} />
-          <Ionicons name="logo-facebook" style={styles.MenuIcon} size={30} />
-          <Ionicons name="logo-twitter" style={styles.MenuIcon} size={30} />
+          <TouchableOpacity>
+            <Ionicons name="logo-google" style={styles.MenuIcon} size={30} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Ionicons name="logo-facebook" style={styles.Facebook} size={30} />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Ionicons name="logo-twitter" style={styles.MenuIcon} size={30} />
+          </TouchableOpacity>
         </View>
         <Text style={{fontSize: normalize(18), textAlign: 'center'}}>
           You have an account already?{'  '}
@@ -170,4 +177,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginRight: normalize(16),
   },
+  Facebook: {
+    marginHorizontal: normalize(20)
+  }
 });
