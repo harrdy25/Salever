@@ -64,7 +64,7 @@ const ProductUpload = ({navigation}) => {
                 <Entypo
                   name="edit"
                   size={30}
-                  color={'blue'}
+                  color={'green'}
                   style={styles.Icon}
                 />
               </TouchableOpacity>
@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
   Box: {
     marginHorizontal: normalize(16),
     marginVertical: normalize(5),
-    backgroundColor: '#94af76',
+    backgroundColor: '#bdbdbd',
     borderRadius: normalize(10),
   },
   TitleName: {
@@ -212,8 +212,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   Price: {
-    fontSize: normalize(18),
-    fontWeight: '600',
+    fontSize: normalize(20),
+    fontWeight: '700',
+    color: '#003d00'
   },
   Information: {
     fontSize: normalize(16),

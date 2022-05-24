@@ -14,12 +14,13 @@ import {normalize} from '../utils';
 import {images} from '../assets/images';
 import CategoriesData from './CategoriesData';
 
+
 const CategoriesModal = ({visible, onClose}) => {
   const Data = CategoriesData;
 
   const renderData = ({item}) => (
     <View>
-      <TouchableOpacity style={{flexDirection: 'row'}}>
+      <TouchableOpacity style={{flexDirection: 'row', margin: normalize(5)}}>
         <Image style={styles.Icon} source={item.image} />
         <Text style={styles.Text}>{item.text}</Text>
         <Entypo name="chevron-right" size={30} style={styles.IconRight} />

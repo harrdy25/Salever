@@ -59,8 +59,7 @@ function TabHandler() {
           } else if (route.name === 'SELL') {
             (iconName = focused ? 'plus-circle' : 'plus-circle-outline'),
               (size = 40);
-          }
-          // You can return any component that you like here!
+          }          
           return (
             <MaterialCommunityIcons name={iconName} size={size} color={color} />
           );

@@ -264,9 +264,9 @@ const Chat = ({navigation}) => {
                 here.
               </Text>
             </View>
-            <View style={styles.SellingBox}>
+            <TouchableOpacity style={styles.SellingBox}>
               <Text style={styles.Selling}>Start Selling</Text>
-            </View>
+            </TouchableOpacity>
           </>
         )}
       </View>

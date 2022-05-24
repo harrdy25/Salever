@@ -80,9 +80,9 @@ const MyAds = () => {
                 Let go of what you don't use anymore
               </Text>
             </View>
-            <View style={styles.SellingBox}>
+            <TouchableOpacity style={styles.SellingBox}>
               <Text style={styles.Selling}>Start Selling</Text>
-            </View>
+            </TouchableOpacity>
           </>
         )}
         {screen === 1 && (
@@ -106,9 +106,9 @@ const MyAds = () => {
                 mark the items that you like and share it with the world!
               </Text>
             </View>
-            <View style={styles.SellingBox}>
+            <TouchableOpacity style={styles.SellingBox}>
               <Text style={styles.Selling}>Discover</Text>
-            </View>
+            </TouchableOpacity>
           </>
         )}
       </View>

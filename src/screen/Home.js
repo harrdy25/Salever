@@ -19,7 +19,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import CategoriesModal from '../component/CategoriesModal';
 import CategoriesData from '../component/CategoriesData';
 import SellingItem from '../component/SellingItem';
-import {BASE_URL} from '../Shared/BaseUrl';
+import {useSelector, useDispatch} from 'react-redux';
+import {fetchProduct} from '../redux/action/Product.Action';
 
 const Home = ({navigation}) => {
   const Data = CategoriesData;
@@ -27,40 +28,34 @@ const Home = ({navigation}) => {
 
   const [select, setSelect] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-  const [data, setData] = useState([]);
 
-  const fetchData = async () => {
-    const resp = await fetch(BASE_URL + 'products');
-    const data = await resp.json();
-    setData(data);
-  };
+  const product = useSelector(state => state.product);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchData();
+    dispatch(fetchProduct());
   }, []);
-
-
 
   const renderItem = ({item, index}) => {
     return (
       <TouchableOpacity style={styles.Card}>
-      <Image style={styles.Photos} source={images.IMG_OLA} />
-      <TouchableOpacity
-        style={styles.HeartBox}
-        onPress={() => setSelect(!select)}>
-        <Entypo
-          style={styles.HeartIcon}
-          name={select ? 'heart' : 'heart-outlined'}
-          size={30}
-          color={select ? colors.red : colors.extraLight}
-        />
+        <Image style={styles.Photos} source={images.IMG_OLA} />
+        <TouchableOpacity
+          style={styles.HeartBox}
+          onPress={() => setSelect(!select)}>
+          <Entypo
+            style={styles.HeartIcon}
+            name={select ? 'heart' : 'heart-outlined'}
+            size={30}
+            color={select ? colors.red : colors.extraLight}
+          />
+        </TouchableOpacity>
+        <View style={styles.CardFooter}>
+          <Text style={styles.Prices}>₹ {item.price}</Text>
+          <Text style={styles.Details}>{item.title}</Text>
+          <Text style={styles.Address}>{item.area}</Text>
+        </View>
       </TouchableOpacity>
-      <View style={styles.CardFooter}>
-        <Text style={styles.Prices}>{item.price}</Text>
-        <Text style={styles.Details}>{item.title}</Text>
-        <Text style={styles.Address}>{item.area}</Text>
-      </View>
-    </TouchableOpacity>
     );
   };
 
@@ -225,9 +220,9 @@ const Home = ({navigation}) => {
             </View>
             <View style={{marginHorizontal: normalize(8)}}>
               <FlatList
-                data={data}
+                data={product.product}
                 renderItem={renderItem}
-                keyExtractor={item => item.id.toString()}
+                keyExtractor={item => item.id}
                 numColumns={2}
                 scrollEnabled={false}
               />
@@ -322,7 +317,6 @@ const styles = StyleSheet.create({
   Card: {
     backgroundColor: colors.extraLight,
     borderRadius: normalize(8),
-    alignItems: 'center',
     flex: 1,
     marginHorizontal: normalize(8),
     marginVertical: normalize(8),
@@ -338,6 +332,7 @@ const styles = StyleSheet.create({
     height: normalize(150),
     width: normalize(140),
     resizeMode: 'cover',
+    alignSelf: 'center'
     // "center","contain","cover","repeat","stretch"
   },
   HeartBox: {
@@ -352,6 +347,7 @@ const styles = StyleSheet.create({
   },
   CardFooter: {
     marginVertical: normalize(10),
+    marginLeft: normalize(10)
   },
   Prices: {
     fontSize: normalize(20),
