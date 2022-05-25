@@ -26,7 +26,7 @@ const Home = ({navigation}) => {
   const Data = CategoriesData;
   const ItemData = SellingItem;
 
-  const [select, setSelect] = useState(false);
+  const [select, setSelect] = useState(ItemData);
   const [modalVisible, setModalVisible] = useState(false);
 
   const product = useSelector(state => state.product);
@@ -109,7 +109,7 @@ const Home = ({navigation}) => {
       default:
     }
   };
-  const renderData = ({item}) => (
+  const renderData = ({item, index}) => (
     <TouchableOpacity
       style={styles.IconContainer}
       onPress={() => onclick_item(item.text)}>
@@ -123,12 +123,20 @@ const Home = ({navigation}) => {
       <Image style={styles.Photos} source={item.Image} />
       <TouchableOpacity
         style={styles.HeartBox}
-        onPress={() => setSelect(!select)}>
+        onPress={() => {          
+          let PostLike = [...ItemData];
+          if (PostLike[index].isLike) {
+            PostLike[index].isLike = false;
+          } else {
+            PostLike[index].isLike = true;
+          }
+          setSelect(PostLike);
+        }}>
         <Entypo
           style={styles.HeartIcon}
-          name={select ? 'heart' : 'heart-outlined'}
+          name={item.isLike ? 'heart' : 'heart-outlined'}
           size={30}
-          color={select ? colors.red : colors.extraLight}
+          color={item.isLike ? colors.red : colors.extraLight}
         />
       </TouchableOpacity>
       <View style={styles.CardFooter}>
@@ -332,7 +340,7 @@ const styles = StyleSheet.create({
     height: normalize(150),
     width: normalize(140),
     resizeMode: 'cover',
-    alignSelf: 'center'
+    alignSelf: 'center',
     // "center","contain","cover","repeat","stretch"
   },
   HeartBox: {
@@ -347,7 +355,7 @@ const styles = StyleSheet.create({
   },
   CardFooter: {
     marginVertical: normalize(10),
-    marginLeft: normalize(10)
+    marginLeft: normalize(10),
   },
   Prices: {
     fontSize: normalize(20),
@@ -382,3 +390,14 @@ const styles = StyleSheet.create({
 //     setSearch(text);
 //   }
 // };
+
+// onPress={() => {
+//   // setLiked(!liked)
+//   const postList = [...Post];
+//   if (postList[index].isLike) {
+//       postList[index].isLike = false
+//   } else {
+//       postList[index].isLike = true;
+//   }
+//   setPost(postList);
+// }}

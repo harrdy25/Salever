@@ -82,3 +82,4 @@ export const deleteProduct = (id) => (dispatch) => {
     dispatch(errorProduct(e));
 }
   }
+

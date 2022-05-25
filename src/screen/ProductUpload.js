@@ -25,13 +25,17 @@ const ProductUpload = ({navigation}) => {
   const [area, setArea] = useState('');
 
   const handleClick = () => {
-    let proData = {
-      title,
-      info,
-      price,
-      area,
-    };
-    dispacth(insertProduct(proData));
+    if (!(title == '' || info == '' || price == '' || area == '')) {
+      let proData = {
+        title,
+        info,
+        price,
+        area,
+      };
+      dispacth(insertProduct(proData));
+    } else {
+      alert('Fillup All Details...');
+    }
   };
 
   useEffect(() => {
@@ -177,6 +181,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginLeft: normalize(16),
     marginVertical: normalize(10),
+  },
+  FashionRed: {
+    fontSize: normalize(20),
+    fontWeight: '600',
+    marginLeft: normalize(16),
+    marginVertical: normalize(10),
+    color: 'red'
   },
   NameBox: {
     borderColor: 'gray',
