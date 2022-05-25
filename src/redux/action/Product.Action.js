@@ -35,24 +35,50 @@ export const errorProduct = (error) => (dispatch) => {
     dispatch({type: ActionType.ERROR_PRODUCT, payload: error})
 }
 
-export const deleteProduct = (id) => (dispatch) => {
-dispatch({type: ActionType.DELETE_PRODUCT, payload: id})
-}
-
 export const fetchProduct = () => (dispatch) => {
     try {
         dispatch(loadingProduct());
         fetch(BASE_URL + "products", {
             method: 'GET',
         })
-        .then(response => response.json())
+        .then(response => {
+          if (response.ok) {
+            return response.json()
+          } else {
+            throw new Error("Somthing Wrong")
+          }
+        })
         .then(data => {
             dispatch({type: ActionType.GET_PRODUCT, payload: data})
         })
         .catch(error => {
-            dispatch(errorProduct(error))
+            dispatch(errorProduct(error.message))
         })
     } catch (e) {
         dispatch(errorProduct(e));
     }
 };
+
+export const deleteProduct = (id) => (dispatch) => {
+  try {
+    dispatch(loadingProduct());
+    fetch(BASE_URL + "products/" + id, {
+        method: 'DELETE',
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json()
+      } else {
+        throw new Error("Somthing Wrong")
+      }
+    })
+    .then(data => {
+        dispatch({type: ActionType.DELETE_PRODUCT, payload: id})
+    })
+    .catch(error => {
+        dispatch(errorProduct(error.message))
+    })
+} catch (e) {
+    dispatch(errorProduct(e));
+}
+  }

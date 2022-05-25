@@ -13,7 +13,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {useDispatch, useSelector} from 'react-redux';
 import {normalize} from '../utils/index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {fetchProduct, insertProduct} from '../redux/action/Product.Action';
+import {deleteProduct, fetchProduct, insertProduct} from '../redux/action/Product.Action';
 
 const ProductUpload = ({navigation}) => {
   const product = useSelector(state => state.product);
@@ -38,6 +38,10 @@ const ProductUpload = ({navigation}) => {
     dispacth(fetchProduct());
   }, []);
 
+  const handleDelete = (id) => {
+    dispacth(deleteProduct(id));
+  }
+
   const renderItem = ({item}) => {
     return (
       <View style={styles.Box}>
@@ -52,7 +56,7 @@ const ProductUpload = ({navigation}) => {
               <Text style={styles.Area}>{item.area}</Text>
             </View>
             <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => handleDelete(item.id)}>
                 <Entypo
                   name="cross"
                   size={35}
