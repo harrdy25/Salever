@@ -13,7 +13,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {useDispatch, useSelector} from 'react-redux';
 import {normalize} from '../utils/index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {deleteProduct, fetchProduct, insertProduct} from '../redux/action/Product.Action';
+import {deleteProduct, fetchProduct, insertProduct, updateProduct} from '../redux/action/Product.Action';
 
 const ProductUpload = ({navigation}) => {
   const product = useSelector(state => state.product);
@@ -46,6 +46,11 @@ const ProductUpload = ({navigation}) => {
     dispacth(deleteProduct(id));
   }
 
+  const updateData = (id) => {
+    dispacth(updateProduct(id))
+  }
+
+
   const renderItem = ({item}) => {
     return (
       <View style={styles.Box}>
@@ -68,7 +73,7 @@ const ProductUpload = ({navigation}) => {
                   style={styles.Icon}
                 />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => updateData(item.id)}>
                 <Entypo
                   name="edit"
                   size={30}
@@ -104,6 +109,7 @@ const ProductUpload = ({navigation}) => {
                 style={styles.Name}
                 placeholder="Title name...."
                 placeholderTextColor={'gray'}
+                value={title}
                 onChangeText={text => setTitle(text)}
               />
             </View>
@@ -113,6 +119,7 @@ const ProductUpload = ({navigation}) => {
                 style={styles.Name}
                 placeholder="Add Descriptions"
                 placeholderTextColor={'gray'}
+                value={info}
                 onChangeText={text => setInfo(text)}
               />
             </View>
@@ -130,6 +137,7 @@ const ProductUpload = ({navigation}) => {
                 placeholder="₹ 00.0"
                 placeholderTextColor={'gray'}
                 keyboardType="number-pad"
+                value={price}
                 onChangeText={text => setPrice(text)}
               />
             </View>
@@ -138,6 +146,7 @@ const ProductUpload = ({navigation}) => {
               <TextInput
                 style={styles.Name}
                 placeholder="Address"
+                value={area}
                 placeholderTextColor={'gray'}
                 onChangeText={text => setArea(text)}
               />

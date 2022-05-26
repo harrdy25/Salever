@@ -18,7 +18,7 @@ const Sell = ({navigation}) => {
 
   const onclick_item = text => {
     switch (text) {
-      case 'OLX Autos(Cars)':
+      case 'Autos(Cars)':
         navigation.navigate('Cars');
         break;
       case 'Properties':
@@ -33,10 +33,10 @@ const Sell = ({navigation}) => {
       case 'Bikes':
         navigation.navigate('Bikes');
         break;
-      case 'Electronics & Appliances':
+      case 'Electronics':
         navigation.navigate('ElectronicsAndAppliances');
         break;
-      case 'Commercial Vehicles & Spares':
+      case 'Vehicles':
         navigation.navigate('CommercialVehiclesAndSpares');
         break;
       case 'Furniture':
@@ -45,7 +45,7 @@ const Sell = ({navigation}) => {
       case 'Fashion':
         navigation.navigate('Fashion');
         break;
-      case 'Books, Sports, hobbies':
+      case 'Books...':
         navigation.navigate('BooksSportsAndHpbbies');
         break;
       case 'Pets':

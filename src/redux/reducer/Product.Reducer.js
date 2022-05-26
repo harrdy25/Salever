@@ -31,7 +31,14 @@ export const ProductReducer = (state = initValue, action) => {
     case ActionType.DELETE_PRODUCT:
       return {
         ...state,
-        product: state.product.filter((item) => item.id !== action.payload),
+        product: state.product.filter(item => item.id !== action.payload),
+        isloading: false,
+        error: '',
+      };
+    case ActionType.UPDATE_PRODUCT:
+      return {
+        ...state,
+        product: state.product.map((item) => item.id === action.payload.id ? action.payload : item),
         isloading: false,
         error: '',
       };
