@@ -83,21 +83,20 @@ export const deleteProduct = id => dispatch => {
   }
 };
 
-export const updateProduct = id => dispatch => {
+// Production.Action File
+export const updateProduct = data => dispatch => {
   try {
     dispatch(loadingProduct());
-    fetch(BASE_URL + 'products/' + id, {
+    fetch(BASE_URL + 'products/' + data.id, {
       method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Somthing Wrong');
-        }
-      })
+      .then(response => response.json())
       .then(data => {
-        dispatch({type: ActionType.UPDATE_PRODUCT, payload: id});
+        dispatch({type: ActionType.UPDATE_PRODUCT, payload: data});
       })
       .catch(error => {
         dispatch(errorProduct(error.message));
@@ -106,3 +105,4 @@ export const updateProduct = id => dispatch => {
     dispatch(errorProduct(e));
   }
 };
+

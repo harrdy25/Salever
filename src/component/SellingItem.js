@@ -7,7 +7,6 @@ export default ItemData = [
     title: '₹ 14,000',
     Text: 'Iphone 8 plus 64gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 2,
@@ -15,7 +14,6 @@ export default ItemData = [
     title: '₹ 18,000',
     Text: 'Iphone XR 128gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 3,
@@ -23,7 +21,6 @@ export default ItemData = [
     title: '₹ 26,500',
     Text: 'Iphone XS 256gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 4,
@@ -31,7 +28,6 @@ export default ItemData = [
     title: '₹ 34,500',
     Text: 'Iphone 11 128gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 5,
@@ -39,7 +35,6 @@ export default ItemData = [
     title: '₹ 36,500',
     Text: 'Iphone 11 256gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 6,
@@ -47,7 +42,6 @@ export default ItemData = [
     title: '₹ 40,999',
     Text: 'Iphone 11 Pro 128gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 7,
@@ -55,7 +49,6 @@ export default ItemData = [
     title: '₹ 55,999',
     Text: 'Iphone11 pro max...',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 8,
@@ -63,7 +56,6 @@ export default ItemData = [
     title: '₹ 64,000',
     Text: 'Iphone X 256gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 9,
@@ -71,7 +63,6 @@ export default ItemData = [
     title: '₹ 94,999',
     Text: 'Iphone 13 Pro Max...',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 10,
@@ -79,7 +70,6 @@ export default ItemData = [
     title: '₹ 84,999',
     Text: 'Iphone 13 Pro 256gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 11,
@@ -87,7 +77,6 @@ export default ItemData = [
     title: '₹ 20,000',
     Text: 'Iphone X 64gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 12,
@@ -95,7 +84,6 @@ export default ItemData = [
     title: '₹ 59,000',
     Text: 'Iphone 12 pro 256...',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 13,
@@ -103,7 +91,6 @@ export default ItemData = [
     title: '₹ 49,000',
     Text: 'Iphone 12 64gb',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
   {
     value: 14,
@@ -111,6 +98,5 @@ export default ItemData = [
     title: '₹ 70,000',
     Text: 'Iphone 12 pro max...',
     Add: 'Subhash Nagar',
-    icon: images.IMG_Heart_Png,
   },
 ];

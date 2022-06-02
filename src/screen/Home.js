@@ -148,7 +148,7 @@ const Home = ({navigation}) => {
   );
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{flex: 1, backgroundColor: '#FFFFFF'}}>
       <View>
         <Entypo
           name="menu"
@@ -158,7 +158,7 @@ const Home = ({navigation}) => {
           onPress={() => navigation.openDrawer()}
         />
         <View style={{borderWidth: normalize(1)}} />
-        <TouchableOpacity
+        <TouchableOpacity onPress={() => navigation.navigate('Counter')}
           style={{flexDirection: 'row', marginHorizontal: normalize(10)}}>
           <Entypo
             style={styles.Image}
@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
   },
   TextInput: {
     color: colors.gray,
-    fontSize: normalize(20),
+    fontSize: normalize(16),
     fontWeight: '600',
   },
   SearchInput: {
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
   Card: {
-    backgroundColor: colors.extraLight,
+    backgroundColor: '#FFFFFF',
     borderRadius: normalize(8),
     flex: 1,
     marginHorizontal: normalize(8),

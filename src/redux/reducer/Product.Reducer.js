@@ -35,12 +35,13 @@ export const ProductReducer = (state = initValue, action) => {
         isloading: false,
         error: '',
       };
+      // production.Reducer file
     case ActionType.UPDATE_PRODUCT:
       return {
         ...state,
         product: state.product.map((item) => item.id === action.payload.id ? action.payload : item),
         isloading: false,
-        error: '',
+        error: action.payload,
       };
     case ActionType.ERROR_PRODUCT:
       return {

@@ -31,10 +31,12 @@ import BooksSportsAndHpbbies from './src/screen/Category/BooksSportsAndHpbbies';
 import Pets from './src/screen/Category/Pets';
 import Services from './src/screen/Category/Services';
 import {Provider} from 'react-redux';
-import { store } from './src/redux/store';
+import { configStore } from './src/redux/store';
 import Details from './src/screen/Details';
 import ForgotPassword from './src/screen/ForgotPassword';
 import ProductUpload from './src/screen/ProductUpload';
+import {PersistGate} from 'redux-persist/integration/react';
+import Counter from './src/screen/Counter';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -59,7 +61,7 @@ function TabHandler() {
           } else if (route.name === 'SELL') {
             (iconName = focused ? 'plus-circle' : 'plus-circle-outline'),
               (size = 40);
-          }          
+          }
           return (
             <MaterialCommunityIcons name={iconName} size={size} color={color} />
           );
@@ -185,16 +187,20 @@ function HomeScreenStack() {
         component={Details}
         options={{headerShown: false}}
       />
-       <HomeStack.Screen
+      <HomeStack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
         options={{headerShown: false}}
       />
-
       <HomeStack.Screen
-      name='ProductUpload'
-      component={ProductUpload}
-      options={{headerShown: false}}
+        name="ProductUpload"
+        component={ProductUpload}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name="Counter"
+        component={Counter}
+        options={{headerShown: false}}
       />
     </HomeStack.Navigator>
   );
@@ -224,101 +230,106 @@ function AccountScreenStack() {
 }
 
 const App = () => {
+
+  const {store, persistor} = configStore(); 
+
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <Drawer.Navigator
-          screenOptions={{headerShown: false}}
-          initialRouteName="Home">
-          <Drawer.Screen
-            name="Home"
-            component={TabHandler}
-            options={{
-              drawerIcon: ({focused, size}) => (
-                <MaterialCommunityIcons
-                  name="home-circle"
-                  size={size}
-                  color={'green'}
-                />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="Profile"
-            component={Profile}
-            options={{
-              drawerIcon: ({focused, size}) => (
-                <MaterialCommunityIcons
-                  name="snowman"
-                  size={size}
-                  color={'green'}
-                />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="Chat"
-            component={Chat}
-            options={{
-              drawerIcon: ({focused, size}) => (
-                <MaterialCommunityIcons
-                  name="chat-processing"
-                  size={size}
-                  color={'green'}
-                />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="Notification"
-            component={Notification}
-            options={{
-              drawerIcon: ({focused, size}) => (
-                <Ionicons
-                  name="ios-notifications-circle"
-                  size={size}
-                  color={'green'}
-                />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="Settingss"
-            component={Settingss}
-            options={{
-              drawerIcon: ({focused, size}) => (
-                <Ionicons name="settings" size={size} color={'green'} />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="Account"
-            component={Account}
-            options={{
-              drawerIcon: ({focused, size}) => (
-                <MaterialCommunityIcons
-                  name="account-circle"
-                  size={size}
-                  color={'green'}
-                />
-              ),
-            }}
-          />
-          <Drawer.Screen
-            name="Logout"
-            component={Login}
-            options={{
-              drawerIcon: ({focused, size}) => (
-                <MaterialCommunityIcons
-                  name="logout"
-                  size={size}
-                  color={'green'}
-                />
-              ),
-            }}
-          />
-        </Drawer.Navigator>
-      </NavigationContainer>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <Drawer.Navigator
+            screenOptions={{headerShown: false}}
+            initialRouteName="Home">
+            <Drawer.Screen
+              name="Home"
+              component={TabHandler}
+              options={{
+                drawerIcon: ({focused, size}) => (
+                  <MaterialCommunityIcons
+                    name="home-circle"
+                    size={size}
+                    color={'green'}
+                  />
+                ),
+              }}
+            />
+            <Drawer.Screen
+              name="Profile"
+              component={Profile}
+              options={{
+                drawerIcon: ({focused, size}) => (
+                  <MaterialCommunityIcons
+                    name="snowman"
+                    size={size}
+                    color={'green'}
+                  />
+                ),
+              }}
+            />
+            <Drawer.Screen
+              name="Chat"
+              component={Chat}
+              options={{
+                drawerIcon: ({focused, size}) => (
+                  <MaterialCommunityIcons
+                    name="chat-processing"
+                    size={size}
+                    color={'green'}
+                  />
+                ),
+              }}
+            />
+            <Drawer.Screen
+              name="Notification"
+              component={Notification}
+              options={{
+                drawerIcon: ({focused, size}) => (
+                  <Ionicons
+                    name="ios-notifications-circle"
+                    size={size}
+                    color={'green'}
+                  />
+                ),
+              }}
+            />
+            <Drawer.Screen
+              name="Settingss"
+              component={Settingss}
+              options={{
+                drawerIcon: ({focused, size}) => (
+                  <Ionicons name="settings" size={size} color={'green'} />
+                ),
+              }}
+            />
+            <Drawer.Screen
+              name="Account"
+              component={Account}
+              options={{
+                drawerIcon: ({focused, size}) => (
+                  <MaterialCommunityIcons
+                    name="account-circle"
+                    size={size}
+                    color={'green'}
+                  />
+                ),
+              }}
+            />
+            <Drawer.Screen
+              name="Logout"
+              component={Login}
+              options={{
+                drawerIcon: ({focused, size}) => (
+                  <MaterialCommunityIcons
+                    name="logout"
+                    size={size}
+                    color={'green'}
+                  />
+                ),
+              }}
+            />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 };

@@ -13,7 +13,12 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import {useDispatch, useSelector} from 'react-redux';
 import {normalize} from '../utils/index';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {deleteProduct, fetchProduct, insertProduct, updateProduct} from '../redux/action/Product.Action';
+import {
+  deleteProduct,
+  fetchProduct,
+  insertProduct,
+  updateProduct,
+} from '../redux/action/Product.Action';
 
 const ProductUpload = ({navigation}) => {
   const product = useSelector(state => state.product);
@@ -23,6 +28,8 @@ const ProductUpload = ({navigation}) => {
   const [info, setInfo] = useState('');
   const [price, setPrice] = useState('');
   const [area, setArea] = useState('');
+  const [id, setId] = useState(0);
+  const [button, setButton] = useState(0);
 
   const handleClick = () => {
     if (!(title == '' || info == '' || price == '' || area == '')) {
@@ -33,6 +40,10 @@ const ProductUpload = ({navigation}) => {
         area,
       };
       dispacth(insertProduct(proData));
+      setTitle('');
+      setArea('');
+      setInfo('');
+      setPrice('');
     } else {
       alert('Fillup All Details...');
     }
@@ -42,14 +53,35 @@ const ProductUpload = ({navigation}) => {
     dispacth(fetchProduct());
   }, []);
 
-  const handleDelete = (id) => {
+  const handleDelete = id => {
     dispacth(deleteProduct(id));
-  }
+  };
 
-  const updateData = (id) => {
-    dispacth(updateProduct(id))
-  }
+  const updateData = () => {
+    let pData = {
+      id: id,
+      title,
+      info,
+      price,
+      area,
+    };
+    dispacth(updateProduct(pData));
+    setTitle('');
+    setInfo('');
+    setArea('');
+    setPrice('');
+    setButton(0);
+  };
 
+  const productEdit = id => {
+    let fData = product.product.filter(item => item.id === id);
+    setTitle(fData[0].title);
+    setInfo(fData[0].info);
+    setArea(fData[0].area);
+    setPrice(fData[0].price);
+    setButton(1);
+    setId(id);
+  };
 
   const renderItem = ({item}) => {
     return (
@@ -73,7 +105,7 @@ const ProductUpload = ({navigation}) => {
                   style={styles.Icon}
                 />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => updateData(item.id)}>
+              <TouchableOpacity onPress={() => productEdit(item.id)}>
                 <Entypo
                   name="edit"
                   size={30}
@@ -123,13 +155,6 @@ const ProductUpload = ({navigation}) => {
                 onChangeText={text => setInfo(text)}
               />
             </View>
-            {/* <Text style={styles.Fashion}>Upload Images*</Text>
-        <TouchableOpacity
-          style={{
-            marginLeft: normalize(16),
-          }}>
-          <Ionicons name="md-camera-outline" size={100} />
-        </TouchableOpacity> */}
             <Text style={styles.Fashion}>₹ Price*</Text>
             <View style={styles.NameBox}>
               <TextInput
@@ -151,11 +176,19 @@ const ProductUpload = ({navigation}) => {
                 onChangeText={text => setArea(text)}
               />
             </View>
-            <TouchableOpacity
-              style={styles.SubmitBox}
-              onPress={() => handleClick()}>
-              <Text style={styles.Submit}>Submit</Text>
-            </TouchableOpacity>
+            {button ? (
+              <TouchableOpacity
+                style={styles.SubmitBox}
+                onPress={() => updateData()}>
+                <Text style={styles.Submit}>Update Submit</Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                style={styles.SubmitBox}
+                onPress={() => handleClick()}>
+                <Text style={styles.Submit}>Submit</Text>
+              </TouchableOpacity>
+            )}
             <View>
               <FlatList
                 data={product.product}
@@ -196,7 +229,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginLeft: normalize(16),
     marginVertical: normalize(10),
-    color: 'red'
+    color: 'red',
   },
   NameBox: {
     borderColor: 'gray',
@@ -238,7 +271,7 @@ const styles = StyleSheet.create({
   Price: {
     fontSize: normalize(20),
     fontWeight: '700',
-    color: '#003d00'
+    color: '#003d00',
   },
   Information: {
     fontSize: normalize(16),
@@ -253,3 +286,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
 });
+
+{
+  /* <Text style={styles.Fashion}>Upload Images*</Text>
+        <TouchableOpacity
+          style={{
+            marginLeft: normalize(16),
+          }}>
+          <Ionicons name="md-camera-outline" size={100} />
+        </TouchableOpacity> */
+}

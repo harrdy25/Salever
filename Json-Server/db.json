@@ -45,18 +45,21 @@
   ],
   "products": [
     {
-      "title": "Access 125",
-      "info": "Model : - 2019, km:- 9500",
-      "price": "34000",
-      "area": "Nana Vrachha",
-      "id": 5
+      "id": 7,
+      "title": "Bullet 350",
+      "info": "Model 2020, km 5000",
+      "price": "75555",
+      "area": "Sarthana"
     },
     {
-      "title": "Bullet 350cc",
-      "info": "Model 2020, km 3650",
-      "price": "75000",
-      "area": "Sarthana Jakatnaka",
-      "id": 7
-    }    
+      "id": 684,
+      "title": "Ola",
+      "info": "Km  2541, gray Color",
+      "price": "98500",
+      "area": "Sarthana Jakatnaka"
+    }
+  ],
+  "Carts": [
+    {}
   ]
 }

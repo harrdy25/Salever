@@ -11,3 +11,12 @@ export const INSERT_PRODUCT =  "INSERT_PRODUCT";
 export const UPDATE_PRODUCT =  "UPDATE_PRODUCT";
 export const DELETE_PRODUCT =  "DELETE_PRODUCT";
 export const ERROR_PRODUCT =  "ERROR_PRODUCT";
+
+export const GET_CART_PRODUCT = "GET_CART_PRODUCT";
+
+export const LOADING_CART = "LOADING_CART";
+export const GET_CART = "GET_CART";
+export const INSERT_CART = "INSERT_CART";
+export const UPDATE_CART =  "UPDATE_CART";
+export const DELETE_CART =  "DELETE_CART";
+export const ERROR_CART =  "ERROR_CART";
