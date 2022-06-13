@@ -1,3 +1,4 @@
+import { postAllProductDetails } from '../../comman/apis/product.api';
 import {BASE_URL} from '../../Shared/BaseUrl';
 import * as ActionType from '../ActionTypes';
 
@@ -8,14 +9,15 @@ export const insertProduct = productData => dispatch => {
       id: Math.floor(Math.random() * 1000),
       ...productData,
     };
-    fetch(BASE_URL + 'products', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(fData),
-    })
-      .then(response => response.json())
+    // fetch(BASE_URL + 'products', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(fData),
+    // })
+    //   .then(response => response.json())
+    postAllProductDetails(fData)
       .then(data => {
         dispatch({type: ActionType.INSERT_PRODUCT, payload: fData});
       })
@@ -35,29 +37,37 @@ export const errorProduct = error => dispatch => {
   dispatch({type: ActionType.ERROR_PRODUCT, payload: error});
 };
 
+// export const fetchProduct = () => dispatch => {
+//   try {
+//     dispatch(loadingProduct());
+//     fetch(BASE_URL + 'products', {
+//       method: 'GET',
+//     })
+//       .then(response => {
+//         if (response.ok) {
+//           return response.json();
+//         } else {
+//           throw new Error('Somthing Wrong');
+//         }
+//       })
+//       .then(data => {
+//         dispatch({type: ActionType.GET_PRODUCT, payload: data});
+//       })
+//       .catch(error => {
+//         dispatch(errorProduct(error.message));
+//       });
+//   } catch (e) {
+//     dispatch(errorProduct(e));
+//   }
+// };
+
 export const fetchProduct = () => dispatch => {
-  try {
-    dispatch(loadingProduct());
-    fetch(BASE_URL + 'products', {
-      method: 'GET',
-    })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Somthing Wrong');
-        }
-      })
-      .then(data => {
-        dispatch({type: ActionType.GET_PRODUCT, payload: data});
-      })
-      .catch(error => {
-        dispatch(errorProduct(error.message));
-      });
-  } catch (e) {
-    dispatch(errorProduct(e));
-  }
-};
+  dispatch({type: ActionType.GET_PRODUCT});
+}
+
+export const setProduct = (products) => (dispatch) => {
+dispatch({type: ActionType.RETRIEVED_PRODUCT, payload: products})
+}
 
 export const deleteProduct = id => dispatch => {
   try {

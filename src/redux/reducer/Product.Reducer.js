@@ -14,7 +14,7 @@ export const ProductReducer = (state = initValue, action) => {
         isloading: true,
         error: '',
       };
-    case ActionType.GET_PRODUCT:
+    case ActionType.RETRIEVED_PRODUCT:
       return {
         ...state,
         product: action.payload,
