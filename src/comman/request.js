@@ -17,11 +17,11 @@ export const getRequest = path => {
   });
 };
 
-export const postRequest = (path, data) => {
+export const postRequest = (path, pdata) => {
   return sendRequest({
     url: path,
     method: 'POST',
-    data: JSON.stringify(data),
+    data: JSON.stringify(pdata),
     headers: {'Content-Type': 'application/json'},
   });
 };
