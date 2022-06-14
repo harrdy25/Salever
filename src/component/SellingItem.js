@@ -61,7 +61,7 @@ export default ItemData = [
     value: 9,
     Image: images.IMG_Iphone13MAX_Png,
     title: '₹ 94,999',
-    Text: 'Iphone 13 Pro Max...',
+    Text: 'Iphone 13 Pro Max 256gb',
     Add: 'Subhash Nagar',
   },
   {

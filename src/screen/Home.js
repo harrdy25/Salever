@@ -141,8 +141,8 @@ const Home = ({navigation}) => {
         />
       </TouchableOpacity>
       <View style={styles.CardFooter}>
-        <Text style={styles.Prices}>{item.title}</Text>
-        <Text style={styles.Details}>{item.Text}</Text>
+        <Text numberOfLines={1} style={styles.Prices}>{item.title}</Text>
+        <Text  numberOfLines={1} style={styles.Details}>{item.Text}</Text>
         <Text style={styles.Address}>{item.Add}</Text>
       </View>
     </TouchableOpacity>

@@ -10,8 +10,6 @@ export const insertedProduct = productItem => dispatch => {
   dispatch({type: ActionType.INSERTED_PRODUCT, payload: productItem});
 };
 
-
-
 export const loadingProduct = () => dispatch => {
   dispatch({type: ActionType.LOADING_PRODUCT});
 };
