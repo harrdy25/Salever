@@ -35,7 +35,7 @@ export const deleteRequest = (path, id) => {
 
 export const updateRequest = (path, id, data) => {
   return sendRequest({
-    url: path + id,
+    url: path + id.id,
     method: 'PUT',
     data: JSON.stringify(data),
     headers: {'Content-Type': 'application/json'},

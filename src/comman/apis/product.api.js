@@ -5,12 +5,12 @@ export const getAllProductDetails = () => {
 }
 
 export const postAllProductDetails = (data) => {
-    return postRequest('products', data);
+    return postRequest('/products', data);
 }
 
 export const deleteProductDetails = (id) => {
     return deleteRequest('products/', id)
 }
-export const updateAllProductItem = (id, data) => {
+export const updateAllProductItem = (id, data) => {    
     return updateRequest('products/', id, data)
 }

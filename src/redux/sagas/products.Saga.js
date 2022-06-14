@@ -1,7 +1,7 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import * as ActionType from '../ActionTypes';
-import { deleteProductDetails, getAllProductDetails, postAllProductDetails } from '../../comman/apis/product.api';
-import { deletedProduct, insertedProduct, setProduct } from '../action/Product.Action';
+import { deleteProductDetails, getAllProductDetails, postAllProductDetails,updateAllProductItem } from '../../comman/apis/product.api';
+import { deletedProduct, insertedProduct, setProduct, updatedProduct } from '../action/Product.Action';
 
 
 function* getProductData(action) {
@@ -32,8 +32,18 @@ function* deleteProductData(action) {
    }
 }
 
+function* updateProductData(action) {
+   try {
+      const Data = yield call(updateAllProductItem, action.payload);
+      yield put(updatedProduct(action.payload))
+   } catch (e) {
+      console.log(e.message);
+   }
+}
+
 export function* productSaga() {
   yield takeEvery(ActionType.GET_PRODUCT, getProductData);
   yield takeEvery(ActionType.INSERT_PRODUCT, insertProductData);
   yield takeEvery(ActionType.DELETE_PRODUCT, deleteProductData);
+  yield takeEvery(ActionType.UPDATE_PRODUCT, updateProductData);
 }
