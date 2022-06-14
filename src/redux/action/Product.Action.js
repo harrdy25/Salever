@@ -1,32 +1,13 @@
-import { postAllProductDetails } from '../../comman/apis/product.api';
+import {postAllProductDetails} from '../../comman/apis/product.api';
 import {BASE_URL} from '../../Shared/BaseUrl';
 import * as ActionType from '../ActionTypes';
 
 export const insertProduct = productData => dispatch => {
-  try {
-    dispatch(loadingProduct());
-    let fData = {
-      id: Math.floor(Math.random() * 1000),
-      ...productData,
-    };
-    // fetch(BASE_URL + 'products', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(fData),
-    // })
-    //   .then(response => response.json())
-    postAllProductDetails(fData)
-      .then(data => {
-        dispatch({type: ActionType.INSERT_PRODUCT, payload: fData});
-      })
-      .catch(error => {
-        dispatch(errorProduct(error));
-      });
-  } catch (e) {
-    dispatch(errorProduct(e));
-  }
+  dispatch({type: ActionType.INSERT_PRODUCT, payload: productData});
+};
+
+export const insertedProduct = productItem => dispatch => {
+  dispatch({type: ActionType.INSERTED_PRODUCT, payload: productItem});
 };
 
 export const loadingProduct = () => dispatch => {
@@ -63,37 +44,46 @@ export const errorProduct = error => dispatch => {
 
 export const fetchProduct = () => dispatch => {
   dispatch({type: ActionType.GET_PRODUCT});
-}
-
-export const setProduct = (products) => (dispatch) => {
-dispatch({type: ActionType.RETRIEVED_PRODUCT, payload: products})
-}
-
-export const deleteProduct = id => dispatch => {
-  try {
-    dispatch(loadingProduct());
-    fetch(BASE_URL + 'products/' + id, {
-      method: 'DELETE',
-    })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Somthing Wrong');
-        }
-      })
-      .then(data => {
-        dispatch({type: ActionType.DELETE_PRODUCT, payload: id});
-      })
-      .catch(error => {
-        dispatch(errorProduct(error.message));
-      });
-  } catch (e) {
-    dispatch(errorProduct(e));
-  }
 };
 
+export const setProduct = products => dispatch => {
+  dispatch({type: ActionType.RETRIEVED_PRODUCT, payload: products});
+};
+
+// export const deleteProduct = id => dispatch => {
+//   try {
+//     dispatch(loadingProduct());
+//     fetch(BASE_URL + 'products/' + id, {
+//       method: 'DELETE',
+//     })
+//       .then(response => {
+//         if (response.ok) {
+//           return response.json();
+//         } else {
+//           throw new Error('Somthing Wrong');
+//         }
+//       })
+//       .then(data => {
+//         dispatch({type: ActionType.DELETE_PRODUCT, payload: id});
+//       })
+//       .catch(error => {
+//         dispatch(errorProduct(error.message));
+//       });
+//   } catch (e) {
+//     dispatch(errorProduct(e));
+//   }
+// };
+
 // Production.Action File
+
+export const deleteProduct = id => dispatch => {
+  dispatch({type: ActionType.DELETE_PRODUCT, payload: id});
+};
+
+export const deletedProduct = (data) => (dispatch) => {
+  dispatch({type: ActionType.DELETED_PRODUCT, payload: data})
+}
+
 export const updateProduct = data => dispatch => {
   try {
     dispatch(loadingProduct());
@@ -115,4 +105,3 @@ export const updateProduct = data => dispatch => {
     dispatch(errorProduct(e));
   }
 };
-

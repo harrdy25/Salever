@@ -52,7 +52,7 @@ const Home = ({navigation}) => {
         </TouchableOpacity>
         <View style={styles.CardFooter}>
           <Text style={styles.Prices}>₹ {item.price}</Text>
-          <Text style={styles.Details}>{item.title}</Text>
+          <Text style={styles.Details}>{item.name}</Text>
           <Text style={styles.Address}>{item.area}</Text>
         </View>
       </TouchableOpacity>
@@ -109,6 +109,7 @@ const Home = ({navigation}) => {
       default:
     }
   };
+  
   const renderData = ({item, index}) => (
     <TouchableOpacity
       style={styles.IconContainer}

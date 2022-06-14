@@ -21,14 +21,14 @@ export const ProductReducer = (state = initValue, action) => {
         isloading: false,
         error: '',
       };
-    case ActionType.INSERT_PRODUCT:
+    case ActionType.INSERTED_PRODUCT:
       return {
         ...state,
         product: state.product.concat(action.payload),
         isloading: false,
         error: '',
       };
-    case ActionType.DELETE_PRODUCT:
+    case ActionType.DELETED_PRODUCT:
       return {
         ...state,
         product: state.product.filter(item => item.id !== action.payload),

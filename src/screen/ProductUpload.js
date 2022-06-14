@@ -24,7 +24,7 @@ const ProductUpload = ({navigation}) => {
   const product = useSelector(state => state.product);
   const dispacth = useDispatch();
 
-  const [title, setTitle] = useState('');
+  const [name, setName] = useState('');
   const [info, setInfo] = useState('');
   const [price, setPrice] = useState('');
   const [area, setArea] = useState('');
@@ -32,15 +32,15 @@ const ProductUpload = ({navigation}) => {
   const [button, setButton] = useState(0);
 
   const handleClick = () => {
-    if (!(title == '' || info == '' || price == '' || area == '')) {
+    if (!(name == '' || info == '' || price == '' || area == '')) {
       let proData = {
-        title,
+        name,
         info,
         price,
         area,
       };
       dispacth(insertProduct(proData));
-      setTitle('');
+      setName('');
       setArea('');
       setInfo('');
       setPrice('');
@@ -60,13 +60,13 @@ const ProductUpload = ({navigation}) => {
   const updateData = () => {
     let pData = {
       id: id,
-      title,
+      name,
       info,
       price,
       area,
     };
     dispacth(updateProduct(pData));
-    setTitle('');
+    setName('');
     setInfo('');
     setArea('');
     setPrice('');
@@ -75,7 +75,7 @@ const ProductUpload = ({navigation}) => {
 
   const productEdit = id => {
     let fData = product.product.filter(item => item.id === id);
-    setTitle(fData[0].title);
+    setName(fData[0].name);
     setInfo(fData[0].info);
     setArea(fData[0].area);
     setPrice(fData[0].price);
@@ -88,7 +88,7 @@ const ProductUpload = ({navigation}) => {
       <View style={styles.Box}>
         <View style={{margin: normalize(10)}}>
           <View style={{flexDirection: 'row'}}>
-            <Text style={styles.TitleName}>{item.title}</Text>
+            <Text style={styles.TitleName}>{item.name}</Text>
             <Text style={styles.Price}>₹ {item.price}</Text>
           </View>
           <View style={{flexDirection: 'row'}}>
@@ -141,8 +141,8 @@ const ProductUpload = ({navigation}) => {
                 style={styles.Name}
                 placeholder="Title name...."
                 placeholderTextColor={'gray'}
-                value={title}
-                onChangeText={text => setTitle(text)}
+                value={name}
+                onChangeText={text => setName(text)}
               />
             </View>
             <Text style={styles.Fashion}>Additional information*</Text>
