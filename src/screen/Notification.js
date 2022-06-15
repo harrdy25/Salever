@@ -1,5 +1,5 @@
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {images} from '../assets/images';
 import {normalize} from '../utils';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -7,6 +7,19 @@ import colors from '../theme/colors';
 
 
 const Notification = ({navigation}) => {
+
+useEffect(() => {
+    printStirng();
+  }, []);
+
+  const printStirng = () => {
+    console.log("Tom");
+    setTimeout(() => {
+      console.log("Joy");
+    }, 2000);
+    console.log("Jerry");
+  }
+
   return (
     <SafeAreaView>
       <>

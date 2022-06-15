@@ -31,12 +31,12 @@ import BooksSportsAndHpbbies from './src/screen/Category/BooksSportsAndHpbbies';
 import Pets from './src/screen/Category/Pets';
 import Services from './src/screen/Category/Services';
 import {Provider} from 'react-redux';
-import { configStore } from './src/redux/store';
 import Details from './src/screen/Details';
 import ForgotPassword from './src/screen/ForgotPassword';
 import ProductUpload from './src/screen/ProductUpload';
 import {PersistGate} from 'redux-persist/integration/react';
 import Counter from './src/screen/Counter';
+import { configStore } from './src/redux/store';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -230,8 +230,7 @@ function AccountScreenStack() {
 }
 
 const App = () => {
-
-  const {store, persistor} = configStore(); 
+  const {store,persistor} = configStore();
 
   return (
     <Provider store={store}>
