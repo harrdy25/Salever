@@ -55,6 +55,9 @@ const Home = ({navigation}) => {
           <Text style={styles.Details}>{item.name}</Text>
           <Text style={styles.Address}>{item.area}</Text>
         </View>
+        <TouchableOpacity style={styles.AddBox}>
+          <Text style={styles.AddText}>Add To Cart</Text>
+        </TouchableOpacity>
       </TouchableOpacity>
     );
   };
@@ -109,7 +112,7 @@ const Home = ({navigation}) => {
       default:
     }
   };
-  
+
   const renderData = ({item, index}) => (
     <TouchableOpacity
       style={styles.IconContainer}
@@ -124,7 +127,7 @@ const Home = ({navigation}) => {
       <Image style={styles.Photos} source={item.Image} />
       <TouchableOpacity
         style={styles.HeartBox}
-        onPress={() => {          
+        onPress={() => {
           let PostLike = [...ItemData];
           if (PostLike[index].isLike) {
             PostLike[index].isLike = false;
@@ -141,25 +144,42 @@ const Home = ({navigation}) => {
         />
       </TouchableOpacity>
       <View style={styles.CardFooter}>
-        <Text numberOfLines={1} style={styles.Prices}>{item.title}</Text>
-        <Text  numberOfLines={1} style={styles.Details}>{item.Text}</Text>
+        <Text numberOfLines={1} style={styles.Prices}>
+          {item.title}
+        </Text>
+        <Text numberOfLines={1} style={styles.Details}>
+          {item.Text}
+        </Text>
         <Text style={styles.Address}>{item.Add}</Text>
       </View>
+      <TouchableOpacity style={styles.AddBox}>
+        <Text style={styles.AddText}>Add To Cart</Text>
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: '#FFFFFF'}}>
       <View>
-        <Entypo
-          name="menu"
-          size={35}
-          color={colors.gray}
-          style={styles.MenuIcon}
-          onPress={() => navigation.openDrawer()}
-        />
+        <View style={{flexDirection: 'row'}}>
+          <Entypo
+            name="menu"
+            size={35}
+            color={colors.gray}
+            style={styles.MenuIcon}
+            onPress={() => navigation.openDrawer()}
+          />
+          <Text style={styles.OLXText}>OLX</Text>
+          <Entypo
+            name="shopping-cart"
+            size={35}
+            color={colors.gray}
+            style={styles.MenuIcon}            
+          />
+        </View>
         <View style={{borderWidth: normalize(1)}} />
-        <TouchableOpacity onPress={() => navigation.navigate('Counter')}
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Counter')}
           style={{flexDirection: 'row', marginHorizontal: normalize(10)}}>
           <Entypo
             style={styles.Image}
@@ -255,8 +275,18 @@ export default Home;
 
 const styles = StyleSheet.create({
   MenuIcon: {
-    marginLeft: normalize(16),
+    marginHorizontal: normalize(16),
     marginVertical: normalize(10),
+    // flex: 1
+  },
+  OLXText:{
+    fontWeight: '800',
+    fontSize: 22, 
+    alignSelf: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    flex: 1,
+color: colors.gray
   },
   LocationText: {
     fontSize: normalize(18),
@@ -371,6 +401,20 @@ const styles = StyleSheet.create({
   Address: {
     fontSize: 16,
     color: '#616161',
+  },
+  AddBox: {
+    backgroundColor: 'green',
+    alignItems: 'center',
+    alignSelf: 'center',
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  AddText: {
+    fontSize: 20,
+    fontWeight: '600',
+    padding: 5,
+    marginHorizontal: 15,
+    color: '#FFFFFF',
   },
 });
 
