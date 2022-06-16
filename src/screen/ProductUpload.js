@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   FlatList,
   ScrollView,
+  Alert,
 } from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useDispatch, useSelector} from 'react-redux';
@@ -97,7 +98,21 @@ const ProductUpload = ({navigation}) => {
               <Text style={styles.Area}>{item.area}</Text>
             </View>
             <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-              <TouchableOpacity onPress={() => handleDelete(item.id)}>
+              <TouchableOpacity
+                onPress={() => {
+                  Alert.alert(
+                    'Delete Item',
+                    'Are you sure you want to Delete This Item...!!!',
+                    [
+                      {
+                        text: 'Cancel',
+                        onPress: () => console.log('Cancel Pressed'),
+                        style: 'cancel',
+                      },
+                      {text: 'Yes', onPress: () => handleDelete(item.id)},
+                    ],
+                  );
+                }}>
                 <Entypo
                   name="cross"
                   size={35}
