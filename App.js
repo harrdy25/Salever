@@ -36,7 +36,7 @@ import ForgotPassword from './src/screen/ForgotPassword';
 import ProductUpload from './src/screen/ProductUpload';
 import {PersistGate} from 'redux-persist/integration/react';
 import Counter from './src/screen/Counter';
-import { configStore } from './src/redux/store';
+import { configStore, persistor} from './src/redux/store';
 
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -230,10 +230,10 @@ function AccountScreenStack() {
 }
 
 const App = () => {
-  const {store,persistor} = configStore();
+  // const {store,persistor} = configStore();
 
   return (
-    <Provider store={store}>
+    <Provider store={configStore}>
       <PersistGate loading={null} persistor={persistor}>
         <NavigationContainer>
           <Drawer.Navigator

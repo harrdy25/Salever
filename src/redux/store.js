@@ -16,11 +16,11 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 const saga = createSagaMiddleware();
 const middleware = [saga, thunk];
 
-export const configStore = () => {
-  const store = createStore(persistedReducer, applyMiddleware(...middleware));
-  let persistor = persistStore(store);
+export const configStore = createStore(persistedReducer, applyMiddleware(...middleware));
+  // const store = 
+  export const persistor = persistStore(configStore);
 
   saga.run(rootSaga)
   
-  return {store, persistor};
-};
+//   return {store, persistor};
+// };

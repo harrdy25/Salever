@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "655247078663",
+    "project_id": "salever",
+    "storage_bucket": "salever.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655247078663:android:62945149370f419f44c1a2",
+        "android_client_info": {
+          "package_name": "com.salever"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655247078663-q3gtt1os5v4jcj6pnhjp2o7edjuv542j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.salever",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "655247078663-c19erlfpes8vb6b35nhs8634nfr9n356.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9upGtyDNz2M5OHhVyZPqg8AXzAIwfSVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655247078663-c19erlfpes8vb6b35nhs8634nfr9n356.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
