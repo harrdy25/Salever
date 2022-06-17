@@ -26,12 +26,14 @@ const EmailLogin = ({navigation}) => {
   const dispatch = useDispatch();
 
   const handleLogin = () => {
-    let loginData = {
-      email,
-      password,
-    };
+    // let loginData = {
+    //   email,
+    //   password,
+    // };
 
-    dispatch(clickLogin(loginData, navigation));
+    dispatch(clickLogin(email, password, navigation));
+    setEmail(''),
+    setPassword('');
   };
 
   return (
@@ -64,6 +66,7 @@ const EmailLogin = ({navigation}) => {
               placeholder="enter your email..."
               placeholderTextColor={'gray'}
               autoCapitalize = "none"
+              value={email}
               onChangeText={email => setEmail(email)}
             />
           </View>
@@ -79,7 +82,8 @@ const EmailLogin = ({navigation}) => {
             <TextInput
               style={styles.TextInput}
               placeholder="enter your pass..."
-              placeholderTextColor={'gray'}              
+              placeholderTextColor={'gray'}
+              value={password}
               onChangeText={pass => setPassword(pass)}
             />
           </View>

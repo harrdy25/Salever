@@ -26,13 +26,13 @@ const PhoneLogin = ({navigation}) => {
   const dispatch = useDispatch();
 
   const handleUser = () => {
-    let data = {
-      name,
-      email,
-      password,
-      phone,
-    };
-    dispatch(SignUpUser(data));
+    // let data = {
+    //   name,
+    //   email,
+    //   password,
+    //   phone,
+    // };
+    dispatch(SignUpUser(email, password));
 
     setEmail('');
     setName('');
