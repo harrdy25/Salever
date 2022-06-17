@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>655247078663-497e6acenb5s7f1kaao6mrap40201f3e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.655247078663-497e6acenb5s7f1kaao6mrap40201f3e</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>655247078663-q3gtt1os5v4jcj6pnhjp2o7edjuv542j.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7cvXMi29bR2O3x3L_Nkc2h_C7xpOUsIg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>655247078663</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.Salever</string>
+	<key>PROJECT_ID</key>
+	<string>salever</string>
+	<key>STORAGE_BUCKET</key>
+	<string>salever.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:655247078663:ios:d39d463a7762643544c1a2</string>
+</dict>
+</plist>

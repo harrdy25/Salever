@@ -33,6 +33,11 @@ const PhoneLogin = ({navigation}) => {
       phone,
     };
     dispatch(SignUpUser(data));
+
+    setEmail('');
+    setName('');
+    setPassword('');
+    setPhone('');
   };
 
   return (
@@ -47,11 +52,12 @@ const PhoneLogin = ({navigation}) => {
         <View style={{alignItems: 'center'}}>
           <Image style={styles.Logo} source={images.IMG_AVATAR_PNG} />
         </View>
-        <Text style={styles.SignUp}>SIGN UP</Text>
+        <Text style={styles.SignUp}>SIGN UPP</Text>
         <View style={styles.NameBox}>
           <TextInput
             style={styles.Name}
             placeholder="Name"
+            value={name}
             placeholderTextColor={'gray'}
             onChangeText={text => setName(text)}
           />
@@ -60,6 +66,7 @@ const PhoneLogin = ({navigation}) => {
           <TextInput
             style={styles.Name}
             placeholder="Email"
+            value={email}
             placeholderTextColor={'gray'}
             onChangeText={text => setEmail(text)}
             autoCapitalize="none"
@@ -69,6 +76,7 @@ const PhoneLogin = ({navigation}) => {
           <TextInput
             style={styles.Name}
             placeholder="Password"
+            value={password}
             secureTextEntry={hidePass ? true : false}
             placeholderTextColor={'gray'}
             onChangeText={text => setPassword(text)}
@@ -85,6 +93,7 @@ const PhoneLogin = ({navigation}) => {
           <TextInput
             style={styles.Name}
             placeholder="Phone no"
+            value={phone}
             placeholderTextColor={'gray'}
             onChangeText={text => setPhone(text)}
           />
@@ -93,7 +102,7 @@ const PhoneLogin = ({navigation}) => {
           style={styles.SignUpBox}
           onPress={() => {
             handleUser();
-            navigation.navigate('EmailLogin');
+            // navigation.navigate('EmailLogin');
           }}>
           <Text style={styles.Sign}>Sign Up</Text>
         </TouchableOpacity>
@@ -178,6 +187,6 @@ const styles = StyleSheet.create({
     marginRight: normalize(16),
   },
   Facebook: {
-    marginHorizontal: normalize(20)
-  }
+    marginHorizontal: normalize(20),
+  },
 });
