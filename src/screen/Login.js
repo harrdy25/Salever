@@ -8,40 +8,44 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-
 const Login = ({navigation}) => {
   return (
-    <SafeAreaView>
-      <View>
-      <View style={{flexDirection: 'row'}}>
-          <MaterialCommunityIcons name='chevron-left' size={40} style={styles.Icon} color={colors.appBlue} onPress={() => navigation.goBack()}/>
+    <SafeAreaView style={{flex: 1}}>
+      <View style={{flex: 1}}>
+        <View style={{flexDirection: 'row'}}>
+          <MaterialCommunityIcons
+            name="chevron-left"
+            size={40}
+            style={styles.Icon}
+            color={colors.appBlue}
+            onPress={() => navigation.goBack()}
+          />
           <Text style={styles.SettingText}>Sign In</Text>
         </View>
-        <View style={{alignItems: 'center', marginTop: normalize(80)}}>
+        <View style={{alignItems: 'center', marginTop: normalize(30), flex: 1.2}}>
           <Image style={styles.LogoIcon} source={images.IMG_OLX_Png} />
           <Text style={styles.OlxText}>Welcome to OLX</Text>
           <Text style={styles.OlxText}>
             The trusted community of buyers and sellers
           </Text>
         </View>
-        <TouchableOpacity
-          style={styles.ContinueBox}
-          onPress={() => navigation.navigate('PhoneLogin')}>
-          <Entypo name="mobile" size={30} style={styles.Icon} />
-          <Text style={styles.ContinueText}>Continue with Phone</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.ContinueBox}>
-          <Ionicons name="logo-google" size={30} style={styles.Icon} />
-          <Text style={styles.ContinueText}>Continue with Google</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            styles.ContinueBox,
-            {backgroundColor: colors.extraLight},
-          ]}>
-          <Ionicons name="logo-apple" size={30} style={styles.Icon} />
-          <Text style={styles.ContinueText}>Sign in with Apple</Text>
-        </TouchableOpacity>
+        <View style={{flex: 1}}>
+          <TouchableOpacity
+            style={styles.ContinueBox}
+            onPress={() => navigation.navigate('PhoneLogin')}>
+            <Entypo name="mobile" size={30} style={styles.Icon} />
+            <Text style={styles.ContinueText}>Continue with Phone</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.ContinueBox}>
+            <Ionicons name="logo-google" size={30} style={styles.Icon} />
+            <Text style={styles.ContinueText}>Continue with Google</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.ContinueBox, {backgroundColor: colors.extraLight}]}>
+            <Ionicons name="logo-apple" size={30} style={styles.Icon} />
+            <Text style={styles.ContinueText}>Sign in with Apple</Text>
+          </TouchableOpacity>
+        </View>
         <Text style={{textAlign: 'center', marginVertical: normalize(10)}}>
           OR
         </Text>
@@ -67,21 +71,21 @@ const Login = ({navigation}) => {
 export default Login;
 
 const styles = StyleSheet.create({
-  Icon:{
+  Icon: {
     alignSelf: 'center',
-    marginLeft: normalize(8)
+    marginLeft: normalize(8),
   },
-  SettingText:{
+  SettingText: {
     fontSize: normalize(22),
     fontWeight: '600',
     flex: 1,
     textAlign: 'center',
     alignSelf: 'center',
-    marginRight: normalize(30)
+    marginRight: normalize(30),
   },
   LogoIcon: {
-    height: normalize(150),
-    width: normalize(250),
+    height: normalize(100),
+    width: normalize(150),
   },
   OlxText: {
     fontSize: normalize(20),
@@ -97,13 +101,13 @@ const styles = StyleSheet.create({
     marginVertical: normalize(8),
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   ContinueText: {
     fontSize: normalize(20),
     textAlign: 'center',
     padding: normalize(10),
-    fontWeight: '600'
+    fontWeight: '600',
   },
   LoginText: {
     fontSize: normalize(18),

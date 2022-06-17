@@ -16,10 +16,11 @@ import colors from '../theme/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import {useDispatch} from 'react-redux';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {clickLogin} from '../redux/action/User.Action';
 
 const EmailLogin = ({navigation}) => {
-
+  const [hidePass, setHidePass] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -78,14 +79,22 @@ const EmailLogin = ({navigation}) => {
             }}>
             Password
           </Text>
-          <View style={styles.EmailBox}>
+          <View style={[styles.EmailBox,{flexDirection: 'row'}]}>
             <TextInput
               style={styles.TextInput}
               placeholder="enter your pass..."
               placeholderTextColor={'gray'}
+              secureTextEntry={hidePass ? true : false}
               value={password}
               onChangeText={pass => setPassword(pass)}
+              flex={1}
             />
+            <Ionicons
+            name={hidePass ? 'eye-off' : 'eye'}
+            style={styles.EyeIcon}
+            size={20}
+            onPress={() => setHidePass(!hidePass)}
+          />
           </View>
           <Text
             style={styles.ForgotPass}
@@ -172,5 +181,9 @@ const styles = StyleSheet.create({
     color: 'green',
     margin: normalize(16),
     textDecorationLine: 'underline',
+  },
+  EyeIcon: {
+    alignSelf: 'center',
+    marginRight: normalize(16),
   },
 });

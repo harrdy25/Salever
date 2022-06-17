@@ -167,6 +167,7 @@ const styles = StyleSheet.create({
     width: normalize(130),
     resizeMode: 'cover',
     // "center","contain","cover","repeat","stretch"
+    borderRadius: normalize(5)
   },
   HeartBox: {
     position: 'absolute',
